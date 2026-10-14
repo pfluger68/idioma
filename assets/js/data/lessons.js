@@ -55,6 +55,316 @@ IDIOMA.lessons = {
   ]
 },
 
+"a1-02": {
+  level: "a1", title: "Pronombres y adjetivos posesivos", minutes: 20,
+  intro: "En inglés hay formas distintas para el sujeto (I), el objeto (me), el posesivo delante de un sustantivo (my) y el posesivo que va solo (mine). Dominar esta tabla evita muchos errores básicos.",
+  content: [
+    { h: "La tabla completa" },
+    { table: { head: ["Sujeto", "Objeto", "Adjetivo posesivo", "Pronombre posesivo"], rows: [
+      ["I", "me", "my", "mine"],
+      ["you", "you", "your", "yours"],
+      ["he", "him", "his", "his"],
+      ["she", "her", "her", "hers"],
+      ["it", "it", "its", "—"],
+      ["we", "us", "our", "ours"],
+      ["they", "them", "their", "theirs"]
+    ]}},
+    { examples: [
+      ["She loves him.", "Ella lo quiere."],
+      ["This is my car.", "Este es mi coche."],
+      ["This car is mine.", "Este coche es mío."],
+      ["Their house is bigger than ours.", "Su casa es más grande que la nuestra."]
+    ]},
+    { callout: "<strong>His / her:</strong> en español «su» sirve para todo, pero en inglés depende del <em>poseedor</em>, no de la cosa poseída. <em>Ana and her brother</em> (el hermano de Ana) · <em>Tom and his sister</em> (la hermana de Tom)." },
+    { callout: "<strong>Its ≠ it's:</strong> <em>its</em> es posesivo (<em>The dog wagged its tail</em>); <em>it's</em> es la contracción de <em>it is</em>." },
+    { h: "El genitivo sajón: 's" },
+    { p: "Para decir de quién es algo con un nombre propio o un sustantivo: <strong>poseedor + 's + cosa</strong>. Con plurales terminados en -s, solo apóstrofo." },
+    { examples: [
+      ["This is Maria's book.", "Este es el libro de María."],
+      ["My parents' house is in Lima.", "La casa de mis padres está en Lima."]
+    ]}
+  ],
+  exercises: [
+    { type: "mc", prompt: "Ana is talking to ___ brother.", options: ["his", "her", "she"], answer: 1, explain: "La poseedora es Ana (mujer) → her." },
+    { type: "mc", prompt: "Can you help ___, please?", options: ["I", "my", "me"], answer: 2, explain: "Después de un verbo va el pronombre objeto: me." },
+    { type: "gap", prompt: "This bag isn't mine. It's ___. (de ella)", answers: ["hers"], explain: "Pronombre posesivo de she: hers (sin apóstrofo)." },
+    { type: "gap", prompt: "We love ___ new flat. (nuestro)", answers: ["our"], explain: "Adjetivo posesivo de we: our." },
+    { type: "mc", prompt: "The company changed ___ logo.", options: ["it's", "its", "his"], answer: 1, explain: "Posesivo de it: its (sin apóstrofo)." },
+    { type: "gap", prompt: "I don't know those people. Do you know ___?", answers: ["them"], explain: "Objeto de they: them." },
+    { type: "mc", prompt: "«El coche de Pedro»:", options: ["the car of Pedro", "Pedro's car", "Pedros car"], answer: 1, explain: "Genitivo sajón: Pedro's car." }
+  ]
+},
+
+"a1-03": {
+  level: "a1", title: "Números, el alfabeto y deletrear", minutes: 25,
+  intro: "Deletrear tu nombre, dar tu teléfono o entender un precio son tareas que harás desde el primer día. Las letras inglesas suenan muy distinto a las españolas: escúchalas con atención.",
+  content: [
+    { h: "Las letras que más confunden" },
+    { table: { head: ["Letra", "Suena aproximadamente", "Cuidado con"], rows: [
+      ["A", "/eɪ/ «ei»", "no es «a»"],
+      ["E", "/iː/ «ii»", "se confunde con la I española"],
+      ["I", "/aɪ/ «ai»", "no es «i»"],
+      ["G", "/dʒiː/ «yi»", "se confunde con J"],
+      ["J", "/dʒeɪ/ «yei»", "se confunde con G"],
+      ["H", "/eɪtʃ/ «eich»", ""],
+      ["R", "/ɑː/ «aa» (UK)", ""],
+      ["W", "«double u»", "dos «u»"],
+      ["Y", "/waɪ/ «uai»", ""],
+      ["Z", "/zed/ (UK) · /ziː/ (US)", ""]
+    ]}},
+    { examples: [
+      ["A, E, I, O, U", "Las vocales"],
+      ["G, J", "Las dos que más se confunden"],
+      ["How do you spell your surname? — G-A-R-C-I-A.", "¿Cómo se escribe tu apellido? — G-A-R-C-I-A."]
+    ]},
+    { callout: "<strong>Letras dobles:</strong> se dice <em>double</em>: «Hello» → <em>H-E-double L-O</em>." },
+    { h: "Números: el acento importa" },
+    { p: "Los números -teen llevan el acento al final; las decenas, al principio. Es la causa de muchos malentendidos." },
+    { examples: [
+      ["thirteen — thirty", "13 — 30"],
+      ["fifteen — fifty", "15 — 50"],
+      ["eighteen — eighty", "18 — 80"],
+      ["one hundred and twenty-five", "125 (en inglés británico se dice «and»)"]
+    ]},
+    { h: "Teléfonos, precios y fechas" },
+    { examples: [
+      ["My number is oh-seven-seven, double four, five-two-nine.", "Mi número es 077 44 529."],
+      ["It costs nine ninety-nine.", "Cuesta 9,99."],
+      ["My birthday is on the third of May.", "Mi cumpleaños es el 3 de mayo."]
+    ]},
+    { callout: "<strong>Ordinales para fechas:</strong> first, second, third, fourth, fifth… twentieth, twenty-first. En inglés las fechas se dicen con ordinal: <em>the 3rd of May</em>, no «the three of May»." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "¿Qué letra suena /iː/ («ii»)?", options: ["I", "E", "Y"], answer: 1, explain: "La E inglesa suena /iː/." },
+    { type: "mc", prompt: "¿Qué letra suena /aɪ/ («ai»)?", options: ["I", "E", "A"], answer: 0, explain: "La I inglesa suena /aɪ/." },
+    { type: "mc", prompt: "¿Cómo se deletrea «Anna»?", options: ["A-double N-A", "A-N-A", "A-two N-A"], answer: 0, explain: "Letras repetidas: double + letra." },
+    { type: "gap", prompt: "Escribe en letras el número 30:", answers: ["thirty"], explain: "30 = thirty (acento al principio: THIR-ty)." },
+    { type: "gap", prompt: "Escribe en letras el número 15:", answers: ["fifteen"], explain: "15 = fifteen (acento al final: fif-TEEN)." },
+    { type: "gap", prompt: "Ordinal de «three» (para fechas):", answers: ["third", "3rd"], explain: "One → first, two → second, three → third." },
+    { type: "mc", prompt: "El 0 en un número de teléfono británico se suele decir:", options: ["zero o «oh»", "nothing", "none"], answer: 0, explain: "En teléfonos es muy común «oh»." }
+  ]
+},
+
+"a1-04": {
+  level: "a1", title: "Present simple: afirmativa", minutes: 25,
+  intro: "El present simple expresa hábitos, rutinas, gustos y hechos generales. Su única dificultad en afirmativa es la -s de la tercera persona del singular (he, she, it).",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["Persona", "Verbo", "Ejemplo"], rows: [
+      ["I / you / we / they", "infinitivo", "I work in an office."],
+      ["he / she / it", "infinitivo + -s", "She works in a hospital."]
+    ]}},
+    { h: "Reglas ortográficas de la -s" },
+    { table: { head: ["Regla", "Ejemplos"], rows: [
+      ["La mayoría: + -s", "play → plays, read → reads"],
+      ["Terminados en -s, -sh, -ch, -x, -o: + -es", "watch → watches, go → goes, do → does"],
+      ["Consonante + y: -y → -ies", "study → studies, fly → flies"],
+      ["Irregular", "have → has"]
+    ]}},
+    { examples: [
+      ["I get up at seven every day.", "Me levanto a las siete todos los días."],
+      ["He watches TV after dinner.", "Él ve la tele después de cenar."],
+      ["My sister studies law.", "Mi hermana estudia derecho."],
+      ["Water boils at 100 degrees.", "El agua hierve a 100 grados."]
+    ]},
+    { callout: "<strong>Pronunciación de la -s:</strong> /s/ tras sonidos sordos (<em>works</em>), /z/ tras sonoros (<em>plays</em>) y /ɪz/ tras s, sh, ch, x (<em>watches</em>, <em>finishes</em>)." },
+    { callout: "<strong>Error muy frecuente:</strong> olvidar la -s. «She work here» ✗ → <em>She works here</em> ✓. Repasa siempre he/she/it." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "My brother ___ (live) in Madrid.", answers: ["lives"], explain: "Tercera persona: live → lives." },
+    { type: "gap", prompt: "She ___ (watch) a film every Friday.", answers: ["watches"], explain: "Termina en -ch → -es." },
+    { type: "gap", prompt: "He ___ (study) English at university.", answers: ["studies"], explain: "Consonante + y → -ies." },
+    { type: "gap", prompt: "Laura ___ (have) two cats.", answers: ["has"], explain: "Have es irregular: has." },
+    { type: "mc", prompt: "We ___ to the gym on Mondays.", options: ["goes", "go", "going"], answer: 1, explain: "We → infinitivo sin -s." },
+    { type: "gap", prompt: "The shop ___ (close) at 8 pm.", answers: ["closes"], explain: "The shop = it → closes." },
+    { type: "mc", prompt: "¿Cómo se pronuncia la -s de «watches»?", options: ["/s/", "/z/", "/ɪz/"], answer: 2, explain: "Tras ch se añade una sílaba: /ɪz/." }
+  ]
+},
+
+"a1-05": {
+  level: "a1", title: "Present simple: negativa y preguntas", minutes: 25,
+  intro: "Para negar y preguntar en present simple se usa el auxiliar do / does. Es una estructura que no existe en español y conviene automatizarla cuanto antes.",
+  content: [
+    { h: "Negativa" },
+    { table: { head: ["Persona", "Forma", "Ejemplo"], rows: [
+      ["I / you / we / they", "don't (do not) + infinitivo", "I don't like coffee."],
+      ["he / she / it", "doesn't (does not) + infinitivo", "She doesn't eat meat."]
+    ]}},
+    { callout: "<strong>La -s se va al auxiliar:</strong> con <em>doesn't</em> el verbo principal pierde la -s. «She doesn't works» ✗ → <em>She doesn't work</em> ✓." },
+    { h: "Preguntas y respuestas cortas" },
+    { examples: [
+      ["Do you speak English? — Yes, I do.", "¿Hablas inglés? — Sí."],
+      ["Does he work here? — No, he doesn't.", "¿Trabaja aquí? — No."],
+      ["Where do you live?", "¿Dónde vives?"],
+      ["What time does the film start?", "¿A qué hora empieza la película?"]
+    ]},
+    { h: "Orden de la pregunta" },
+    { table: { head: ["Palabra interrogativa", "Auxiliar", "Sujeto", "Verbo", "Resto"], rows: [
+      ["—", "Do", "you", "like", "pizza?"],
+      ["Where", "does", "she", "work?", ""],
+      ["How often", "do", "they", "travel?", ""]
+    ]}},
+    { callout: "<strong>Recuerda:</strong> con el verbo <em>to be</em> no se usa do: <em>Are you tired?</em>, no «Do you are tired?»." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "I ___ (not / like) horror films.", answers: ["don't like", "do not like"], explain: "I → don't + infinitivo." },
+    { type: "gap", prompt: "He ___ (not / drive) to work.", answers: ["doesn't drive", "does not drive"], explain: "He → doesn't + infinitivo sin -s." },
+    { type: "mc", prompt: "___ your mother speak French?", options: ["Do", "Does", "Is"], answer: 1, explain: "Your mother = she → Does." },
+    { type: "mc", prompt: "Where ___ you work?", options: ["do", "does", "are"], answer: 0, explain: "You → do." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["She doesn't likes tea.", "She don't like tea.", "She doesn't like tea."], answer: 2, explain: "Doesn't + infinitivo sin -s." },
+    { type: "mc", prompt: "«Do they live in Bogotá?» — «Yes, ___»", options: ["they do", "they live", "they are"], answer: 0, explain: "Respuesta corta con el auxiliar: Yes, they do." },
+    { type: "gap", prompt: "What time ___ the train leave?", answers: ["does"], explain: "The train = it → does." }
+  ]
+},
+
+"a1-06": {
+  level: "a1", title: "Adverbios de frecuencia", minutes: 20,
+  intro: "Always, usually, sometimes, never… indican con qué frecuencia haces algo. Lo importante es su posición en la frase, que no siempre coincide con el español.",
+  content: [
+    { h: "De más a menos frecuente" },
+    { table: { head: ["Adverbio", "Frecuencia aproximada", "Español"], rows: [
+      ["always", "100 %", "siempre"],
+      ["usually", "80 %", "normalmente"],
+      ["often", "60 %", "a menudo"],
+      ["sometimes", "40 %", "a veces"],
+      ["rarely / hardly ever", "10 %", "casi nunca"],
+      ["never", "0 %", "nunca"]
+    ]}},
+    { h: "Posición" },
+    { p: "Van <strong>delante del verbo principal</strong>, pero <strong>detrás del verbo to be</strong>." },
+    { examples: [
+      ["I always have breakfast at home.", "Siempre desayuno en casa."],
+      ["She is never late.", "Ella nunca llega tarde."],
+      ["We sometimes go to the beach.", "A veces vamos a la playa."],
+      ["Do you often eat out?", "¿Comes fuera a menudo?"]
+    ]},
+    { callout: "<strong>Never ya es negativo:</strong> «I don't never smoke» ✗ → <em>I never smoke</em> ✓. En inglés no se usa doble negación." },
+    { h: "Expresiones de frecuencia" },
+    { p: "Para expresiones más concretas, colócalas al final: <em>once a week</em> (una vez a la semana), <em>twice a month</em> (dos veces al mes), <em>three times a year</em>, <em>every day</em>. Pregunta con <strong>How often…?</strong>" },
+    { examples: [
+      ["How often do you go to the gym? — Twice a week.", "¿Con qué frecuencia vas al gimnasio? — Dos veces por semana."]
+    ]}
+  ],
+  exercises: [
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["I go always to work by bus.", "I always go to work by bus.", "Always I go to work by bus."], answer: 1, explain: "Delante del verbo principal." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["He is usually tired.", "He usually is tired.", "Usually he tired is."], answer: 0, explain: "Detrás del verbo to be." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["I don't never eat meat.", "I never eat meat.", "I eat never meat."], answer: 1, explain: "Never ya es negativo y va delante del verbo." },
+    { type: "gap", prompt: "___ often do you visit your parents?", answers: ["how"], explain: "How often…? pregunta por la frecuencia." },
+    { type: "gap", prompt: "I play tennis ___ a week. (dos veces)", answers: ["twice", "two times"], explain: "Dos veces = twice." },
+    { type: "gap", prompt: "We go to the cinema ___ a month. (una vez)", answers: ["once", "one time"], explain: "Una vez = once." },
+    { type: "mc", prompt: "«Casi nunca»:", options: ["usually", "often", "hardly ever"], answer: 2, explain: "Hardly ever = rarely = casi nunca." }
+  ]
+},
+
+"a1-07": {
+  level: "a1", title: "There is / there are", minutes: 20,
+  intro: "There is / there are equivale a «hay». Se usa para decir que algo existe o está en un lugar, y concuerda con lo que viene después.",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["", "Singular", "Plural"], rows: [
+      ["Afirmativa", "There is (There's) a bank.", "There are some shops."],
+      ["Negativa", "There isn't a bank.", "There aren't any shops."],
+      ["Pregunta", "Is there a bank?", "Are there any shops?"],
+      ["Respuesta corta", "Yes, there is. / No, there isn't.", "Yes, there are. / No, there aren't."]
+    ]}},
+    { examples: [
+      ["There's a supermarket near my house.", "Hay un supermercado cerca de mi casa."],
+      ["There are three bedrooms in the flat.", "Hay tres dormitorios en el piso."],
+      ["Is there a pharmacy around here?", "¿Hay una farmacia por aquí?"],
+      ["How many students are there in your class?", "¿Cuántos estudiantes hay en tu clase?"]
+    ]},
+    { h: "Some y any" },
+    { p: "<strong>Some</strong> en afirmativas con plurales e incontables; <strong>any</strong> en negativas y preguntas." },
+    { examples: [
+      ["There's some milk in the fridge.", "Hay leche en la nevera."],
+      ["There isn't any bread.", "No hay pan."]
+    ]},
+    { callout: "<strong>Error típico:</strong> traducir «hay» como «it has» o «have». «In my city have many parks» ✗ → <em>There are many parks in my city</em> ✓." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "___ two parks in my town.", options: ["There is", "There are", "It has"], answer: 1, explain: "Plural → there are." },
+    { type: "mc", prompt: "___ a cash machine near here?", options: ["Is there", "Are there", "There is"], answer: 0, explain: "Pregunta singular: Is there…?" },
+    { type: "gap", prompt: "There ___ any eggs in the fridge. (negativa)", answers: ["aren't", "are not"], explain: "Plural negativo: there aren't any." },
+    { type: "mc", prompt: "There is ___ cheese on the table.", options: ["any", "a", "some"], answer: 2, explain: "Incontable en afirmativa → some." },
+    { type: "mc", prompt: "Are there ___ hotels in the village?", options: ["some", "any", "a"], answer: 1, explain: "Pregunta → any." },
+    { type: "gap", prompt: "How many people ___ there in your family?", answers: ["are"], explain: "How many + plural → are there." },
+    { type: "mc", prompt: "«Hay mucho tráfico en Madrid»:", options: ["Madrid has a lot of traffic there.", "There is a lot of traffic in Madrid.", "Is a lot of traffic in Madrid."], answer: 1, explain: "Traffic es incontable → there is." }
+  ]
+},
+
+"a1-08": {
+  level: "a1", title: "Preposiciones de lugar", minutes: 20,
+  intro: "Las preposiciones de lugar indican dónde está algo. Las tres básicas (in, on, at) no tienen una equivalencia exacta con «en», así que conviene aprenderlas con ejemplos.",
+  content: [
+    { h: "In, on, at" },
+    { table: { head: ["Preposición", "Uso", "Ejemplos"], rows: [
+      ["in", "dentro de un espacio", "in the box, in the kitchen, in Spain, in a car"],
+      ["on", "sobre una superficie", "on the table, on the wall, on the floor, on a bus"],
+      ["at", "un punto o lugar concreto", "at the door, at the bus stop, at home, at work, at school"]
+    ]}},
+    { callout: "<strong>Para memorizar:</strong> <em>at home, at work, at school, at university</em> (sin artículo). <em>In a car / in a taxi</em>, pero <em>on a bus / on a train / on a plane</em>." },
+    { h: "Otras preposiciones" },
+    { table: { head: ["Inglés", "Español"], rows: [
+      ["under", "debajo de"],
+      ["next to / beside", "al lado de"],
+      ["between", "entre (dos cosas)"],
+      ["behind", "detrás de"],
+      ["in front of", "delante de"],
+      ["opposite", "enfrente de"],
+      ["near", "cerca de"]
+    ]}},
+    { examples: [
+      ["The keys are on the table.", "Las llaves están en la mesa."],
+      ["The cat is under the bed.", "El gato está debajo de la cama."],
+      ["The bank is between the café and the pharmacy.", "El banco está entre la cafetería y la farmacia."],
+      ["There's a park opposite my house.", "Hay un parque enfrente de mi casa."]
+    ]},
+    { callout: "<strong>Falso amigo:</strong> <em>in front of</em> es «delante de». «Enfrente de» (al otro lado) es <em>opposite</em>." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "There's a picture ___ the wall.", options: ["in", "on", "at"], answer: 1, explain: "Superficie → on the wall." },
+    { type: "mc", prompt: "I'm ___ home tonight.", options: ["in", "on", "at"], answer: 2, explain: "Expresión fija: at home." },
+    { type: "mc", prompt: "The milk is ___ the fridge.", options: ["in", "on", "at"], answer: 0, explain: "Dentro → in." },
+    { type: "mc", prompt: "We met ___ the bus.", options: ["in", "on", "at"], answer: 1, explain: "Transporte público → on the bus." },
+    { type: "gap", prompt: "The shoes are ___ the bed. (debajo de)", answers: ["under", "underneath", "beneath"], explain: "Debajo de = under." },
+    { type: "gap", prompt: "The bank is ___ the post office. (enfrente de, al otro lado de la calle)", answers: ["opposite", "across from"], explain: "Enfrente de = opposite (UK) / across from (US)." },
+    { type: "gap", prompt: "Sit ___ me, here. (al lado de; escribe dos palabras)", answers: ["next to", "beside"], explain: "Al lado de = next to / beside." }
+  ]
+},
+
+"a1-09": {
+  level: "a1", title: "Can para habilidad y permiso", minutes: 20,
+  intro: "Can es un verbo modal: expresa lo que sabes o puedes hacer, pide permiso y hace peticiones. Es muy sencillo porque no cambia nunca de forma.",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["", "Forma", "Ejemplo"], rows: [
+      ["Afirmativa", "sujeto + can + infinitivo", "She can swim."],
+      ["Negativa", "can't (cannot) + infinitivo", "I can't drive."],
+      ["Pregunta", "Can + sujeto + infinitivo?", "Can you cook?"],
+      ["Respuesta corta", "Yes, I can. / No, I can't.", ""]
+    ]}},
+    { callout: "<strong>Sin to y sin -s:</strong> «He cans swim» ✗ · «I can to swim» ✗ → <em>He can swim</em> ✓." },
+    { h: "Usos" },
+    { examples: [
+      ["I can speak three languages.", "Sé hablar tres idiomas. (habilidad)"],
+      ["Can I open the window?", "¿Puedo abrir la ventana? (permiso)"],
+      ["Can you help me, please?", "¿Me puedes ayudar, por favor? (petición)"],
+      ["You can't park here.", "No puedes aparcar aquí. (prohibición)"]
+    ]},
+    { callout: "<strong>Más cortés:</strong> <em>Could you…?</em> es más educado que <em>Can you…?</em> para pedir algo a un desconocido: <em>Could you tell me the time, please?</em>" },
+    { callout: "<strong>Pronunciación:</strong> en afirmativa <em>can</em> suele sonar débil /kən/; <em>can't</em> se pronuncia fuerte: /kɑːnt/ en inglés británico y /kænt/ en americano. La diferencia está más en el acento que en la t." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "My grandmother ___ use a smartphone.", options: ["cans", "can", "can to"], answer: 1, explain: "Can no cambia: she can." },
+    { type: "gap", prompt: "I ___ (not / swim). I never learnt.", answers: ["can't", "cannot", "can not"], explain: "Negativa: can't / cannot." },
+    { type: "mc", prompt: "___ I use your phone?", options: ["Can", "Do", "Am"], answer: 0, explain: "Pedir permiso: Can I…?" },
+    { type: "mc", prompt: "«Can you play the guitar?» — «No, ___»", options: ["I don't", "I can't", "I not can"], answer: 1, explain: "Respuesta corta con can: No, I can't." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["She can to dance.", "She cans dance.", "She can dance."], answer: 2, explain: "Can + infinitivo sin to." },
+    { type: "mc", prompt: "Petición más educada a un desconocido:", options: ["Tell me the time.", "Could you tell me the time, please?", "You can tell me the time?"], answer: 1, explain: "Could you…, please? es la forma más cortés." },
+    { type: "gap", prompt: "___ you speak more slowly, please? (petición)", answers: ["can", "could"], explain: "Can / Could you…?" }
+  ]
+},
+
 /* =========================== A2 =========================== */
 "a2-02": {
   level: "a2", title: "Past simple: verbos regulares e irregulares", minutes: 25,

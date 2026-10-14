@@ -4,7 +4,7 @@ window.IDIOMA = window.IDIOMA || {};
 IDIOMA.levels = [
   {
     id: "a1", code: "A1", name: "Acceso", stage: "Usuario básico",
-    hours: "90–100 h", exam: "Pre A1–A1 Movers/Flyers (Cambridge)",
+    hours: "90–100 h", exam: "Sin examen propio · siguiente meta: A2 Key",
     summary: "Te presentas, hablas de ti y de tu entorno inmediato con frases sencillas.",
     canDo: [
       "Presentarte y presentar a otros; dar datos personales.",

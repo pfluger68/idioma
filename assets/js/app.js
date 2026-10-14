@@ -39,7 +39,7 @@
   function speak(text) {
     if (!("speechSynthesis" in window)) return;
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text.replace(/—.*$/, "").trim());
+    const u = new SpeechSynthesisUtterance(text.replace(/\s*—\s*/g, ". ").trim());
     const voices = speechSynthesis.getVoices();
     u.voice = voices.find(v => v.lang === "en-GB") || voices.find(v => v.lang.startsWith("en")) || null;
     u.lang = u.voice ? u.voice.lang : "en-GB";
