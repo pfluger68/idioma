@@ -1712,5 +1712,298 @@ IDIOMA.lessons = {
     { type: "gap", prompt: "Somewhat ___, the underdog team went on to win the championship. (EXPECT)", answers: ["unexpectedly"], explain: "Adverbio negativo: un- + expected + -ly." },
     { type: "mc", prompt: "Elige la forma correcta: Her ___ of English is flawless.", options: ["pronounciation", "pronunciation", "pronouncement"], answer: 1, explain: "Pronunciation: la raíz cambia (-nunc-). Pronouncement significa «declaración oficial»." }
   ]
+},
+"c2-02": {
+  level: "c2", title: "Idioms en contexto", minutes: 30,
+  intro: "En C2 se espera que entiendas y uses expresiones idiomáticas con naturalidad y en el registro adecuado. La clave no es memorizar listas, sino saber cuándo suena natural cada una.",
+  content: [
+    { h: "Idioms frecuentes en registro neutro o formal" },
+    { table: { head: ["Expresión", "Significado", "Ejemplo"], rows: [
+      ["a far cry from", "muy distinto de", "The final version was a far cry from the original draft."],
+      ["the tip of the iceberg", "solo una pequeña parte del problema", "These complaints are just the tip of the iceberg."],
+      ["a blessing in disguise", "algo malo que resulta beneficioso", "Losing that job was a blessing in disguise."],
+      ["the elephant in the room", "un problema evidente que nadie menciona", "Funding was the elephant in the room."],
+      ["back to the drawing board", "volver a empezar desde cero", "The tests failed, so it's back to the drawing board."],
+      ["cut corners", "hacer algo mal para ahorrar tiempo o dinero", "The builders clearly cut corners."],
+      ["get to grips with", "empezar a dominar algo difícil", "It took me months to get to grips with the software."],
+      ["come to a head", "llegar a un punto crítico", "Tensions came to a head at the annual meeting."],
+      ["sit on the fence", "no posicionarse", "You can't sit on the fence on this issue."],
+      ["bite off more than you can chew", "abarcar más de lo que se puede", "He bit off more than he could chew with three jobs."]
+    ]}},
+    { examples: [
+      ["The new policy is a far cry from what was promised.", "La nueva política dista mucho de lo prometido."],
+      ["Let's not beat around the bush: the project is over budget.", "No nos andemos con rodeos: el proyecto supera el presupuesto."],
+      ["In the long run, the investment will pay off.", "A largo plazo, la inversión dará sus frutos."]
+    ]},
+    { callout: "<strong>Usa los idioms con moderación:</strong> uno o dos bien colocados en un texto C2 muestran dominio; muchos seguidos suenan artificiales. Evita los muy coloquiales (<em>it's raining cats and dogs</em>) en textos formales." },
+    { callout: "<strong>Son fijos:</strong> no se puede cambiar ni una palabra. «The point of the iceberg» ✗ · «the tip of the iceberg» ✓." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "The reported cases are only the ___ of the iceberg.", options: ["top", "tip", "peak"], answer: 1, explain: "Expresión fija: the tip of the iceberg." },
+    { type: "mc", prompt: "Missing that flight turned out to be a blessing in ___.", options: ["disguise", "hiding", "secret"], answer: 0, explain: "A blessing in disguise." },
+    { type: "gap", prompt: "The prototype failed every test, so it's back to the drawing ___.", answers: ["board"], explain: "Back to the drawing board." },
+    { type: "gap", prompt: "Nobody mentioned the budget cuts; they were the ___ in the room.", answers: ["elephant"], explain: "The elephant in the room." },
+    { type: "mc", prompt: "Cheap materials? The contractor must have cut ___.", options: ["edges", "corners", "angles"], answer: 1, explain: "Cut corners = hacer algo deficiente para ahorrar." },
+    { type: "gap", prompt: "The dispute finally came to a ___ when the workers went on strike.", answers: ["head"], explain: "Come to a head = llegar a un punto crítico." },
+    { type: "mc", prompt: "His latest novel is a far ___ from his early work.", options: ["cry", "shout", "call"], answer: 0, explain: "A far cry from = muy diferente de." },
+    { type: "gap", prompt: "It took her a while to get to ___ with the new legislation.", answers: ["grips"], explain: "Get to grips with = llegar a dominar." }
+  ]
+},
+
+"c2-03": {
+  level: "c2", title: "Matices entre sinónimos", minutes: 30,
+  intro: "En C2 la precisión léxica es decisiva: muchas palabras parecen equivalentes, pero difieren en significado, registro o colocación. Estas parejas aparecen con frecuencia en el Use of English.",
+  content: [
+    { h: "Parejas que se confunden" },
+    { table: { head: ["Palabras", "Diferencia", "Ejemplo"], rows: [
+      ["historic / historical", "trascendental / relativo a la historia", "a historic victory · historical documents"],
+      ["economic / economical", "de la economía / que ahorra", "economic growth · an economical car"],
+      ["continual / continuous", "repetido con interrupciones / sin interrupción", "continual complaints · continuous noise"],
+      ["imply / infer", "insinuar (emisor) / deducir (receptor)", "Are you implying I lied? · I inferred from his tone that…"],
+      ["disinterested / uninterested", "imparcial / sin interés", "a disinterested judge · uninterested in politics"],
+      ["classic / classical", "típico o de gran calidad / de la Antigüedad o música culta", "a classic mistake · classical music"],
+      ["affect / effect", "afectar (verbo) / efecto (sustantivo)", "It affected me · It had an effect on me"],
+      ["raise / rise / arise", "levantar (transitivo) / subir / surgir", "raise prices · prices rise · problems arise"]
+    ]}},
+    { h: "Verbos para introducir opiniones" },
+    { p: "Cambiar <em>say</em> por un verbo preciso eleva el nivel: <strong>claim</strong> (afirmar, con duda), <strong>contend</strong> (sostener en un debate), <strong>maintain</strong> (seguir afirmando), <strong>concede</strong> (admitir a regañadientes), <strong>allege</strong> (acusar sin pruebas), <strong>assert</strong> (afirmar con firmeza)." },
+    { examples: [
+      ["The author contends that the reforms were premature.", "El autor sostiene que las reformas fueron prematuras."],
+      ["She conceded that the data were incomplete.", "Admitió que los datos estaban incompletos."]
+    ]},
+    { h: "Defectos y desventajas" },
+    { p: "<strong>drawback</strong> (inconveniente de un plan), <strong>flaw</strong> (fallo en un argumento o carácter), <strong>defect</strong> (fallo de fabricación), <strong>shortcoming</strong> (carencia, normalmente en plural)." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "The signing of the treaty was a ___ moment.", options: ["historic", "historical"], answer: 0, explain: "Trascendental → historic." },
+    { type: "mc", prompt: "This boiler is very ___; our bills have gone down.", options: ["economic", "economical"], answer: 1, explain: "Que ahorra → economical." },
+    { type: "mc", prompt: "We need a ___ referee who has no stake in the outcome.", options: ["disinterested", "uninterested"], answer: 0, explain: "Imparcial → disinterested." },
+    { type: "mc", prompt: "From her silence, I ___ that she disagreed.", options: ["implied", "inferred"], answer: 1, explain: "Deducir (quien recibe) → infer." },
+    { type: "mc", prompt: "The main ___ of the argument is that it ignores cost.", options: ["defect", "flaw", "drawback"], answer: 1, explain: "Fallo en un argumento → flaw." },
+    { type: "mc", prompt: "A serious problem has ___ with the supplier.", options: ["arisen", "risen", "raised"], answer: 0, explain: "Surgir → arise / arisen." },
+    { type: "gap", prompt: "He finally ___ that he had made a mistake. (admitir a regañadientes)", answers: ["conceded", "admitted", "acknowledged"], explain: "Concede = admitir, a menudo en un debate." },
+    { type: "mc", prompt: "The ___ interruptions made it impossible to concentrate. (repetidas)", options: ["continual", "continuous"], answer: 0, explain: "Repetidas con pausas → continual." }
+  ]
+},
+
+"c2-04": {
+  level: "c2", title: "Nominalización y estilo académico", minutes: 30,
+  intro: "La nominalización convierte verbos y adjetivos en sustantivos. Es el rasgo más característico del inglés académico y formal: condensa información y da un tono objetivo.",
+  content: [
+    { h: "Del estilo verbal al nominal" },
+    { table: { head: ["Estilo verbal (menos formal)", "Estilo nominal (académico)"], rows: [
+      ["The government decided to raise taxes, which angered people.", "The government's decision to raise taxes caused widespread anger."],
+      ["Because prices increased sharply, …", "Owing to the sharp increase in prices, …"],
+      ["When the company expanded into Asia, …", "Following the company's expansion into Asia, …"],
+      ["If we analyse the data carefully, we see…", "Careful analysis of the data reveals…"],
+      ["People are not aware of the risks.", "There is a lack of awareness of the risks."]
+    ]}},
+    { h: "Cómo se construye" },
+    { p: "1) Convierte el verbo en sustantivo (<em>decide → decision, fail → failure, reduce → reduction</em>). 2) El sujeto pasa a genitivo o a <em>of</em> (<em>the government's decision, the failure of the plan</em>). 3) Los adverbios se convierten en adjetivos (<em>sharply → sharp</em>). 4) Une con un verbo neutro: <em>lead to, result in, cause, reveal</em>." },
+    { examples: [
+      ["The introduction of the new law led to a reduction in crime.", "La introducción de la nueva ley conllevó una reducción de la delincuencia."],
+      ["There has been a significant improvement in air quality.", "Se ha producido una mejora significativa de la calidad del aire."]
+    ]},
+    { callout: "<strong>Sin excesos:</strong> una cadena de sustantivos («the implementation of the reduction of the consumption of…») es ilegible. Combina estilo nominal y verbal." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "The ___ of the factory led to hundreds of job losses. (CLOSE)", answers: ["closure"], explain: "Close → closure." },
+    { type: "gap", prompt: "There has been a dramatic ___ in unemployment. (REDUCE)", answers: ["reduction"], explain: "Reduce → reduction." },
+    { type: "gap", prompt: "Their ___ to act quickly made matters worse. (FAIL)", answers: ["failure"], explain: "Fail → failure." },
+    { type: "mc", prompt: "Versión nominal de «Because the population grew rapidly, …»:", options: ["Due to the rapid growth of the population, …", "Due to the population grew rapidly, …", "Because of rapidly growing the population, …"], answer: 0, explain: "Grew rapidly → rapid growth (adverbio → adjetivo)." },
+    { type: "mc", prompt: "«People don't know enough about the disease» en estilo académico:", options: ["People know nothing about the disease.", "There is a lack of knowledge about the disease.", "The disease is not known by people enough."], answer: 1, explain: "Lack of + sustantivo." },
+    { type: "transform", first: "The company expanded rapidly, and this caused a number of problems.", keyword: "EXPANSION", before: "The company's", after: "caused a number of problems.", answers: ["rapid expansion"], explain: "Rapidly expanded → rapid expansion." },
+    { type: "transform", first: "If you analyse the results carefully, you will see a clear pattern.", keyword: "ANALYSIS", before: "Careful", after: "reveals a clear pattern.", answers: ["analysis of the results"], explain: "Analyse carefully → careful analysis of." }
+  ]
+},
+
+"c2-05": {
+  level: "c2", title: "Inversión con so, such, as y though", minutes: 35,
+  intro: "Más allá de la inversión negativa de C1, el inglés culto usa inversiones con so, such y estructuras concesivas con as/though. Son típicas de las key word transformations del C2 Proficiency.",
+  content: [
+    { h: "So + adjetivo + verbo + sujeto + that" },
+    { examples: [
+      ["So severe was the storm that the airport closed.", "Tan fuerte fue la tormenta que el aeropuerto cerró."],
+      ["So quickly did she speak that nobody understood.", "Habló tan rápido que nadie la entendió."]
+    ]},
+    { h: "Such + be + sustantivo + that" },
+    { examples: [
+      ["Such was the demand that tickets sold out in minutes.", "Tal fue la demanda que las entradas se agotaron en minutos."],
+      ["Such was her anger that she couldn't speak.", "Tal era su enfado que no podía hablar."]
+    ]},
+    { callout: "<strong>Such was…:</strong> el sujeto (<em>the demand</em>) va <em>después</em> de <em>was</em>, y <em>such</em> funciona como «tal / tan grande»." },
+    { h: "Concesivas: adjetivo/adverbio + as/though + sujeto + verbo" },
+    { table: { head: ["Estructura", "Equivale a", "Ejemplo"], rows: [
+      ["Adj + as/though", "Although + sujeto + be + adj", "Tired as she was, she kept working."],
+      ["Much as", "Although … very much", "Much as I admire him, I can't agree."],
+      ["Try as + sujeto + might", "However hard … tried", "Try as I might, I couldn't open it."],
+      ["Strange as it may seem", "Although it may seem strange", "Strange as it may seem, it's true."]
+    ]}},
+    { callout: "<strong>Sin artículo ni «very»:</strong> «As tired as she was» es comparativo, no concesivo. En la estructura concesiva el adjetivo va solo al principio: <em>Tired as she was…</em>" }
+  ],
+  exercises: [
+    { type: "mc", prompt: "___ was the noise that we couldn't sleep.", options: ["So", "Such", "Very"], answer: 1, explain: "Such + was + sustantivo." },
+    { type: "mc", prompt: "So ___ that she won the award.", options: ["her performance was impressive", "impressive was her performance", "impressive her performance was"], answer: 1, explain: "So + adj + verbo + sujeto." },
+    { type: "gap", prompt: "___ as I might, I couldn't persuade him.", answers: ["try"], explain: "Try as I might = por mucho que lo intentara." },
+    { type: "gap", prompt: "___ as I like her, I don't trust her judgement.", answers: ["much"], explain: "Much as = aunque me guste mucho." },
+    { type: "transform", first: "Although he was exhausted, he finished the race.", keyword: "AS", before: "", after: ", he finished the race.", answers: ["exhausted as he was", "exhausted as he was,"], explain: "Adj + as + sujeto + verbo." },
+    { type: "transform", first: "The demand was so great that the shop ran out of stock.", keyword: "SUCH", before: "", after: "that the shop ran out of stock.", answers: ["such was the demand"], explain: "Such + was + sujeto." },
+    { type: "transform", first: "The film was so moving that many people cried.", keyword: "SO", before: "", after: "that many people cried.", answers: ["so moving was the film"], explain: "So + adj + was + sujeto." },
+    { type: "transform", first: "It may seem strange, but the theory is correct.", keyword: "AS", before: "", after: ", the theory is correct.", answers: ["strange as it may seem", "strange as it might seem", "strange though it may seem"], explain: "Strange as it may seem." }
+  ]
+},
+
+"c2-06": {
+  level: "c2", title: "Distanciamiento y objetividad", minutes: 30,
+  intro: "Las estructuras de distanciamiento permiten transmitir información sin hacerte responsable de su veracidad. Son esenciales en prensa, informes y textos académicos, y aparecen siempre en el C2 Proficiency.",
+  content: [
+    { h: "Pasiva de verbos de opinión" },
+    { table: { head: ["Estructura", "Ejemplo"], rows: [
+      ["It is said / believed / thought that…", "It is believed that the painting is a forgery."],
+      ["Sujeto + is said to + infinitivo (presente)", "The painting is believed to be a forgery."],
+      ["Sujeto + is said to have + participio (pasado)", "He is said to have left the country."],
+      ["Sujeto + is said to be + -ing (en curso)", "The minister is thought to be considering resigning."],
+      ["There is thought to be…", "There are thought to be over 100 survivors."]
+    ]}},
+    { h: "Otros recursos" },
+    { table: { head: ["Recurso", "Ejemplo"], rows: [
+      ["seem / appear + to (have)", "The suspect appears to have fled."],
+      ["Adverbios", "allegedly, reportedly, supposedly, apparently, ostensibly"],
+      ["According to / In the view of", "According to official figures, …"],
+      ["Condicional periodístico", "The deal would appear to benefit both sides."]
+    ]}},
+    { examples: [
+      ["The company is reported to have lost millions.", "Se informa de que la empresa ha perdido millones."],
+      ["The president allegedly accepted bribes.", "El presidente presuntamente aceptó sobornos."],
+      ["There appears to have been a misunderstanding.", "Parece que ha habido un malentendido."]
+    ]},
+    { callout: "<strong>Elige bien el infinitivo:</strong> si la acción es anterior al momento de la opinión → <em>to have + participio</em>. «He is said to leave the country yesterday» ✗ → <em>to have left</em> ✓." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "The suspect is believed ___ the country last week.", options: ["to leave", "to have left", "leaving"], answer: 1, explain: "Acción anterior → to have + participio." },
+    { type: "mc", prompt: "The minister is thought ___ resigning. (en curso)", options: ["to consider", "to be considering", "considering"], answer: 1, explain: "Acción en curso → to be + -ing." },
+    { type: "gap", prompt: "The singer ___ earned over ten million last year. (presuntamente, adverbio)", answers: ["allegedly", "reportedly", "supposedly"], explain: "Adverbios de distanciamiento." },
+    { type: "gap", prompt: "There ___ thought to be several hundred people trapped.", answers: ["are"], explain: "There are thought to be + plural." },
+    { type: "transform", first: "People say that the castle is haunted.", keyword: "SAID", before: "The castle", after: "haunted.", answers: ["is said to be"], explain: "Sujeto + is said to be." },
+    { type: "transform", first: "It is reported that the company has lost millions.", keyword: "REPORTED", before: "The company", after: "millions.", answers: ["is reported to have lost"], explain: "Pasado → is reported to have + participio." },
+    { type: "transform", first: "It seems that there has been a mistake.", keyword: "APPEARS", before: "There", after: "a mistake.", answers: ["appears to have been"], explain: "There appears to have been…" }
+  ]
+},
+
+"c2-07": {
+  level: "c2", title: "Reading & Use of English: open cloze", minutes: 35,
+  intro: "En la Parte 2 del C2 Proficiency completas 8 huecos de un texto con una sola palabra, sin opciones. Se evalúan expresiones fijas, conectores, preposiciones y estructuras gramaticales poco frecuentes.",
+  content: [
+    { h: "El formato completo de Reading & Use of English (C2)" },
+    { table: { head: ["Parte", "Tarea", "Preguntas"], rows: [
+      ["1", "Multiple-choice cloze", "8"],
+      ["2", "Open cloze", "8"],
+      ["3", "Word formation", "8"],
+      ["4", "Key word transformations (3–8 palabras)", "6"],
+      ["5", "Multiple choice", "6"],
+      ["6", "Gapped text", "7"],
+      ["7", "Multiple matching", "10"]
+    ]}},
+    { h: "Expresiones que suelen aparecer en el open cloze" },
+    { table: { head: ["Expresión", "Significado", "Ejemplo"], rows: [
+      ["let alone", "y mucho menos", "He can't boil an egg, let alone cook a meal."],
+      ["for all", "a pesar de", "For all his money, he was lonely."],
+      ["as it were", "por así decirlo", "She was, as it were, the glue of the team."],
+      ["nothing if not", "muy, sumamente", "He is nothing if not persistent."],
+      ["be that as it may", "sea como fuere", "Be that as it may, we must decide today."],
+      ["to say nothing of", "por no hablar de", "It's expensive, to say nothing of the risks."],
+      ["no sooner … than", "en cuanto", "No sooner had I sat down than the phone rang."],
+      ["there is no point in", "no tiene sentido", "There's no point in arguing."]
+    ]}},
+    { callout: "<strong>Método:</strong> lee todo el texto antes de rellenar. Para cada hueco, pregúntate qué categoría falta (preposición, auxiliar, artículo, pronombre, conector) y mira las palabras de ambos lados: muchas veces forman parte de una expresión fija." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "She can barely afford the rent, ___ alone a holiday abroad.", answers: ["let"], explain: "Let alone = y mucho menos." },
+    { type: "gap", prompt: "___ all his talent, he never achieved real success.", answers: ["for"], explain: "For all = a pesar de." },
+    { type: "gap", prompt: "The new director is nothing ___ ambitious.", answers: ["if"], explain: "Nothing if not = sumamente." },
+    { type: "gap", prompt: "Be that as it ___, the decision has already been made.", answers: ["may"], explain: "Be that as it may = sea como fuere." },
+    { type: "gap", prompt: "The trip was exhausting, to say ___ of the cost.", answers: ["nothing"], explain: "To say nothing of = por no hablar de." },
+    { type: "gap", prompt: "There's no point ___ complaining now; it's too late.", answers: ["in"], explain: "There's no point in + -ing." },
+    { type: "gap", prompt: "No ___ had the meeting begun than the fire alarm went off.", answers: ["sooner"], explain: "No sooner … than." },
+    { type: "gap", prompt: "He was, as it ___, a stranger in his own home.", answers: ["were"], explain: "As it were = por así decirlo." }
+  ]
+},
+
+"c2-08": {
+  level: "c2", title: "Writing: el summary essay (Parte 1)", minutes: 40,
+  intro: "La Parte 1 del Writing del C2 Proficiency es obligatoria: lees dos textos breves sobre un mismo tema y escribes un essay de 240–280 palabras que resuma y evalúe sus ideas principales, añadiendo tu propia opinión.",
+  content: [
+    { h: "Qué se exige" },
+    { p: "Debes <strong>resumir</strong> los puntos clave de ambos textos, <strong>evaluarlos</strong> (¿son convincentes?, ¿qué omiten?) y dar <strong>tu opinión</strong>. Todo con tus propias palabras: copiar frases del texto penaliza." },
+    { h: "Estructura recomendada" },
+    { table: { head: ["Párrafo", "Contenido"], rows: [
+      ["Introducción", "Presenta el tema común de los dos textos."],
+      ["Texto 1", "Resume sus dos ideas principales y evalúalas."],
+      ["Texto 2", "Resume sus dos ideas principales, compáralas con el texto 1 y evalúalas."],
+      ["Conclusión", "Tu postura razonada sobre el tema."]
+    ]}},
+    { h: "Lenguaje para resumir y evaluar" },
+    { examples: [
+      ["The first writer contends that tourism inevitably damages local culture.", "El primer autor sostiene que el turismo daña inevitablemente la cultura local."],
+      ["By contrast, the second text maintains that tourism can help preserve traditions.", "En cambio, el segundo texto sostiene que el turismo puede ayudar a preservar las tradiciones."],
+      ["While this argument has some merit, it overlooks the economic benefits.", "Aunque este argumento tiene cierto mérito, pasa por alto los beneficios económicos."],
+      ["Both writers acknowledge, albeit for different reasons, that regulation is needed.", "Ambos autores reconocen, aunque por motivos distintos, que hace falta regulación."]
+    ]},
+    { callout: "<strong>Paráfrasis:</strong> transforma la estructura, no solo las palabras. «Tourism destroys local culture» → <em>The writer argues that the influx of visitors erodes traditional ways of life</em>." },
+    { callout: "<strong>Parte 2:</strong> eliges entre artículo, carta, informe o reseña (280–320 palabras). Cada tarea vale lo mismo; dedica unos 45 minutos a cada una." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "¿Cuántas palabras tiene el essay de la Parte 1 del C2 Proficiency?", options: ["140–190", "220–260", "240–280"], answer: 2, explain: "C2 Proficiency Parte 1: 240–280 palabras." },
+    { type: "mc", prompt: "¿Qué tienes que hacer en la Parte 1?", options: ["Solo resumir los dos textos.", "Resumir y evaluar las ideas de ambos textos y dar tu opinión.", "Elegir el texto que prefieras y comentarlo."], answer: 1, explain: "Resumen + evaluación + opinión propia." },
+    { type: "mc", prompt: "Mejor forma de reflejar «The writer says that cities are too expensive»:", options: ["The writer says cities are too expensive.", "The writer contends that the cost of urban living has become prohibitive.", "The writer tells cities are very much expensive."], answer: 1, explain: "Verbo preciso y paráfrasis estructural." },
+    { type: "gap", prompt: "While this argument has some ___, it overlooks several key factors.", answers: ["merit", "validity"], explain: "Has some merit = tiene cierto mérito." },
+    { type: "gap", prompt: "Both writers agree, ___ for different reasons, that change is necessary. (aunque, formal)", answers: ["albeit", "though", "although"], explain: "Albeit = aunque (formal, sin verbo)." },
+    { type: "mc", prompt: "Conector para contrastar los dos textos:", options: ["By contrast", "Furthermore", "Consequently"], answer: 0, explain: "By contrast introduce la postura opuesta." },
+    { type: "gap", prompt: "The second writer fails to take ___ account the long-term costs.", answers: ["into"], explain: "Take into account = tener en cuenta." }
+  ]
+},
+
+"c2-09": {
+  level: "c2", title: "Listening: inferencia y actitud", minutes: 30,
+  intro: "En el Listening del C2 Proficiency las respuestas casi nunca se dicen de forma literal: debes inferir opiniones, actitudes y propósitos a partir del tono, el vocabulario y lo que no se dice.",
+  content: [
+    { h: "Formato" },
+    { table: { head: ["Parte", "Tarea", "Preguntas"], rows: [
+      ["1", "Tres extractos cortos, opción múltiple", "6"],
+      ["2", "Monólogo, completar frases", "9"],
+      ["3", "Entrevista o conversación, opción múltiple", "5"],
+      ["4", "Cinco hablantes, emparejamiento múltiple (dos tareas)", "10"]
+    ]}},
+    { p: "Cada grabación se escucha <strong>dos veces</strong>. La prueba dura unos 40 minutos." },
+    { h: "Vocabulario de actitud" },
+    { table: { head: ["Adjetivo", "Significado"], rows: [
+      ["sceptical", "escéptico, duda que algo funcione"],
+      ["ambivalent", "con sentimientos encontrados"],
+      ["dismissive", "despectivo, no le da importancia"],
+      ["grudging", "a regañadientes"],
+      ["wistful", "nostálgico, con añoranza"],
+      ["indignant", "indignado por una injusticia"],
+      ["resigned", "resignado, acepta lo inevitable"],
+      ["sardonic", "burlón, con ironía mordaz"]
+    ]}},
+    { h: "Pistas para inferir" },
+    { examples: [
+      ["Well, I suppose it could work… in theory.", "Escepticismo: «en teoría» insinúa que en la práctica no."],
+      ["I have to admit, he did a decent job.", "Reconocimiento a regañadientes (grudging)."],
+      ["Those were the days, when you could just wander around without a phone.", "Nostalgia (wistful)."],
+      ["Oh, brilliant. Another meeting about meetings.", "Ironía / sarcasmo (sardonic)."]
+    ]},
+    { callout: "<strong>Trampas:</strong> las opciones incorrectas suelen repetir palabras exactas de la grabación. Desconfía de la coincidencia literal y escucha el <em>but</em>, el <em>actually</em> o el <em>mind you</em>: suelen introducir la verdadera opinión." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "«Well, I suppose it could work… in theory.» El hablante está:", options: ["enthusiastic", "sceptical", "indignant"], answer: 1, explain: "«In theory» implica dudas sobre la práctica." },
+    { type: "mc", prompt: "«I have to admit, she handled it rather well.» La actitud es:", options: ["grudging admiration", "open hostility", "complete indifference"], answer: 0, explain: "«I have to admit» = reconocimiento a regañadientes." },
+    { type: "mc", prompt: "«Ah, the summers we spent there… you don't get that anymore.» El hablante suena:", options: ["wistful", "dismissive", "sardonic"], answer: 0, explain: "Nostalgia del pasado → wistful." },
+    { type: "mc", prompt: "«Oh, wonderful. The train's cancelled again.» El tono es:", options: ["sincere", "sardonic", "ambivalent"], answer: 1, explain: "Ironía: dice «wonderful» queriendo decir lo contrario." },
+    { type: "mc", prompt: "«Part of me wants to move abroad, but part of me can't imagine leaving.» El hablante está:", options: ["resigned", "ambivalent", "indignant"], answer: 1, explain: "Sentimientos encontrados → ambivalent." },
+    { type: "mc", prompt: "«It's outrageous that they can just raise the rent like that!» La actitud es:", options: ["indignant", "wistful", "resigned"], answer: 0, explain: "Indignación ante algo injusto." },
+    { type: "mc", prompt: "«Oh, that? It's nothing. Not worth discussing.» El hablante se muestra:", options: ["dismissive", "sceptical", "grudging"], answer: 0, explain: "Le quita importancia → dismissive." },
+    { type: "mc", prompt: "«Well, there's nothing we can do about it now, is there?» El hablante está:", options: ["indignant", "resigned", "enthusiastic"], answer: 1, explain: "Acepta lo inevitable → resigned." }
+  ]
 }
 };
