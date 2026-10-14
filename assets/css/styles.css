@@ -252,3 +252,21 @@ dl.facts dd { margin: 0; font-weight: 600; }
 .model-note { padding: 14px 16px; background: var(--surface-2); font-size: .9rem; color: var(--muted); border-left: 3px solid var(--accent); }
 @media (max-width: 700px) { .model-row { grid-template-columns: 1fr; } .model-note { border-left: 0; border-top: 3px solid var(--accent); } }
 .exercise.match-q { padding: 10px 18px; margin-bottom: 8px; }
+
+/* ---------- Vocabulario ---------- */
+.vocab-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.seg button { font: 500 .9rem var(--sans); padding: 8px 14px; background: var(--surface); color: var(--muted); border: 0; cursor: pointer; }
+.seg button.on { background: var(--brand); color: var(--brand-ink); }
+.flash-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.flashcard { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); padding: 40px 24px; text-align: center; min-height: 240px; display: flex; flex-direction: column; justify-content: center; gap: 22px; margin-bottom: 18px; }
+.flash-front { font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2.3rem); font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.flash-answer { font-size: 1.3rem; font-weight: 600; color: var(--brand); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.flash-ex { color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 8px; }
+.grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.grade { flex-direction: column; gap: 2px; padding: 10px 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.grade small { font-weight: 500; font-size: .75rem; color: var(--muted); }
+.grade.g0 { border-color: var(--err); color: var(--err); }
+.grade.g2 { border-color: var(--ok); color: var(--ok); }
+.grade.g3 { border-color: var(--brand); color: var(--brand); }
+@media (max-width: 480px) { .grade-row { grid-template-columns: repeat(2, 1fr); } }

@@ -54,6 +54,7 @@
     reset() { try { localStorage.removeItem(KEY); } catch { /* nada */ } }
   };
   I.Progress = Progress;
+  I._srsNext = (...a) => srsNext(...a);
 
   const availableLessons = level => level.units.flatMap(u => u.lessons).filter(l => I.lessons[l.id]);
   const completedIn = level => availableLessons(level).filter(l => Progress.lesson(l.id)).length;
@@ -76,11 +77,12 @@
     const links = [
       ["index.html", "Inicio", "home"],
       ["niveles.html", "Niveles", "levels"],
-      ["test.html", "Test de nivel", "test"],
+      ["test.html", "Test", "test"],
       ["examenes.html", "Certificaciones", "exams"],
       ["simulacros.html", "Simulacros", "mocks"],
       ["listening.html", "Listening", "listening"],
       ["writing.html", "Writing", "writing"],
+      ["vocabulario.html", "Vocabulario", "vocab"],
       ["metodo.html", "Método", "method"]
     ];
     const header = el("header", { class: "site-header" }, `
@@ -834,11 +836,183 @@
     };
   }
 
+  /* ---------- Vocabulario: repetición espaciada ---------- */
+  const SRS_KEY = "idioma.srs.v1";
+  const DAY = 86400000;
+  const SRS = {
+    load() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } },
+    save(d) { try { localStorage.setItem(SRS_KEY, JSON.stringify(d)); } catch { /* sin almacenamiento */ } }
+  };
+  // Calcula el nuevo estado de una tarjeta. grade: 0 otra vez · 1 difícil · 2 bien · 3 fácil
+  function srsNext(c, grade, now = Date.now()) {
+    c = c ? { ...c } : { ease: 2.5, interval: 0, reps: 0, lapses: 0 };
+    if (grade === 0) {
+      c.reps = 0; c.lapses++; c.ease = Math.max(1.3, c.ease - 0.2); c.interval = 0;
+      c.due = now + 60000; // vuelve en esta misma sesión
+    } else {
+      if (grade === 1) { c.interval = Math.max(1, Math.round((c.interval || 1) * 1.2)); c.ease = Math.max(1.3, c.ease - 0.15); }
+      else if (grade === 2) c.interval = c.reps === 0 ? 1 : c.reps === 1 ? 3 : Math.round(c.interval * c.ease);
+      else { c.interval = c.reps === 0 ? 4 : Math.round(c.interval * c.ease * 1.3); c.ease += 0.15; }
+      c.reps++; c.due = now + c.interval * DAY;
+    }
+    return c;
+  }
+  const fmtInterval = c => !c.interval ? "<1 min" : c.interval === 1 ? "1 día" : c.interval < 30 ? `${c.interval} días` : `${Math.round(c.interval / 30)} mes${Math.round(c.interval / 30) > 1 ? "es" : ""}`;
+  function deckStats(level, data = SRS.load(), now = Date.now()) {
+    const cards = I.vocab[level].map((_, i) => data[`${level}-${i}`]);
+    return {
+      total: cards.length,
+      fresh: cards.filter(c => !c).length,
+      due: cards.filter(c => c && c.due <= now).length,
+      mastered: cards.filter(c => c && c.interval >= 21).length
+    };
+  }
+
+  function renderVocab() {
+    const main = $("#vocab-app");
+    let dir = "en";
+    try { dir = localStorage.getItem("idioma.vocab.dir") || "en"; } catch { /* nada */ }
+
+    const home = () => {
+      const data = SRS.load();
+      main.innerHTML = `
+        <div class="vocab-toolbar">
+          <span class="muted">Dirección:</span>
+          <div class="seg" role="group" aria-label="Dirección de estudio">
+            <button data-dir="en" class="${dir === "en" ? "on" : ""}">Inglés → español</button>
+            <button data-dir="es" class="${dir === "es" ? "on" : ""}">Español → inglés</button>
+          </div>
+        </div>
+        <div class="grid grid-3">${I.levels.map(l => {
+          const st = deckStats(l.id, data);
+          const toStudy = st.due + Math.min(10, st.fresh);
+          return `<div class="card">
+            <span class="badge ${l.id}">${l.code}</span>
+            <h3 style="margin-top:14px">${l.name}</h3>
+            <div class="progress" aria-label="Dominadas"><span style="width:${(st.mastered / st.total) * 100}%"></span></div>
+            <div class="meta"><span>${st.due} para repasar</span><span>${st.fresh} nuevas</span><span>${st.mastered}/${st.total} dominadas</span></div>
+            <button class="btn ${toStudy ? "btn-primary" : "btn-ghost"} btn-sm" style="margin-top:14px" data-deck="${l.id}" ${toStudy ? "" : "disabled"}>${toStudy ? `Estudiar (${toStudy})` : "Al día ✓"}</button>
+          </div>`;
+        }).join("")}</div>
+        <div class="callout" style="margin-top:28px"><strong>Cómo funciona:</strong> cada sesión incluye las tarjetas que toca repasar hoy y hasta 10 nuevas. Intenta recordar la respuesta antes de mostrarla y valórate con sinceridad: las que te cuestan vuelven pronto y las que dominas, cada vez más tarde. Una tarjeta se considera dominada cuando su próximo repaso es dentro de 3 semanas o más.</div>
+        <div class="card" style="margin-top:20px">
+          <h3>Copia de seguridad de tu progreso</h3>
+          <p class="muted">Todo tu progreso (lecciones, simulacros, listening, writing y vocabulario) se guarda en este navegador. Descarga una copia para no perderlo o para pasarlo a otro dispositivo.</p>
+          <div class="hero-actions" style="margin-top:8px">
+            <button class="btn btn-ghost btn-sm" id="export">Descargar copia</button>
+            <label class="btn btn-ghost btn-sm">Restaurar copia<input type="file" id="import" accept="application/json" hidden></label>
+          </div>
+          <p class="muted" id="backup-msg" style="font-size:.88rem;margin-top:8px"></p>
+        </div>`;
+      main.querySelectorAll("[data-dir]").forEach(b => b.onclick = () => {
+        dir = b.dataset.dir;
+        try { localStorage.setItem("idioma.vocab.dir", dir); } catch { /* nada */ }
+        home();
+      });
+      main.querySelectorAll("[data-deck]").forEach(b => b.onclick = () => study(b.dataset.deck));
+      $("#export").onclick = exportBackup;
+      $("#import").onchange = e => importBackup(e.target.files[0]);
+    };
+
+    const study = level => {
+      const now = Date.now(), data = SRS.load();
+      const ids = I.vocab[level].map((_, i) => `${level}-${i}`);
+      const due = ids.filter(id => data[id] && data[id].due <= now).sort((a, b) => data[a].due - data[b].due);
+      const fresh = ids.filter(id => !data[id]).slice(0, 10);
+      const queue = [...due, ...fresh];
+      const total = queue.length;
+      const stats = { done: 0, again: 0 };
+      const lv = I.levelById(level);
+      main.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const show = () => {
+        if (!queue.length) return finish();
+        const id = queue[0], [en, es, ex] = I.vocab[level][Number(id.split("-")[1])];
+        const front = dir === "en" ? en : es, back = dir === "en" ? es : en;
+        const c = SRS.load()[id];
+        main.innerHTML = `
+          <div class="flash-top"><button class="btn btn-ghost btn-sm" id="quit">← Salir</button>
+            <span class="muted">${lv.code} · ${stats.done}/${total} · ${c ? "repaso" : "nueva"}</span></div>
+          <div class="progress" style="margin:10px 0 18px"><span style="width:${(stats.done / total) * 100}%"></span></div>
+          <div class="flashcard">
+            <div class="flash-front">${esc(front)} ${dir === "en" ? `<button class="speak" data-say="${esc(en)}" aria-label="Escuchar">▶</button>` : ""}</div>
+            <div id="flash-back" hidden>
+              <div class="flash-answer">${esc(back)} ${dir === "es" ? `<button class="speak" data-say="${esc(en)}" aria-label="Escuchar">▶</button>` : ""}</div>
+              <div class="flash-ex"><button class="speak" data-say="${esc(ex)}" aria-label="Escuchar ejemplo">▶</button> <em>${esc(ex)}</em></div>
+            </div>
+          </div>
+          <div id="flash-actions">
+            <button class="btn btn-primary" id="reveal" style="width:100%">Mostrar respuesta</button>
+          </div>`;
+        $("#quit").onclick = home;
+        $("#reveal").onclick = () => {
+          $("#flash-back").hidden = false;
+          const labels = ["Otra vez", "Difícil", "Bien", "Fácil"];
+          $("#flash-actions").innerHTML = `<div class="grade-row">${labels.map((t, g) =>
+            `<button class="btn grade g${g}" data-g="${g}">${t}<small>${fmtInterval(srsNext(c, g))}</small></button>`).join("")}</div>`;
+          $("#flash-actions").querySelectorAll("[data-g]").forEach(b => b.onclick = () => grade(id, Number(b.dataset.g)));
+        };
+      };
+
+      const grade = (id, g) => {
+        const data = SRS.load();
+        data[id] = srsNext(data[id], g);
+        SRS.save(data);
+        queue.shift();
+        if (g === 0) { stats.again++; queue.splice(Math.min(3, queue.length), 0, id); }
+        else stats.done++;
+        show();
+      };
+
+      const finish = () => {
+        const st = deckStats(level);
+        main.innerHTML = `<div class="card score-box">
+          <span class="eyebrow">Sesión terminada</span>
+          <div class="big">${stats.done}</div>
+          <p>tarjetas repasadas${stats.again ? ` · ${stats.again} ${stats.again === 1 ? "repetición" : "repeticiones"}` : ""}</p>
+          <p class="muted">${lv.code}: ${st.mastered}/${st.total} dominadas · ${st.fresh} nuevas por estudiar</p>
+          <div class="lesson-nav" style="justify-content:center"><button class="btn btn-primary" id="back">Volver a los mazos</button></div>
+        </div>`;
+        $("#back").onclick = home;
+      };
+      show();
+    };
+
+    function speakHandler(e) { const b = e.target.closest(".speak"); if (b) speak(b.dataset.say); }
+
+    function exportBackup() {
+      const out = {};
+      try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k.startsWith("idioma.")) out[k] = localStorage.getItem(k); } } catch { /* nada */ }
+      const blob = new Blob([JSON.stringify({ app: "idioma", date: new Date().toISOString(), data: out }, null, 1)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `idioma-progreso-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      $("#backup-msg").textContent = "Copia descargada.";
+    }
+    function importBackup(file) {
+      if (!file) return;
+      file.text().then(t => {
+        const j = JSON.parse(t);
+        if (j.app !== "idioma" || typeof j.data !== "object") throw new Error("formato");
+        if (!confirm("Esto sustituirá tu progreso actual en este navegador. ¿Continuar?")) return;
+        for (const [k, v] of Object.entries(j.data)) if (k.startsWith("idioma.") && typeof v === "string") localStorage.setItem(k, v);
+        $("#backup-msg").textContent = "Progreso restaurado.";
+        home();
+        $("#backup-msg").textContent = "Progreso restaurado.";
+      }).catch(() => { $("#backup-msg").textContent = "El archivo no es una copia válida de Idioma."; });
+    }
+
+    main.addEventListener("click", speakHandler);
+    home();
+  }
+
   /* ---------- Arranque ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     chrome();
     const page = document.body.dataset.page;
-    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen, writing: renderWritingList, write: renderWrite }[page] || (() => {}))();
+    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen, writing: renderWritingList, write: renderWrite, vocab: renderVocab }[page] || (() => {}))();
     if ("speechSynthesis" in window) speechSynthesis.getVoices();
   });
 })();
