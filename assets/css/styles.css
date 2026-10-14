@@ -34,6 +34,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
@@ -222,3 +223,9 @@ dl.facts dd { margin: 0; font-weight: 600; }
 .match-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid var(--border); }
 .match-row:first-of-type { border-top: 0; }
 @media (max-width: 600px) { .match-row { grid-template-columns: auto 1fr; } .match-row .mock-fb { grid-column: 1 / -1; } }
+
+/* ---------- Listening ---------- */
+.player { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 20px 0 8px; }
+.player select { margin-left: 6px; font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.transcript { line-height: 1.75; }
+.transcript p { margin-bottom: .8em; }

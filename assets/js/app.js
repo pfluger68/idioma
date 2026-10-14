@@ -35,6 +35,14 @@
       this.save(p);
     },
     mock(id) { return (this.load().mocks || {})[id]; },
+    setListening(id, score, total) {
+      const p = this.load();
+      p.listening = p.listening || {};
+      const prev = p.listening[id];
+      if (!prev || score >= prev.score) p.listening[id] = { score, total, date: new Date().toISOString() };
+      this.save(p);
+    },
+    listening(id) { return (this.load().listening || {})[id]; },
     setPlacement(level) { const p = this.load(); p.placement = { level, date: new Date().toISOString() }; this.save(p); },
     reset() { try { localStorage.removeItem(KEY); } catch { /* nada */ } }
   };
@@ -64,6 +72,7 @@
       ["test.html", "Test de nivel", "test"],
       ["examenes.html", "Certificaciones", "exams"],
       ["simulacros.html", "Simulacros", "mocks"],
+      ["listening.html", "Listening", "listening"],
       ["metodo.html", "Método", "method"]
     ];
     const header = el("header", { class: "site-header" }, `
@@ -71,7 +80,7 @@
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">Id</span>Idioma</a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
-          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
+          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") || (page === "listen" && k === "listening") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
         </nav>
       </div>`);
     document.body.prepend(header);
@@ -529,11 +538,159 @@
     }
   }
 
+  /* ---------- Listening: voces y reproductor ---------- */
+  const FEMALE_RE = /female|woman|samantha|victoria|karen|moira|tessa|serena|kate|susan|zira|hazel|libby|sonia|emma|amy|fiona|martha|aria|jenny|olivia|natasha|maisie/i;
+  const MALE_RE = /\bmale\b|daniel|alex|fred|george|ryan|guy|david|mark|james|thomas|arthur|oliver|aaron|lee|rishi|william/i;
+  const hasSpeech = "speechSynthesis" in window;
+
+  function pickVoices(speakers) {
+    const all = speechSynthesis.getVoices().filter(v => v.lang.toLowerCase().startsWith("en"));
+    const lang = v => v.lang.replace("_", "-");
+    const used = new Set(), out = {};
+    for (const [key, sp] of Object.entries(speakers)) {
+      const re = sp.gender === "f" ? FEMALE_RE : MALE_RE, acc = sp.accent || "en-GB";
+      const free = all.filter(v => !used.has(v.name));
+      const v = free.find(v => re.test(v.name) && lang(v) === acc) || free.find(v => re.test(v.name)) ||
+                free.find(v => lang(v) === acc) || free[0] || all[0] || null;
+      if (v) used.add(v.name);
+      // Si no sabemos el género de la voz, diferenciamos a los hablantes con el tono.
+      out[key] = { voice: v, pitch: v && re.test(v.name) ? 1 : (sp.gender === "f" ? 1.2 : 0.8) };
+    }
+    return out;
+  }
+
+  function playScript(ex, rate, onEnd) {
+    speechSynthesis.cancel();
+    const cfg = pickVoices(ex.speakers);
+    // Frases cortas: algunos navegadores cortan las locuciones largas.
+    const queue = ex.script.flatMap(([who, text]) => (text.match(/[^.!?]+[.!?]+["']?|[^.!?]+$/g) || [text]).map(t => [who, t.trim()]));
+    let i = 0, stopped = false, prev = null;
+    const next = () => {
+      if (stopped) return;
+      if (i >= queue.length) return onEnd();
+      const [who, text] = queue[i];
+      const u = new SpeechSynthesisUtterance(text), c = cfg[who] || {};
+      if (c.voice) { u.voice = c.voice; u.lang = c.voice.lang; } else u.lang = "en-GB";
+      u.pitch = c.pitch || 1; u.rate = rate;
+      u.onend = u.onerror = () => { i++; setTimeout(next, prev !== null && queue[i] && queue[i][0] !== who ? 450 : 120); };
+      prev = who;
+      try { speechSynthesis.speak(u); } catch (e) { stopped = true; onEnd(e); }
+    };
+    next();
+    return () => { stopped = true; speechSynthesis.cancel(); };
+  }
+
+  /* ---------- Página: listado de listening ---------- */
+  function renderListeningList() {
+    $("#listening-grid").innerHTML = I.listening.map(x => {
+      const best = Progress.listening(x.id);
+      return `<a class="card" href="escuchar.html?id=${x.id}">
+        <span class="badge ${x.level}">${x.level.toUpperCase()}</span>
+        <h3 style="margin-top:14px">${x.title}</h3>
+        <p class="muted">${x.kind} · ${x.questions.length} preguntas</p>
+        <div class="meta">${best ? `<span class="tag ok">Mejor: ${best.score}/${best.total}</span>` : `<span class="tag">Sin intentos</span>`}</div>
+      </a>`;
+    }).join("");
+    if (!hasSpeech) $("#listening-grid").insertAdjacentHTML("beforebegin", `<div class="callout"><strong>Aviso:</strong> tu navegador no permite reproducir voz. Podrás hacer los ejercicios leyendo la transcripción.</div>`);
+  }
+
+  /* ---------- Página: ejercicio de listening ---------- */
+  function renderListen() {
+    const id = new URLSearchParams(location.search).get("id");
+    const ex = I.listeningById(id), main = $("#main");
+    if (!ex) { main.innerHTML = `<div class="narrow page-head"><h1>Ejercicio no encontrado</h1><a href="listening.html">Ver ejercicios</a></div>`; return; }
+    document.title = `${ex.title} (${ex.level.toUpperCase()}) — Idioma`;
+    let plays = 0, checked = false, stop = null;
+
+    main.innerHTML = `
+      <article class="narrow lesson">
+        <p><a href="listening.html">← Listening</a></p>
+        <span class="badge ${ex.level}">${ex.level.toUpperCase()}</span>
+        <h1 style="margin-top:12px">${ex.title}</h1>
+        <p class="muted" style="font-size:1.1rem">${ex.intro}</p>
+        <div class="card player">
+          <button class="btn btn-primary" id="play" ${hasSpeech ? "" : "disabled"}>▶ Escuchar</button>
+          <button class="btn btn-ghost" id="stop" hidden>■ Detener</button>
+          <label class="muted">Velocidad
+            <select id="rate"><option value="0.8">Lenta</option><option value="0.9">Media</option><option value="1" selected>Normal</option></select>
+          </label>
+          <span class="muted" id="play-status"></span>
+        </div>
+        ${hasSpeech ? "" : `<div class="callout"><strong>Aviso:</strong> tu navegador no permite reproducir voz. Puedes leer la transcripción para practicar.</div>`}
+        <p class="muted" style="font-size:.88rem">Audio generado con la voz de tu navegador; la calidad y las voces disponibles dependen de tu dispositivo.</p>
+        <h2>Preguntas</h2>
+        <div id="lq"></div>
+        <div style="text-align:center;margin:24px 0"><button class="btn btn-primary" id="check">Comprobar respuestas</button></div>
+        <div id="lresult"></div>
+        <div id="transcript" hidden></div>
+      </article>`;
+
+    const status = () => {
+      const left = ex.plays - plays;
+      $("#play-status").textContent = checked ? "Escuchas ilimitadas" : left > 0 ? `Escuchas restantes: ${left}` : "Has usado tus escuchas. Responde y comprueba.";
+      $("#play").disabled = !hasSpeech || (!checked && left <= 0);
+    };
+    const playing = on => { $("#play").hidden = on; $("#stop").hidden = !on; };
+    $("#play").onclick = () => {
+      if (!checked) plays++;
+      playing(true); status();
+      stop = playScript(ex, Number($("#rate").value), err => {
+        playing(false); status();
+        if (err) $("#play-status").textContent = "No se pudo reproducir el audio en este navegador. Lee la transcripción tras comprobar.";
+      });
+    };
+    $("#stop").onclick = () => { if (stop) stop(); playing(false); status(); };
+    window.addEventListener("beforeunload", () => hasSpeech && speechSynthesis.cancel());
+    status();
+
+    $("#lq").innerHTML = ex.questions.map((q, i) => `<div class="exercise" data-i="${i}">
+      <div class="q-num">Pregunta ${i + 1}</div>
+      <div class="prompt">${esc(q.prompt).replace("___", "______")}</div>
+      ${q.type === "mc"
+        ? `<div class="options">${q.options.map((o, k) => `<label class="option mock-opt"><input type="radio" name="lq${i}" value="${k}"> <strong>${"ABC"[k]}</strong> ${esc(o)}</label>`).join("")}</div>`
+        : `<div class="answer-row"><input type="text" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Respuesta ${i + 1}"></div>`}
+      <div class="mock-fb"></div></div>`).join("");
+
+    $("#check").onclick = () => {
+      if (checked) return;
+      checked = true;
+      let score = 0;
+      ex.questions.forEach((q, i) => {
+        const box = $(`.exercise[data-i="${i}"]`), fb = $(".mock-fb", box);
+        let ok;
+        if (q.type === "mc") {
+          const ch = box.querySelector("input:checked");
+          ok = !!ch && Number(ch.value) === q.answer;
+          box.querySelectorAll("input").forEach(r => {
+            r.disabled = true;
+            if (Number(r.value) === q.answer) r.closest("label").classList.add("correct");
+            else if (r.checked) r.closest("label").classList.add("wrong");
+          });
+          fb.innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta correcta: ${"ABC"[q.answer]}</span>`;
+        } else {
+          const inp = box.querySelector("input");
+          ok = isCorrect(inp.value, q.answers);
+          inp.disabled = true; inp.classList.add(ok ? "correct" : "wrong");
+          fb.innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta: <em>${esc(q.answers[0])}</em></span>`;
+        }
+        if (ok) score++;
+      });
+      Progress.setListening(ex.id, score, ex.questions.length);
+      $("#check").remove();
+      $("#lresult").innerHTML = `<div class="card score-box"><div class="big">${score}/${ex.questions.length}</div>
+        <p>Ahora puedes leer la transcripción y volver a escuchar sin límite para comprobar lo que se te escapó.</p></div>`;
+      const t = $("#transcript");
+      t.hidden = false;
+      t.innerHTML = `<h2>Transcripción</h2><div class="mock-text transcript">${ex.script.map(([w, txt]) => `<p><strong>${esc(ex.speakers[w].name)}:</strong> ${esc(txt)}</p>`).join("")}</div>`;
+      status();
+    };
+  }
+
   /* ---------- Arranque ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     chrome();
     const page = document.body.dataset.page;
-    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock }[page] || (() => {}))();
+    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen }[page] || (() => {}))();
     if ("speechSynthesis" in window) speechSynthesis.getVoices();
   });
 })();

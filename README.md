@@ -13,6 +13,8 @@ C1 Advanced, C2 Proficiency e IELTS.
 - **Simulacros de examen**: Reading & Use of English completo de C1 Advanced (8 partes, 78 puntos) y C2 Proficiency
   (7 partes, 72 puntos), en 90 minutos,
   con temporizador, corrección por partes y estimación orientativa en la escala de Cambridge.
+- **Listening**: 6 ejercicios de comprensión auditiva (A2–C2) con formato de examen, 2 escuchas,
+  voces distintas por hablante (síntesis de voz del navegador) y transcripción tras corregir.
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
 - **Guía de certificaciones**: formatos y puntuaciones de Cambridge C1/C2, IELTS, Trinity,
   LanguageCert y EOI.
@@ -36,13 +38,14 @@ Netlify o cualquier hosting estático.
 
 ```
 index.html, niveles.html, nivel.html, leccion.html, test.html, examenes.html, metodo.html,
-simulacros.html, simulacro.html
+simulacros.html, simulacro.html, listening.html, escuchar.html
 assets/css/styles.css
 assets/js/app.js                 # lógica común y renderizado
 assets/js/data/curriculum.js     # niveles, unidades y lecciones planificadas
 assets/js/data/lessons.js        # contenido de las lecciones
 assets/js/data/placement.js      # preguntas del test de nivel
 assets/js/data/mocks.js          # simulacros de examen
+assets/js/data/listening.js      # ejercicios de listening
 ```
 
 ## Añadir una lección
