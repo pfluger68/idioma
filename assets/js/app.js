@@ -554,15 +554,19 @@
   function pickVoices(speakers) {
     const all = speechSynthesis.getVoices().filter(v => v.lang.toLowerCase().startsWith("en"));
     const lang = v => v.lang.replace("_", "-");
-    const used = new Set(), out = {};
+    const used = new Map(), out = {};
     for (const [key, sp] of Object.entries(speakers)) {
       const re = sp.gender === "f" ? FEMALE_RE : MALE_RE, acc = sp.accent || "en-GB";
       const free = all.filter(v => !used.has(v.name));
       const v = free.find(v => re.test(v.name) && lang(v) === acc) || free.find(v => re.test(v.name)) ||
-                free.find(v => lang(v) === acc) || free[0] || all[0] || null;
-      if (v) used.add(v.name);
-      // Si no sabemos el género de la voz, diferenciamos a los hablantes con el tono.
-      out[key] = { voice: v, pitch: v && re.test(v.name) ? 1 : (sp.gender === "f" ? 1.2 : 0.8) };
+                free.find(v => lang(v) === acc) || free[0] ||
+                all.find(v => re.test(v.name)) || all[0] || null;
+      const reuse = v ? used.get(v.name) || 0 : 0;
+      if (v) used.set(v.name, reuse + 1);
+      // Si no sabemos el género de la voz, o la voz se repite, diferenciamos a los hablantes con el tono.
+      let pitch = v && re.test(v.name) ? 1 : (sp.gender === "f" ? 1.2 : 0.8);
+      if (reuse) pitch = Math.min(1.6, Math.max(0.6, pitch + (reuse % 2 ? 0.18 : -0.18) * Math.ceil(reuse / 2)));
+      out[key] = { voice: v, pitch };
     }
     return out;
   }
@@ -590,7 +594,8 @@
 
   /* ---------- Página: listado de listening ---------- */
   function renderListeningList() {
-    $("#listening-grid").innerHTML = I.listening.map(x => {
+    const order = I.levels.map(l => l.id);
+    $("#listening-grid").innerHTML = [...I.listening].sort((a, b) => order.indexOf(a.level) - order.indexOf(b.level)).map(x => {
       const best = Progress.listening(x.id);
       return `<a class="card" href="escuchar.html?id=${x.id}">
         <span class="badge ${x.level}">${x.level.toUpperCase()}</span>
@@ -627,6 +632,7 @@
         ${hasSpeech ? "" : `<div class="callout"><strong>Aviso:</strong> tu navegador no permite reproducir voz. Puedes leer la transcripción para practicar.</div>`}
         <p class="muted" style="font-size:.88rem">Audio generado con la voz de tu navegador; la calidad y las voces disponibles dependen de tu dispositivo.</p>
         <h2>Preguntas</h2>
+        ${(ex.boxes || []).map(b => `<div class="mock-options"><h3>${b.title}</h3>${b.items.map(it => `<p><strong class="opt-label">${it[0]}</strong> ${esc(it.slice(2))}</p>`).join("")}</div>`).join("")}
         <div id="lq"></div>
         <div style="text-align:center;margin:24px 0"><button class="btn btn-primary" id="check">Comprobar respuestas</button></div>
         <div id="lresult"></div>
@@ -651,11 +657,16 @@
     window.addEventListener("beforeunload", () => hasSpeech && speechSynthesis.cancel());
     status();
 
-    $("#lq").innerHTML = ex.questions.map((q, i) => `<div class="exercise" data-i="${i}">
+    const L = "ABCDEFGH";
+    $("#lq").innerHTML = ex.questions.map((q, i) => q.type === "select"
+      ? `<div class="exercise match-q" data-i="${i}"><div class="match-row" style="border:0">
+          <span class="gap"><select data-i="${i}" aria-label="${esc(q.prompt)}"><option value="">—</option>${q.choices.map(c => `<option>${c}</option>`).join("")}</select></span>
+          <strong>${esc(q.prompt)}</strong><span class="mock-fb"></span></div></div>`
+      : `<div class="exercise" data-i="${i}">
       <div class="q-num">Pregunta ${i + 1}</div>
       <div class="prompt">${esc(q.prompt).replace("___", "______")}</div>
       ${q.type === "mc"
-        ? `<div class="options">${q.options.map((o, k) => `<label class="option mock-opt"><input type="radio" name="lq${i}" value="${k}"> <strong>${"ABC"[k]}</strong> ${esc(o)}</label>`).join("")}</div>`
+        ? `<div class="options">${q.options.map((o, k) => `<label class="option mock-opt"><input type="radio" name="lq${i}" value="${k}"> <strong>${L[k]}</strong> ${esc(o)}</label>`).join("")}</div>`
         : `<div class="answer-row"><input type="text" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Respuesta ${i + 1}"></div>`}
       <div class="mock-fb"></div></div>`).join("");
 
@@ -666,7 +677,12 @@
       ex.questions.forEach((q, i) => {
         const box = $(`.exercise[data-i="${i}"]`), fb = $(".mock-fb", box);
         let ok;
-        if (q.type === "mc") {
+        if (q.type === "select") {
+          const sel = box.querySelector("select");
+          ok = sel.value === q.answer;
+          sel.disabled = true; sel.classList.add(ok ? "correct" : "wrong");
+          fb.innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta: ${q.answer}</span>`;
+        } else if (q.type === "mc") {
           const ch = box.querySelector("input:checked");
           ok = !!ch && Number(ch.value) === q.answer;
           box.querySelectorAll("input").forEach(r => {
@@ -674,7 +690,7 @@
             if (Number(r.value) === q.answer) r.closest("label").classList.add("correct");
             else if (r.checked) r.closest("label").classList.add("wrong");
           });
-          fb.innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta correcta: ${"ABC"[q.answer]}</span>`;
+          fb.innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta correcta: ${L[q.answer]}</span>`;
         } else {
           const inp = box.querySelector("input");
           ok = isCorrect(inp.value, q.answers);

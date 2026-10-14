@@ -15,7 +15,7 @@ C1 Advanced, C2 Proficiency e IELTS.
 - **Simulacros de examen**: 2 por nivel del Reading & Use of English completo de C1 Advanced (8 partes, 78 puntos) y C2 Proficiency
   (7 partes, 72 puntos), en 90 minutos,
   con temporizador, corrección por partes y estimación orientativa en la escala de Cambridge.
-- **Listening**: 6 ejercicios de comprensión auditiva (A2–C2) con formato de examen, 2 escuchas,
+- **Listening**: 14 ejercicios de comprensión auditiva (A1–C2) con formato de examen, 2 escuchas,
   voces distintas por hablante (síntesis de voz del navegador) y transcripción tras corregir.
 - **Writing**: 5 tareas con formato de examen (B1 Preliminary a C2 Proficiency), editor con contador
   de palabras y temporizador, autoevaluación con los criterios de Cambridge y respuestas modelo comentadas.
