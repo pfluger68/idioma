@@ -1,5 +1,7 @@
 # Idioma — Inglés de cero a nativo (A1 → C2)
 
+**Web publicada:** https://pfluger68.github.io/idioma/
+
 Plataforma web para aprender inglés desde cero hasta nivel C2, alineada con el
 Marco Común Europeo de Referencia (MCER/CEFR) y orientada a aprobar los exámenes
 C1 Advanced, C2 Proficiency e IELTS.
