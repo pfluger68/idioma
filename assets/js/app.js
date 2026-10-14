@@ -717,7 +717,8 @@
   const saveDraft = (id, t) => { try { localStorage.setItem(draftKey(id), t); } catch { /* sin almacenamiento */ } };
 
   function renderWritingList() {
-    $("#writing-grid").innerHTML = I.writing.map(w => {
+    const order = I.levels.map(l => l.id);
+    $("#writing-grid").innerHTML = [...I.writing].sort((a, b) => order.indexOf(a.level) - order.indexOf(b.level)).map(w => {
       const self = Progress.writing(w.id), draft = loadDraft(w.id);
       return `<a class="card" href="escribir.html?id=${w.id}">
         <span class="badge ${w.level}">${w.level.toUpperCase()}</span>

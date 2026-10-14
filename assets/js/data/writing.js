@@ -112,6 +112,99 @@ IDIOMA.writing = [
     "Organisation": ["La estructura es clara: introducción, texto 1, texto 2, conclusión.", "Las transiciones entre textos y párrafos son fluidas."],
     "Language": ["Uso verbos de opinión precisos (contend, maintain, concede, overlook).", "Uso estructuras de C2 (inversión, nominalización, distanciamiento).", "El texto apenas contiene errores."]
   }
+},
+{
+  id: "w-c1-proposal", level: "c1", exam: "C1 Advanced", title: "Proposal: instalaciones para jóvenes", part: "Parte 2 · Proposal", words: [220, 260], minutes: 45,
+  task: [
+    "El ayuntamiento de tu ciudad dispone de una partida para mejorar las instalaciones destinadas a los jóvenes y ha pedido propuestas a los vecinos.",
+    "<blockquote><p>Write a proposal in which you:</p><p>• <strong>describe</strong> the facilities currently available for young people<br>• <strong>suggest</strong> how the money should be spent<br>• <strong>explain</strong> how your suggestions would benefit the community.</p></blockquote>",
+    "Escribe la <strong>proposal</strong> en entre <strong>220 y 260 palabras</strong>."
+  ],
+  tips: ["Una proposal mira al futuro: el núcleo son tus sugerencias y sus beneficios.", "Usa título y encabezados, como en un report.", "Escribe para persuadir a quien decide: tono formal, propuestas concretas y realistas."],
+  model: [
+    { h: "Proposal: improving facilities for young people in Northfield", text: "", note: "Título que indica el tipo de texto y el tema." },
+    { h: "Introduction", text: "The purpose of this proposal is to recommend how the funding recently made available by the council could best be used to meet the needs of young people in the area. It draws on the views of around fifty local teenagers and parents.", note: "Propósito y fuente de las ideas: da autoridad al texto." },
+    { h: "Current situation", text: "At present, provision for young people is extremely limited. Apart from a small skate park, which is in poor condition, there is nowhere for teenagers to meet in the evenings. As a result, many congregate outside shops, which has occasionally led to complaints from residents.", note: "Describe la situación actual con causa y consecuencia («As a result»)." },
+    { h: "Recommendations", text: "I would suggest that the money be spent in two main ways. Firstly, the disused community hall on Station Road could be converted into a youth centre offering study space, a café and evening activities such as music and coding workshops. Secondly, the skate park should be renovated and properly lit, so that it can be used safely after dark.", note: "Sugerencias concretas. «Suggest that the money be spent» usa el subjuntivo formal, rasgo de C1." },
+    { h: "Expected benefits", text: "These measures would give young people safe, supervised places to spend their free time, which is likely to reduce tensions with residents. A youth centre would also provide valuable support for students who lack a quiet place to study at home, and could offer volunteering opportunities that strengthen links between generations.", note: "Beneficios para la comunidad, con hedging («is likely to») para sonar realista." },
+    { h: "", text: "I am confident that, if implemented, these proposals would make a lasting difference to the lives of young people in Northfield.", note: "Cierre persuasivo. «If implemented» es una participle clause reducida." }
+  ],
+  checklist: {
+    "Content": ["Describo las instalaciones actuales.", "Sugiero en qué gastar el dinero, con propuestas concretas.", "Explico los beneficios para la comunidad."],
+    "Communicative Achievement": ["El tono es formal y persuasivo, adecuado para el ayuntamiento.", "Uso título y encabezados."],
+    "Organisation": ["Cada sección cumple una función clara.", "Las propuestas responden a los problemas descritos."],
+    "Language": ["Uso lenguaje de propuesta (I would suggest that…, I would recommend…, if implemented).", "Uso estructuras formales (subjuntivo, pasiva, hedging)."]
+  }
+},
+{
+  id: "w-c1-review", level: "c1", exam: "C1 Advanced", title: "Review: un libro que cambió tu forma de ver algo", part: "Parte 2 · Review", words: [220, 260], minutes: 45,
+  task: [
+    "Una revista internacional invita a sus lectores a enviar reseñas.",
+    "<blockquote><p><strong>Reviews wanted!</strong></p><p>Have you read a book or seen a film that changed the way you see something? Send us a review explaining what the book or film is about, <strong>why it changed your perspective</strong>, and <strong>who you would recommend it to</strong>.</p></blockquote>",
+    "Escribe tu <strong>review</strong> en entre <strong>220 y 260 palabras</strong>."
+  ],
+  tips: ["Una review combina descripción, valoración y recomendación: las tres son obligatorias.", "Engancha al lector desde el título y la primera frase.", "Registro semiformal: puedes dirigirte al lector y mostrar entusiasmo, pero con lenguaje preciso."],
+  model: [
+    { h: "Why the world is better than you think", text: "", note: "Título atractivo, como en una revista." },
+    { text: "How many of us would score worse than a chimpanzee in a quiz about the state of the world? According to the late Hans Rosling, the vast majority. His book <em>Factfulness</em>, written with his son and daughter-in-law, sets out to explain why.", note: "Apertura con pregunta retórica para captar al lector, y presentación del libro." },
+    { text: "The book opens with a set of multiple-choice questions on topics such as poverty, education and life expectancy. Most readers, including highly educated ones, get the majority wrong, consistently assuming the world to be poorer and more dangerous than it actually is. Rosling then identifies ten 'instincts' that distort our thinking, from our tendency to focus on frightening news to our habit of dividing the world into 'us' and 'them'.", note: "Describe el contenido sin contar todo, con vocabulario preciso." },
+    { text: "What struck me most was not the statistics themselves but how confidently wrong I had been. I had always considered myself well informed, yet my picture of the world was decades out of date. Since reading it, I have become far more cautious about drawing conclusions from dramatic headlines.", note: "Explica por qué cambió su perspectiva: el núcleo de la tarea, con un toque personal." },
+    { text: "Admittedly, some critics feel the book is overly optimistic and pays too little attention to problems such as climate change. Even so, its central message, that we should base our views on evidence rather than instinct, could hardly be more relevant.", note: "Valoración equilibrada: reconoce críticas antes de defender el libro («Admittedly… Even so»)." },
+    { text: "I would recommend <em>Factfulness</em> to anyone who follows the news, and particularly to students and teachers. It is clear, often funny and genuinely eye-opening.", note: "Recomendación explícita con destinatarios concretos, como pide la tarea." }
+  ],
+  checklist: {
+    "Content": ["Explico de qué trata el libro o la película.", "Explico por qué cambió mi forma de ver algo.", "Digo a quién se lo recomendaría."],
+    "Communicative Achievement": ["El título y la apertura captan la atención del lector.", "El tono es atractivo pero preciso, propio de una revista."],
+    "Organisation": ["Separo descripción, valoración y recomendación en párrafos.", "Uso conectores de contraste y concesión (admittedly, even so, yet)."],
+    "Language": ["Uso vocabulario evaluativo variado (eye-opening, overly optimistic, accomplished…).", "Uso estructuras de C1 (cleft sentences, participle clauses, inversión)."]
+  }
+},
+{
+  id: "w-c1-letter", level: "c1", exam: "C1 Advanced", title: "Carta formal de reclamación", part: "Parte 2 · Letter", words: [220, 260], minutes: 45,
+  task: [
+    "El verano pasado hiciste un curso intensivo de inglés de dos semanas en una escuela de verano en el extranjero. La experiencia fue decepcionante.",
+    "<blockquote><p>Write a letter to the director of the school in which you:</p><p>• explain <strong>what was disappointing</strong> about the course, compared with what was advertised<br>• <strong>suggest</strong> how the course could be improved for future students.</p></blockquote>",
+    "Escribe la <strong>carta</strong> en entre <strong>220 y 260 palabras</strong>. No incluyas direcciones postales."
+  ],
+  tips: ["Mantén un tono firme pero cortés: una carta agresiva pierde puntos de Communicative Achievement.", "Contrasta lo anunciado con la realidad, con datos concretos.", "Si no conoces el nombre del destinatario: Dear Sir or Madam … Yours faithfully."],
+  model: [
+    { text: "Dear Sir or Madam,", note: "Saludo formal: destinatario desconocido." },
+    { text: "I am writing to express my disappointment with the two-week Intensive English course I attended at your school in July. While I appreciate that summer is a busy period, several aspects of the course fell considerably short of what was advertised.", note: "Motivo de la carta en la primera frase, con un tono firme pero razonable («While I appreciate…»)." },
+    { text: "Firstly, your brochure promised classes of no more than eight students. In practice, my group never had fewer than fifteen, which meant that opportunities to speak were extremely limited. Secondly, the course was described as being taught by 'experienced, qualified teachers'. However, we had three different teachers in the space of two weeks, one of whom openly admitted that it was his first teaching job.", note: "Contraste concreto entre lo anunciado y la realidad, ordenado con «Firstly / Secondly»." },
+    { text: "I was also disappointed by the social programme. Of the six excursions listed, only two actually took place, and no explanation or refund was offered for those that were cancelled. When I raised the matter with the course coordinator, I was simply told that 'this happens every year'.", note: "Tercer problema, con datos precisos que dan credibilidad a la queja." },
+    { text: "I would like to suggest a number of improvements. Above all, class sizes should be capped as advertised, even if this means accepting fewer students. It would also be helpful to ensure continuity of teaching staff and to inform students promptly of any changes to the programme, offering compensation where appropriate.", note: "Sugerencias constructivas, como pide la tarea, con lenguaje cortés (It would be helpful to…)." },
+    { text: "I hope that you will take these comments into account and look forward to hearing how you intend to address them.<br>Yours faithfully,<br>Laura Méndez", note: "Cierre formal que pide una respuesta. «Yours faithfully» concuerda con «Dear Sir or Madam»." }
+  ],
+  checklist: {
+    "Content": ["Explico qué fue decepcionante comparado con lo anunciado.", "Sugiero mejoras concretas."],
+    "Communicative Achievement": ["El tono es formal, firme y cortés, nunca agresivo.", "Saludo y despedida concuerdan (Dear Sir or Madam → Yours faithfully)."],
+    "Organisation": ["Un párrafo por problema y otro para las sugerencias.", "Uso conectores para ordenar (firstly, secondly, also, above all)."],
+    "Language": ["Uso lenguaje formal de reclamación (fell short of, express my disappointment).", "No uso contracciones ni expresiones coloquiales."]
+  }
+},
+{
+  id: "w-c2-article", level: "c2", exam: "C2 Proficiency", title: "Article: ¿aprender idiomas en la era de la traducción automática?", part: "Parte 2 · Article", words: [280, 320], minutes: 45,
+  task: [
+    "Una revista cultural internacional ha publicado este anuncio:",
+    "<blockquote><p><strong>Lost in translation?</strong></p><p>Translation apps are becoming more accurate every year. Is it still worth spending years learning a foreign language? Write an article giving your views. The best articles will be published in next month's issue.</p></blockquote>",
+    "Escribe tu <strong>article</strong> en entre <strong>280 y 320 palabras</strong>."
+  ],
+  tips: ["Un artículo debe enganchar: título sugerente, apertura viva y voz personal.", "Combina argumentos con ejemplos concretos y alguna anécdota.", "En C2 se valora el estilo: variedad sintáctica, ironía ligera, preguntas retóricas y un cierre memorable."],
+  model: [
+    { h: "Why I'm still learning Italian", text: "", note: "Título personal y sugerente, en lugar de repetir la pregunta del enunciado." },
+    { text: "Last summer, in a small village in Umbria, I watched a tourist hold his phone up to an elderly shopkeeper, who listened politely as a synthetic voice asked for 'two hundred grams of the local cheese, please'. The transaction was a success. The cheese was purchased. And yet something, I couldn't help feeling, had been lost.", note: "Apertura con una anécdota concreta que plantea el tema sin enunciarlo. Frases cortas al final para crear ritmo." },
+    { text: "It would be foolish to deny that translation technology has transformed how we travel, work and communicate. For reading a menu, deciphering a contract or navigating a foreign hospital, it is nothing short of a revolution, and those who dismiss it are, I suspect, rarely the ones stranded abroad without a word of the local language.", note: "Concede el argumento contrario con matices antes de rebatirlo: argumentación madura." },
+    { text: "But a language is not merely a code to be cracked. It carries a way of seeing the world: the jokes a culture finds funny, the things it considers too obvious to say, the words it has for experiences other languages leave unnamed. No app, however sophisticated, can give you the experience of understanding a joke the moment it is told, or of being trusted because you have made the effort to speak someone's language, however imperfectly.", note: "Argumento central con enumeración y estructuras concesivas («however sophisticated… however imperfectly»)." },
+    { text: "There is a cognitive argument, too. Learning a language is one of the most demanding things an adult mind can do, and the effort itself appears to bring benefits, from improved concentration to a greater tolerance of ambiguity. Outsourcing that effort to a machine is convenient; it is not the same as having done it, any more than watching a marathon on television is the same as running one.", note: "Segundo argumento, con hedging («appears to») y un contraste final en paralelo." },
+    { text: "So yes, use the app to buy your cheese. But if you want to understand why the shopkeeper smiled when you tried, however clumsily, to ask for it yourself, there is still no substitute for learning the language.", note: "Cierre que retoma la anécdota inicial (estructura circular) y deja una idea memorable." }
+  ],
+  checklist: {
+    "Content": ["Respondo a la pregunta con una opinión clara.", "Apoyo mis argumentos con ejemplos o anécdotas."],
+    "Communicative Achievement": ["El título y la apertura enganchan al lector.", "El tono es personal pero sofisticado, propio de una revista cultural."],
+    "Organisation": ["El texto tiene una progresión clara y un cierre memorable.", "Las transiciones entre párrafos son naturales y variadas."],
+    "Language": ["Uso estructuras de C2 con naturalidad (inversión, cleft sentences, concesivas).", "Varío la longitud y el ritmo de las frases.", "Uso vocabulario preciso e idiomático sin forzarlo."]
+  }
 }
+
 ];
 IDIOMA.writingById = id => IDIOMA.writing.find(x => x.id === id);
