@@ -295,6 +295,287 @@ IDIOMA.mocks = [
       ]
     }
   ]
+},
+
+/* ============================ C1 ADVANCED · 2 ============================ */
+{
+  id: "c1-rue-2", level: "c1", exam: "C1 Advanced", title: "Reading & Use of English completo · Simulacro 2", minutes: 90, minReport: 142,
+  scale: [[0, 120], [0.2, 142], [0.4, 160], [0.6, 180], [0.8, 200], [1, 210]],
+  parts: [
+    { type: "mcCloze", title: "Parte 1 · Multiple-choice cloze", marks: 1,
+      instructions: "Elige la palabra (A, B, C o D) que mejor completa cada hueco.",
+      heading: "The rise of citizen science",
+      text: "In recent years, ordinary members of the public have come to play an increasingly significant {{1}} in scientific research. So-called citizen science projects {{2}} heavily on volunteers to gather data that professional researchers could never collect on their own. Birdwatchers, for {{3}}, have helped scientists track the effects of climate change on migration patterns across entire continents.\n\nThe approach has not been without its critics. Some scientists have {{4}} doubts about the reliability of data collected by untrained volunteers. Supporters, however, point out that most projects provide clear guidance, and that errors tend to cancel each other out when data is gathered on such a large {{5}}. What is more, taking {{6}} in such projects appears to {{7}} participants' interest in science, and in some cases has even {{8}} rise to new careers.",
+      gaps: [
+        { n: 1, options: ["role", "function", "position", "task"], answer: 0 },
+        { n: 2, options: ["rely", "trust", "believe", "hope"], answer: 0 },
+        { n: 3, options: ["instance", "case", "sample", "model"], answer: 0 },
+        { n: 4, options: ["raised", "lifted", "put", "made"], answer: 0 },
+        { n: 5, options: ["scale", "size", "range", "measure"], answer: 0 },
+        { n: 6, options: ["part", "place", "share", "role"], answer: 0 },
+        { n: 7, options: ["boost", "climb", "rise", "mount"], answer: 0 },
+        { n: 8, options: ["given", "made", "brought", "put"], answer: 0 }
+      ]
+    },
+    { type: "openCloze", title: "Parte 2 · Open cloze", marks: 1,
+      instructions: "Escribe una sola palabra en cada hueco.",
+      heading: "Why we put things off",
+      text: "Most people put things off from time {{9}} time. Contrary {{10}} popular belief, however, procrastination has little to do with laziness. Psychologists now regard it {{11}} a problem of managing emotions rather than time. When faced {{12}} a task that makes us anxious or bored, we look for ways to avoid the unpleasant feeling, {{13}} only makes the task seem larger.\n\n{{14}} the time we eventually get round to it, the deadline is often uncomfortably close. One effective strategy is to break the task down into smaller steps, {{15}} of which feels manageable. Another is simply to commit to working on it for five minutes; once they have started, people tend to carry {{16}}.",
+      gaps: [
+        { n: 9, answers: ["to"] }, { n: 10, answers: ["to"] }, { n: 11, answers: ["as"] }, { n: 12, answers: ["with"] },
+        { n: 13, answers: ["which"] }, { n: 14, answers: ["by"] }, { n: 15, answers: ["each"] }, { n: 16, answers: ["on"] }
+      ]
+    },
+    { type: "wordForm", title: "Parte 3 · Word formation", marks: 1,
+      instructions: "Forma una palabra a partir de la que aparece en mayúsculas para completar cada hueco.",
+      heading: "Museums in the digital age",
+      text: "Museums are attracting more {{17}} than ever before. {{18}}, they were seen as quiet places for experts, but many have worked hard to make their exhibits more {{19}} to the general public. {{20}} displays allow children to touch and explore, and entire {{21}} can now be viewed online.\n\nSome fear that virtual tours will eventually make physical visits unnecessary. Yet the experience of standing in front of an original work of art is {{22}} richer than viewing it on a screen. There is something {{23}} about seeing the real thing, and it is this sense of {{24}} that keeps people coming back.",
+      gaps: [
+        { n: 17, word: "VISIT", answers: ["visitors"] },
+        { n: 18, word: "TRADITION", answers: ["traditionally"] },
+        { n: 19, word: "ACCESS", answers: ["accessible"] },
+        { n: 20, word: "INTERACT", answers: ["interactive"] },
+        { n: 21, word: "COLLECT", answers: ["collections"] },
+        { n: 22, word: "ARGUE", answers: ["arguably"] },
+        { n: 23, word: "REPLACE", answers: ["irreplaceable"] },
+        { n: 24, word: "AUTHENTIC", answers: ["authenticity"] }
+      ]
+    },
+    { type: "kwt", title: "Parte 4 · Key word transformations", marks: 2,
+      instructions: "Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre 3 y 6 palabras.",
+      items: [
+        { n: 25, first: "It's possible that she missed the train.", keyword: "MIGHT", before: "She", after: "the train.", answers: ["might have missed", "might've missed"] },
+        { n: 26, first: "I'd prefer you not to smoke in here.", keyword: "RATHER", before: "I'd", after: "smoke in here.", answers: ["rather you didn't", "rather you did not"] },
+        { n: 27, first: "Although it was raining heavily, the match went ahead.", keyword: "SPITE", before: "The match went ahead", after: "heavy rain.", answers: ["in spite of the"] },
+        { n: 28, first: "They're building a new hospital in the town.", keyword: "BUILT", before: "A new hospital", after: "in the town.", answers: ["is being built"] },
+        { n: 29, first: "Tom is the only person who knows the password.", keyword: "NOBODY", before: "", after: "Tom knows the password.", answers: ["nobody apart from", "nobody except", "nobody other than", "nobody but", "nobody else but", "nobody besides"] },
+        { n: 30, first: "I hadn't expected the exam to be so easy.", keyword: "EASIER", before: "The exam", after: "I had expected.", answers: ["was much easier than", "was far easier than", "was a lot easier than", "was easier than"] }
+      ]
+    },
+    { type: "readingMC", title: "Parte 5 · Multiple choice", marks: 2,
+      instructions: "Lee el texto y elige la respuesta (A, B, C o D) que mejor se ajusta a lo que dice.",
+      heading: "The return of the repair shop",
+      passage: [
+        "Not so long ago, it seemed that the repair shop had gone the way of the typewriter. When a toaster stopped working or a phone screen cracked, the sensible response was to throw it away and buy a new one; replacement was usually cheaper, and certainly more convenient, than repair. Today, however, a quiet counter-movement is under way.",
+        "In towns across Europe, volunteers have set up 'repair cafés', informal gatherings where people bring broken household items and, with the help of skilled amateurs, try to fix them. The first was organised in Amsterdam in 2009; there are now thousands worldwide. Their founders insist that the aim is not simply to save money. 'It's about changing the way people think about objects,' one organiser told me. 'Once you've repaired something yourself, you never quite look at it in the same way again.'",
+        "Manufacturers have been slow to embrace this shift. Many products are designed in ways that make repair difficult, if not impossible: components are glued rather than screwed together, spare parts are unavailable, and repair manuals are kept confidential. Critics argue that this is deliberate, a strategy to encourage frequent replacement. Manufacturers, for their part, maintain that sealed designs make products thinner, lighter and more resistant to water.",
+        "Legislators are now stepping in. New 'right to repair' rules require manufacturers of certain appliances to make spare parts available for a number of years after a product is sold. Campaigners have welcomed the measures but warn that they do not go far enough, pointing out that they cover only a limited range of products and do nothing to bring down the often prohibitive cost of official repairs.",
+        "Whether these changes will alter consumer behaviour remains to be seen. Convenience is a powerful force, and many people will continue to choose a new device over a repaired one. But the popularity of repair cafés suggests that, for a growing number of people, the satisfaction of making something work again is worth a little inconvenience."
+      ],
+      questions: [
+        { n: 31, prompt: "In the first paragraph, the writer suggests that until recently, repairing items was", options: ["considered a valuable skill.", "less practical than replacing them.", "only possible for experts.", "more popular than it is today."], answer: 1 },
+        { n: 32, prompt: "According to the organiser quoted in the second paragraph, repairing things yourself", options: ["saves a surprising amount of money.", "changes your attitude towards possessions.", "is easier than most people imagine.", "should be taught in schools."], answer: 1 },
+        { n: 33, prompt: "What does the writer say about manufacturers in the third paragraph?", options: ["They openly admit that they discourage repairs.", "They justify their designs on practical grounds.", "They have begun publishing repair manuals.", "They are unaware of the repair café movement."], answer: 1 },
+        { n: 34, prompt: "In the third paragraph, \"this\" in \"Critics argue that this is deliberate\" refers to", options: ["designing products that are hard to repair.", "the confidentiality of repair manuals only.", "making products thinner and lighter.", "the growing interest in repair."], answer: 0 },
+        { n: 35, prompt: "What reservation do campaigners express about the new rules?", options: ["They will make new products more expensive.", "They are too limited in scope.", "They will be difficult to enforce.", "They were introduced too hastily."], answer: 1 },
+        { n: 36, prompt: "What is the writer's conclusion?", options: ["Most consumers will soon prefer repair to replacement.", "Repair cafés will eventually replace commercial repair shops.", "For some people, repairing things brings rewards that outweigh the effort.", "Legislation is the only way to change consumer behaviour."], answer: 2 }
+      ]
+    },
+    { type: "matching", title: "Parte 6 · Cross-text multiple matching", marks: 2,
+      instructions: "Lee las opiniones de cuatro especialistas (A–D) sobre los zoológicos y responde: ¿qué especialista…?",
+      heading: "Do zoos still have a place?",
+      texts: [
+        { label: "A", body: "There is no doubt that zoos have saved a number of species from extinction through carefully managed breeding programmes, and this alone justifies their existence. I am far less persuaded by the claim that they educate the public; studies suggest most visitors leave knowing little more than when they arrived. More troubling still is the situation of large, wide-ranging mammals such as elephants, which show clear signs of stress in even the most spacious enclosures. Zoos should stop keeping such animals and concentrate instead on species that genuinely thrive in captivity." },
+        { label: "B", body: "Zoos like to present themselves as modern arks, but the truth is that very few animals bred in captivity are ever successfully returned to the wild; their contribution to conservation is largely symbolic. Where zoos do excel is in education. Seeing a living animal up close can spark a lifelong interest in nature, particularly among children. And the welfare standards in accredited zoos today are vastly better than they were a generation ago. I see no need for fundamental change; the best zoos are already doing what they should." },
+        { label: "C", body: "For some species, captive breeding is the last line of defence against extinction, and without zoos several animals would already have disappeared. Zoos also have an important role in teaching the public about biodiversity; visitors who see endangered animals are more likely to support conservation causes. I do, however, share the concern that elephants, great apes and big cats cannot have their needs met in captivity. In the long term, zoos should evolve into research and breeding centres, with far less emphasis on entertainment." },
+        { label: "D", body: "Zoos have made an undeniable contribution to the survival of threatened species, and their breeding expertise is invaluable. Their educational role, on the other hand, is often exaggerated: a quick stroll past a few enclosures, usually with a smartphone in hand, teaches visitors very little. As for welfare, I find most criticism outdated; the animals in well-run zoos are healthy and well cared for. Nevertheless, zoos cannot carry on as they are. They should become true sanctuaries, open to the public only in limited ways." }
+      ],
+      questions: [
+        { n: 37, prompt: "has a different view from the others on the contribution zoos make to conservation?", answer: "B" },
+        { n: 38, prompt: "shares A's opinion on the educational value of zoos?", answer: "D" },
+        { n: 39, prompt: "shares C's concerns about the welfare of large animals in zoos?", answer: "A" },
+        { n: 40, prompt: "has a different opinion from the others on whether zoos need to change?", answer: "B" }
+      ]
+    },
+    { type: "matching", gapped: true, title: "Parte 7 · Gapped text", marks: 2,
+      instructions: "Se han eliminado seis párrafos del artículo. Elige el párrafo (A–G) que encaja en cada hueco. Sobra un párrafo.",
+      heading: "Learning to sail at fifty",
+      passage: [
+        "I had always assumed that sailing was something you learned as a child, ideally from a parent with a boat and a great deal of patience. So when, at the age of fifty, I signed up for a beginners' course on the south coast, I was fully prepared to be the oldest and most incompetent person there.",
+        { gap: 41 },
+        "Our instructor, Jen, wasted no time. Within an hour of arriving, we were out on the water in small dinghies, each of us paired with another beginner.",
+        { gap: 42 },
+        "'Everybody capsizes,' she told us later, as we sat shivering on the jetty. 'The ones who learn fastest are the ones who stop being afraid of it.'",
+        { gap: 43 },
+        "By the third day, something had changed. The jargon that had baffled me at first, all those halyards, tacks and gybes, began to make sense, and I found myself reacting to the wind almost without thinking.",
+        { gap: 44 },
+        "On the boat, by contrast, every action had an immediate consequence. Pull the rope too hard and you lost speed; steer a fraction too close to the wind and the sails began to flap.",
+        { gap: 45 },
+        "On the final day, Jen sent us out alone. I sailed across the bay and back without capsizing once, which, given my performance on the first morning, felt like a minor miracle.",
+        { gap: 46 }
+      ],
+      options: [
+        { label: "A", text: "I was half right. At least two of my fellow students were older than me, including a retired surgeon who had decided, after decades of operating, that he wanted to spend his remaining years 'doing something that couldn't kill anyone else'." },
+        { label: "B", text: "It was advice that applied to more than sailing. Over the following days, I noticed that my worst moments came not from a lack of skill but from hesitation: the second of doubt before turning, the reluctance to commit." },
+        { label: "C", text: "Unfortunately, the weather that week was so poor that we never actually left the harbour, and spent most of the course studying diagrams in a classroom." },
+        { label: "D", text: "That sense of instinctive control was, I think, what I had been looking for without realising it. In my working life, almost everything involved meetings, emails and decisions that took weeks to have any visible effect." },
+        { label: "E", text: "I have been sailing most weekends since. I am still far from expert, but I have stopped worrying about that. What matters is the time on the water, and the reminder that it is never too late to be a beginner." },
+        { label: "F", text: "My partner was a nervous young accountant called Tom, and between us we managed to capsize twice before lunch. Jen, watching from a motorboat, seemed entirely unconcerned." },
+        { label: "G", text: "There was something deeply satisfying about this directness. For the first time in years, I was fully absorbed in what I was doing, with no room in my head for anything else." }
+      ],
+      questions: [
+        { n: 41, answer: "A" }, { n: 42, answer: "F" }, { n: 43, answer: "B" },
+        { n: 44, answer: "D" }, { n: 45, answer: "G" }, { n: 46, answer: "E" }
+      ]
+    },
+    { type: "matching", title: "Parte 8 · Multiple matching", marks: 1,
+      instructions: "Cuatro jóvenes emprendedores hablan de sus negocios. ¿Qué persona (A–D)…?",
+      heading: "Going it alone",
+      texts: [
+        { label: "A", heading: "Leo, app developer", body: "When I left university, I had an idea for an app that would help people split bills with friends. My parents lent me enough money to cover the first year, which I'm still paying back. My biggest mistake was assuming nobody else had thought of the same thing. Within six months, three similar apps had appeared, all backed by much larger companies, and I had to rethink the whole product. In the end, we found a niche among small community groups, and things have gone well since, but it was a hard lesson." },
+        { label: "B", heading: "Ana, clothing designer", body: "I started collecting unwanted clothes and turning them into new designs because I was shocked by how much textile waste ends up in landfill. In the beginning, it was incredibly hard. After a year of barely breaking even, I came very close to closing down and looking for a regular job. What saved me was meeting an older businesswoman who had run a fashion company for decades. She showed me how to price my products properly and how to approach shops, and within months everything had turned around." },
+        { label: "C", heading: "Sam, bike delivery service", body: "I set up a bike delivery service while I was still at college, mostly as a way to earn some money between lectures. By the time I graduated, it had grown into a proper business with twelve riders. People sometimes ask whether I miss having a stable salary, but honestly, the freedom to decide when and how I work matters far more to me. If I want to take a Tuesday afternoon off to go climbing, I can. That's worth a lot." },
+        { label: "D", heading: "Priya, tutoring platform", body: "When I moved to a new country, I found it almost impossible to find an affordable language tutor, so I built a simple website connecting learners with students who wanted to earn some extra money by teaching. I expected it to take years to attract users, but within a few months we had thousands. We're now in talks with investors about launching the platform in other countries, starting with Germany and Spain next year." }
+      ],
+      questions: [
+        { n: 47, prompt: "received financial help from their family?", answer: "A" },
+        { n: 48, prompt: "got the idea for the business from a difficulty they had experienced?", answer: "D" },
+        { n: 49, prompt: "nearly abandoned the business at one stage?", answer: "B" },
+        { n: 50, prompt: "values the flexibility of working for themselves?", answer: "C" },
+        { n: 51, prompt: "underestimated the competition?", answer: "A" },
+        { n: 52, prompt: "benefited from the advice of a more experienced person?", answer: "B" },
+        { n: 53, prompt: "is planning to expand the business internationally?", answer: "D" },
+        { n: 54, prompt: "started the business while still studying?", answer: "C" },
+        { n: 55, prompt: "was motivated by environmental concerns?", answer: "B" },
+        { n: 56, prompt: "says the business grew more quickly than they had anticipated?", answer: "D" }
+      ]
+    }
+  ]
+},
+
+/* =========================== C2 PROFICIENCY · 2 =========================== */
+{
+  id: "c2-rue-2", level: "c2", exam: "C2 Proficiency", title: "Reading & Use of English completo · Simulacro 2", minutes: 90, minReport: 162,
+  scale: [[0, 130], [0.3, 162], [0.45, 180], [0.6, 200], [0.75, 213], [0.85, 220], [1, 230]],
+  parts: [
+    { type: "mcCloze", title: "Parte 1 · Multiple-choice cloze", marks: 1,
+      instructions: "Elige la palabra (A, B, C o D) que mejor completa cada hueco.",
+      heading: "The uses of nostalgia",
+      text: "For much of its history, nostalgia was regarded as an illness in its own {{1}}; the term was coined in the seventeenth century to describe the debilitating homesickness of soldiers serving abroad. Recent research, however, paints a rather more {{2}} picture. Far from being a sign of an inability to {{3}} to the present, nostalgia appears to serve a useful psychological purpose. Recalling cherished memories can {{4}} feelings of loneliness and strengthen a sense of meaning, particularly at times of uncertainty. It is, as one researcher put it, a kind of emotional reserve on which we can {{5}} when needed.\n\nThat is not to say that nostalgia is entirely {{6}} of risk. Dwelling too much on an idealised past may {{7}} people's ability to engage with the present, and politicians have long been adept at {{8}} on a collective longing for a supposedly golden age.",
+      gaps: [
+        { n: 1, options: ["right", "way", "terms", "sense"], answer: 0 },
+        { n: 2, options: ["nuanced", "blurred", "tinted", "painted"], answer: 0 },
+        { n: 3, options: ["adapt", "suit", "match", "fit"], answer: 0 },
+        { n: 4, options: ["alleviate", "lighten", "thin", "slacken"], answer: 0 },
+        { n: 5, options: ["draw", "pull", "bring", "take"], answer: 0 },
+        { n: 6, options: ["devoid", "empty", "bare", "lacking"], answer: 0 },
+        { n: 7, options: ["hamper", "block", "bar", "stall"], answer: 0 },
+        { n: 8, options: ["capitalising", "cashing", "exploiting", "profiting"], answer: 0 }
+      ]
+    },
+    { type: "openCloze", title: "Parte 2 · Open cloze", marks: 1,
+      instructions: "Escribe una sola palabra en cada hueco.",
+      heading: "The art of listening",
+      text: "We tend to think of good communicators as those who speak well, {{9}} in reality listening is at least as important. Genuine listening involves far more {{10}} simply waiting for one's turn to speak. It requires us to set {{11}} our own preoccupations and to attend fully to what the other person is saying, {{12}} it be welcome or not.\n\n{{13}} is perhaps surprising, given how much time we spend in conversation, is how rarely we are taught to do this. Most of us, {{14}} pressed, would admit that we often listen {{15}} little more than half our attention. Small wonder, then, that misunderstandings are {{16}} common.",
+      gaps: [
+        { n: 9, answers: ["but", "yet", "whereas", "while", "whilst"] }, { n: 10, answers: ["than"] }, { n: 11, answers: ["aside"] },
+        { n: 12, answers: ["whether"] }, { n: 13, answers: ["what"] }, { n: 14, answers: ["if", "when"] },
+        { n: 15, answers: ["with"] }, { n: 16, answers: ["so"] }
+      ]
+    },
+    { type: "wordForm", title: "Parte 3 · Word formation", marks: 1,
+      instructions: "Forma una palabra a partir de la que aparece en mayúsculas para completar cada hueco.",
+      heading: "Letting cities grow wild",
+      text: "Across Europe, cities are creating small pockets of {{17}} in the most unlikely places, from rooftops to abandoned railway lines. The scale of some of these projects is {{18}}, and early results suggest they can significantly increase local {{19}}.\n\nAllowing parks to grow wild may seem an {{20}} approach to urban planning, and it has been met with some {{21}} from residents who prefer neatly trimmed lawns. Yet rewilded areas require far less {{22}} than conventional green spaces, which makes them {{23}} attractive to councils with limited budgets. A common {{24}} is that such areas are simply neglected; in fact, they are carefully managed.",
+      gaps: [
+        { n: 17, word: "WILD", answers: ["wilderness"] },
+        { n: 18, word: "PRECEDE", answers: ["unprecedented"] },
+        { n: 19, word: "DIVERSE", answers: ["biodiversity", "diversity"] },
+        { n: 20, word: "CONVENTION", answers: ["unconventional"] },
+        { n: 21, word: "SCEPTIC", answers: ["scepticism", "skepticism"] },
+        { n: 22, word: "MAINTAIN", answers: ["maintenance"] },
+        { n: 23, word: "DOUBT", answers: ["undoubtedly"] },
+        { n: 24, word: "CONCEIVE", answers: ["misconception"] }
+      ]
+    },
+    { type: "kwt", title: "Parte 4 · Key word transformations", marks: 2,
+      instructions: "Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre 3 y 8 palabras.",
+      items: [
+        { n: 25, first: "It was wrong of you to read my diary.", keyword: "SHOULD", before: "You", after: "my diary.", answers: ["should not have read", "shouldn't have read"] },
+        { n: 26, first: "She didn't realise how serious the situation was until later.", keyword: "DID", before: "Only later", after: "how serious the situation was.", answers: ["did she realise", "did she realize", "did she understand"] },
+        { n: 27, first: "I'm sure it wasn't Tom who broke the window.", keyword: "CAN'T", before: "It", after: "who broke the window.", answers: ["can't have been tom", "cannot have been tom"] },
+        { n: 28, first: "The weather was so bad that the flight was cancelled.", keyword: "SUCH", before: "", after: "that the flight was cancelled.", answers: ["it was such bad weather", "such was the weather", "such was the bad weather"] },
+        { n: 29, first: "He's determined not to resign.", keyword: "INTENTION", before: "He has", after: "resigning.", answers: ["no intention of", "no intention whatsoever of", "no intention at all of"] },
+        { n: 30, first: "People suspect that the minister knew about the scandal.", keyword: "SUSPECTED", before: "The minister", after: "about the scandal.", answers: ["is suspected of having known", "is suspected to have known"] }
+      ]
+    },
+    { type: "readingMC", title: "Parte 5 · Multiple choice", marks: 2,
+      instructions: "Lee el texto y elige la respuesta (A, B, C o D) que mejor se ajusta a lo que dice.",
+      heading: "The value of being wrong",
+      passage: [
+        "Science, as it is usually presented to the public, is a story of success: the brilliant insight, the decisive experiment, the theory triumphantly confirmed. What this account leaves out is the vast quantity of work that leads nowhere. Experiments fail, hypotheses collapse, and promising lines of inquiry turn out to be dead ends. Most working scientists spend far more of their time being wrong than being right.",
+        "This would matter less if failure were properly recorded. But journals have traditionally shown little interest in publishing negative results, which are seen as unglamorous and, in the competitive world of academic careers, of little value to those who produce them. The consequence is a distorted scientific record, in which successful findings are overrepresented and failures quietly disappear.",
+        "The costs of this distortion are considerable. Researchers unaware that an approach has already been tried and found wanting may waste years repeating it. More insidiously, when only positive results see the light of day, the evidence for a given effect can appear far stronger than it really is. In fields such as medicine, where treatment decisions rest on published findings, the implications are obvious.",
+        "There are signs that attitudes are shifting. A number of journals now explicitly welcome negative results, and some funding bodies require researchers to register their studies in advance, so that the outcome is recorded whatever it turns out to be. Sceptics note, however, that such measures address the symptoms rather than the cause: as long as careers depend on producing striking results, the incentive to bury inconvenient ones will remain.",
+        "Perhaps what is ultimately required is a change in how failure itself is perceived. A well-designed experiment that disproves a plausible hypothesis is not a waste of resources; it narrows the field of possibilities and brings the truth a little closer. Until that view is reflected in how scientists are rewarded, the public image of science as an unbroken series of triumphs is likely to persist, to the detriment of science itself."
+      ],
+      questions: [
+        { n: 31, prompt: "In the first paragraph, the writer suggests that public accounts of science", options: ["exaggerate the importance of individual genius.", "give a misleadingly positive impression.", "are too technical for general readers.", "underestimate how quickly science progresses."], answer: 1 },
+        { n: 32, prompt: "According to the second paragraph, negative results are rarely published because", options: ["they are often based on flawed methods.", "they offer little reward to journals or researchers.", "scientists are embarrassed by them.", "they are too difficult to interpret."], answer: 1 },
+        { n: 33, prompt: "What does \"More insidiously\" introduce in the third paragraph?", options: ["A less obvious but more serious consequence.", "An example from the field of medicine.", "A solution to the problem described.", "A criticism of individual researchers."], answer: 0 },
+        { n: 34, prompt: "The sceptics mentioned in the fourth paragraph believe that recent measures", options: ["have been widely ignored.", "will make research more expensive.", "fail to tackle the underlying problem.", "are likely to discourage innovation."], answer: 2 },
+        { n: 35, prompt: "In the final paragraph, the writer argues that a failed experiment", options: ["should be repeated before it is published.", "can still contribute to scientific knowledge.", "is usually the result of poor design.", "should be reported separately from successful ones."], answer: 1 },
+        { n: 36, prompt: "What is the writer's main purpose in the text?", options: ["To defend scientists against public criticism.", "To argue that the way science treats failure needs to change.", "To explain why medical research is unreliable.", "To describe the history of scientific publishing."], answer: 1 }
+      ]
+    },
+    { type: "matching", gapped: true, title: "Parte 6 · Gapped text", marks: 2,
+      instructions: "Se han eliminado siete párrafos del artículo. Elige el párrafo (A–H) que encaja en cada hueco. Sobra un párrafo.",
+      heading: "Life without a car",
+      passage: [
+        "When we sold our car eighteen months ago, friends reacted as though we had announced some kind of eccentric religious conversion. How would we do the weekly shop? What about visiting relatives? And what on earth would we do when it rained?",
+        { gap: 37 },
+        "The first few weeks were, admittedly, something of a trial. We had underestimated how much of our routine had been built around the car, and every small errand seemed to require a new plan.",
+        { gap: 38 },
+        "The financial savings were considerable. Once we had added up the cost of fuel, insurance, tax, servicing and the inevitable repairs, we realised that we had been spending far more on the car than we had ever admitted to ourselves.",
+        { gap: 39 },
+        "More surprising were the less tangible changes. Walking to the shops, I began to recognise neighbours I had lived alongside for years without ever speaking to.",
+        { gap: 40 },
+        "I do not want to overstate the case. There are journeys that remain genuinely difficult, particularly to relatives who live in villages poorly served by public transport, and a family emergency in the middle of the night would present real problems.",
+        { gap: 41 },
+        "Nor am I suggesting that everyone should follow our example. What I would suggest is that many of us drive out of habit rather than necessity, and that it is worth asking, honestly, how many of our journeys really require a car.",
+        { gap: 42 },
+        "Eighteen months on, we have no plans to buy another car. The questions our friends asked have, for the most part, answered themselves.",
+        { gap: 43 }
+      ],
+      options: [
+        { label: "A", text: "Gradually, though, new habits took shape. We discovered that the supermarket would deliver for a modest fee, that the bus into town was quicker than driving once parking was taken into account, and that most of our local journeys could comfortably be made on foot." },
+        { label: "B", text: "As for the rain, we have found a remarkably simple solution: good waterproofs." },
+        { label: "C", text: "These were reasonable questions, and I would be lying if I said we had worked out the answers in advance. The decision was made, as such decisions often are, in a moment of frustration: an expensive repair bill had arrived on the same day as a reminder that the insurance was due." },
+        { label: "D", text: "Within a fortnight, we had given in and bought a second-hand replacement, and the experiment was quietly forgotten." },
+        { label: "E", text: "Our children, too, became noticeably more independent. Without the option of being driven everywhere, they learned to navigate the bus network, and now think nothing of making their own way to friends' houses." },
+        { label: "F", text: "For us, the answer turned out to be surprisingly few. That does not make car ownership wrong, but it does suggest that the choice deserves more thought than most of us give it." },
+        { label: "G", text: "It is also true that our circumstances are unusually favourable. We live close to a town centre with good transport links; for many people in rural areas, giving up a car would be neither practical nor sensible." },
+        { label: "H", text: "Some of that money now goes on the occasional taxi or hire car, which we use perhaps once a month. Even so, we are several thousand pounds a year better off." }
+      ],
+      questions: [
+        { n: 37, answer: "C" }, { n: 38, answer: "A" }, { n: 39, answer: "H" }, { n: 40, answer: "E" },
+        { n: 41, answer: "G" }, { n: 42, answer: "F" }, { n: 43, answer: "B" }
+      ]
+    },
+    { type: "matching", title: "Parte 7 · Multiple matching", marks: 1,
+      instructions: "Cuatro críticos hablan de las adaptaciones de novelas al cine. ¿Qué crítico (A–D)…?",
+      heading: "From page to screen",
+      texts: [
+        { label: "A", body: "Critics who complain that a film 'isn't like the book' miss the point entirely. A novel and a film are different creatures, and a director who slavishly reproduces every scene is more likely to produce something lifeless than something true. The real difficulty, in my experience, is that viewers arrive with pictures already formed in their heads, and any departure from those pictures is treated as a betrayal. That weight of expectation can stifle a director's creativity before a single scene has been shot." },
+        { label: "B", body: "I will confess that when I first saw the screen version of a novel I had loved since adolescence, I walked out of the cinema furious. Watching it again years later, I realised I had been unfair; it had captured the spirit of the book far better than I had allowed. Occasionally, indeed, the film surpasses its source: one crime thriller I can think of was a fairly ordinary novel but became a genuinely great film. And whatever their merits, adaptations send thousands of viewers back to the original books, which can only be a good thing." },
+        { label: "C", body: "The novel's great strength is its ability to take us inside a character's head, and this is precisely what film struggles to reproduce. Too often, directors resort to lengthy voice-overs, which tend to feel clumsy and intrusive, or they simply abandon the inner life of the characters altogether, leaving us with plot and little else. I also worry that, with budgets so large, studios are increasingly unwilling to take risks, preferring safe, simplified versions that will appeal to the widest possible audience." },
+        { label: "D", body: "Adapting a novel is rather like translating a poem: something is always lost, and the art lies in deciding what can be sacrificed and what must be preserved at all costs. Some books, though, resist adaptation altogether. Novels whose interest lies chiefly in their style or structure, rather than their story, rarely survive the journey to the screen, however talented the film-maker. In such cases, I would rather the attempt were not made at all." }
+      ],
+      questions: [
+        { n: 44, prompt: "believes that faithfulness to the original is overrated?", answer: "A" },
+        { n: 45, prompt: "mentions an adaptation that was better than the novel?", answer: "B" },
+        { n: 46, prompt: "is concerned about the influence of financial considerations?", answer: "C" },
+        { n: 47, prompt: "thinks some novels are inherently unsuitable for film?", answer: "D" },
+        { n: 48, prompt: "feels that audiences' expectations can limit film-makers?", answer: "A" },
+        { n: 49, prompt: "values adaptations for encouraging people to read?", answer: "B" },
+        { n: 50, prompt: "criticises a particular technique used to convey characters' thoughts?", answer: "C" },
+        { n: 51, prompt: "compares adaptation to another creative process?", answer: "D" },
+        { n: 52, prompt: "regrets that characters' inner lives are often lost?", answer: "C" },
+        { n: 53, prompt: "describes revising an initial opinion of a film?", answer: "B" }
+      ]
+    }
+  ]
 }
+
 ];
 IDIOMA.mockById = id => IDIOMA.mocks.find(m => m.id === id);

@@ -377,7 +377,7 @@
 
   /* ---------- Página: listado de simulacros ---------- */
   function renderMocks() {
-    $("#mocks-grid").innerHTML = I.mocks.map(m => {
+    $("#mocks-grid").innerHTML = [...I.mocks].sort((a, b) => a.id.localeCompare(b.id)).map(m => {
       const n = m.parts.reduce((a, p) => a + (p.gaps || p.items || p.questions).length, 0);
       const best = Progress.mock(m.id);
       return `<a class="card" href="simulacro.html?id=${m.id}">
