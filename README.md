@@ -15,6 +15,8 @@ C1 Advanced, C2 Proficiency e IELTS.
   con temporizador, corrección por partes y estimación orientativa en la escala de Cambridge.
 - **Listening**: 6 ejercicios de comprensión auditiva (A2–C2) con formato de examen, 2 escuchas,
   voces distintas por hablante (síntesis de voz del navegador) y transcripción tras corregir.
+- **Writing**: 5 tareas con formato de examen (B1 Preliminary a C2 Proficiency), editor con contador
+  de palabras y temporizador, autoevaluación con los criterios de Cambridge y respuestas modelo comentadas.
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
 - **Guía de certificaciones**: formatos y puntuaciones de Cambridge C1/C2, IELTS, Trinity,
   LanguageCert y EOI.
@@ -38,7 +40,7 @@ Netlify o cualquier hosting estático.
 
 ```
 index.html, niveles.html, nivel.html, leccion.html, test.html, examenes.html, metodo.html,
-simulacros.html, simulacro.html, listening.html, escuchar.html
+simulacros.html, simulacro.html, listening.html, escuchar.html, writing.html, escribir.html
 assets/css/styles.css
 assets/js/app.js                 # lógica común y renderizado
 assets/js/data/curriculum.js     # niveles, unidades y lecciones planificadas
@@ -46,6 +48,7 @@ assets/js/data/lessons.js        # contenido de las lecciones
 assets/js/data/placement.js      # preguntas del test de nivel
 assets/js/data/mocks.js          # simulacros de examen
 assets/js/data/listening.js      # ejercicios de listening
+assets/js/data/writing.js        # tareas de writing
 ```
 
 ## Añadir una lección

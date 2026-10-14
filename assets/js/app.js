@@ -43,6 +43,13 @@
       this.save(p);
     },
     listening(id) { return (this.load().listening || {})[id]; },
+    setWriting(id, score, total) {
+      const p = this.load();
+      p.writing = p.writing || {};
+      p.writing[id] = { score, total, date: new Date().toISOString() };
+      this.save(p);
+    },
+    writing(id) { return (this.load().writing || {})[id]; },
     setPlacement(level) { const p = this.load(); p.placement = { level, date: new Date().toISOString() }; this.save(p); },
     reset() { try { localStorage.removeItem(KEY); } catch { /* nada */ } }
   };
@@ -73,6 +80,7 @@
       ["examenes.html", "Certificaciones", "exams"],
       ["simulacros.html", "Simulacros", "mocks"],
       ["listening.html", "Listening", "listening"],
+      ["writing.html", "Writing", "writing"],
       ["metodo.html", "Método", "method"]
     ];
     const header = el("header", { class: "site-header" }, `
@@ -80,7 +88,7 @@
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">Id</span>Idioma</a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
-          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") || (page === "listen" && k === "listening") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
+          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") || (page === "listen" && k === "listening") || (page === "write" && k === "writing") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
         </nav>
       </div>`);
     document.body.prepend(header);
@@ -686,11 +694,134 @@
     };
   }
 
+  /* ---------- Writing ---------- */
+  const countWords = t => (t.match(/[A-Za-zÀ-ÿ0-9’'‘–-]+/g) || []).length;
+  const draftKey = id => `idioma.draft.${id}`;
+  const loadDraft = id => { try { return localStorage.getItem(draftKey(id)) || ""; } catch { return ""; } };
+  const saveDraft = (id, t) => { try { localStorage.setItem(draftKey(id), t); } catch { /* sin almacenamiento */ } };
+
+  function renderWritingList() {
+    $("#writing-grid").innerHTML = I.writing.map(w => {
+      const self = Progress.writing(w.id), draft = loadDraft(w.id);
+      return `<a class="card" href="escribir.html?id=${w.id}">
+        <span class="badge ${w.level}">${w.level.toUpperCase()}</span>
+        <h3 style="margin-top:14px">${w.title}</h3>
+        <p class="muted">${w.exam} · ${w.part}</p>
+        <div class="meta"><span>${w.words[0]}–${w.words[1]} palabras</span><span>⏱ ${w.minutes} min</span>
+          ${self ? `<span class="tag ok">Autoevaluación: ${self.score}/${self.total}</span>` : draft ? `<span class="tag">Borrador guardado</span>` : ""}</div>
+      </a>`;
+    }).join("");
+  }
+
+  function renderWrite() {
+    const id = new URLSearchParams(location.search).get("id");
+    const w = I.writingById(id), main = $("#main");
+    if (!w) { main.innerHTML = `<div class="narrow page-head"><h1>Tarea no encontrada</h1><a href="writing.html">Ver tareas</a></div>`; return; }
+    document.title = `${w.title} (${w.level.toUpperCase()}) — Idioma`;
+    const [min, max] = w.words;
+    const items = Object.entries(w.checklist);
+
+    main.innerHTML = `
+      <article class="narrow lesson">
+        <p><a href="writing.html">← Writing</a></p>
+        <span class="badge ${w.level}">${w.level.toUpperCase()}</span>
+        <h1 style="margin-top:12px">${w.title}</h1>
+        <p class="muted">${w.exam} · ${w.part} · ${min}–${max} palabras · ${w.minutes} minutos recomendados</p>
+        <h2>La tarea</h2>
+        <div class="task">${w.task.map(t => t.startsWith("<") ? t : `<p>${t}</p>`).join("")}</div>
+        <div class="callout"><strong>Antes de escribir:</strong><ul style="margin:6px 0 0;padding-left:20px">${w.tips.map(t => `<li>${t}</li>`).join("")}</ul></div>
+
+        <h2>Tu respuesta</h2>
+        <div class="editor-bar">
+          <span id="wc" class="wc"></span>
+          <span class="muted" id="wtimer"></span>
+          <button class="btn btn-ghost btn-sm" id="wtimer-btn">⏱ Iniciar ${w.minutes} min</button>
+        </div>
+        <textarea id="wtext" class="editor" rows="16" spellcheck="false" placeholder="Escribe aquí tu respuesta en inglés. Se guarda automáticamente en este navegador."></textarea>
+        <div class="editor-actions">
+          <button class="btn btn-ghost btn-sm" id="wcopy">Copiar texto</button>
+          <button class="btn btn-ghost btn-sm" id="wclear">Borrar</button>
+          <span class="muted" id="wsaved" style="font-size:.85rem"></span>
+        </div>
+        <p class="muted" style="font-size:.88rem">El corrector ortográfico está desactivado a propósito: en el examen no tendrás ayuda.</p>
+
+        <h2>Autoevaluación</h2>
+        <p class="muted">Cuando termines, revisa tu texto con los criterios oficiales de Cambridge y marca lo que cumples con honestidad.</p>
+        <div id="checklist">${items.map(([crit, pts], ci) => `<div class="exercise"><div class="q-num">${crit}</div>
+          ${pts.map((t, k) => `<label class="check-item"><input type="checkbox" data-c="${ci}" data-k="${k}"> <span>${t}</span></label>`).join("")}</div>`).join("")}</div>
+        <div style="text-align:center"><button class="btn btn-primary" id="wassess">Ver mi autoevaluación</button></div>
+        <div id="wresult"></div>
+
+        <h2>Respuesta modelo</h2>
+        <p class="muted">Te recomendamos escribir tu versión antes de mirarla. Los comentarios explican qué hace que funcione.</p>
+        <div style="text-align:center"><button class="btn btn-ghost" id="wmodel-btn">Mostrar respuesta modelo</button></div>
+        <div id="wmodel" hidden></div>
+      </article>`;
+
+    const ta = $("#wtext");
+    ta.value = loadDraft(id);
+    const updateCount = () => {
+      const n = countWords(ta.value), wc = $("#wc");
+      wc.textContent = `${n} palabras · objetivo ${min}–${max}`;
+      wc.className = "wc " + (n === 0 ? "" : n < min ? "under" : n > max ? "over" : "ok");
+    };
+    let saveTimer;
+    ta.addEventListener("input", () => {
+      updateCount();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => { saveDraft(id, ta.value); $("#wsaved").textContent = "Borrador guardado"; }, 500);
+    });
+    updateCount();
+
+    let tId = null;
+    $("#wtimer-btn").onclick = () => {
+      if (tId) { clearInterval(tId); tId = null; $("#wtimer").textContent = ""; $("#wtimer-btn").textContent = `⏱ Iniciar ${w.minutes} min`; return; }
+      const end = Date.now() + w.minutes * 60000;
+      const tick = () => {
+        const left = Math.max(0, end - Date.now());
+        $("#wtimer").textContent = `Quedan ${Math.floor(left / 60000)}:${String(Math.floor(left / 1000) % 60).padStart(2, "0")}`;
+        if (!left) { clearInterval(tId); tId = null; $("#wtimer").textContent = "¡Tiempo!"; $("#wtimer-btn").textContent = `⏱ Iniciar ${w.minutes} min`; }
+      };
+      tick(); tId = setInterval(tick, 1000);
+      $("#wtimer-btn").textContent = "Detener";
+    };
+    $("#wcopy").onclick = async () => {
+      try { await navigator.clipboard.writeText(ta.value); $("#wsaved").textContent = "Texto copiado"; }
+      catch { ta.select(); $("#wsaved").textContent = "Selecciona y copia el texto manualmente"; }
+    };
+    $("#wclear").onclick = () => { if (ta.value && confirm("¿Borrar tu respuesta?")) { ta.value = ""; saveDraft(id, ""); updateCount(); } };
+
+    $("#wassess").onclick = () => {
+      const boxes = [...document.querySelectorAll("#checklist input")];
+      const got = boxes.filter(b => b.checked).length, total = boxes.length;
+      const per = items.map(([crit, pts], ci) => ({ crit, got: boxes.filter(b => b.dataset.c == ci && b.checked).length, n: pts.length }));
+      const n = countWords(ta.value);
+      Progress.setWriting(id, got, total);
+      const weak = per.filter(x => x.got < x.n).map(x => x.crit);
+      $("#wresult").innerHTML = `<div class="card score-box"><div class="big">${got}/${total}</div>
+        <div class="result-bars" style="text-align:left">${per.map(x => `<div class="result-bar" style="grid-template-columns:1fr 2fr 48px"><span style="font-size:.9rem">${x.crit}</span>
+          <div class="progress"><span style="width:${(x.got / x.n) * 100}%"></span></div><span>${x.got}/${x.n}</span></div>`).join("")}</div>
+        ${n && (n < min || n > max) ? `<p class="err-txt">Tu texto tiene ${n} palabras: ajústalo al rango de ${min}–${max}.</p>` : ""}
+        <p>${weak.length ? `Céntrate en mejorar: <strong>${weak.join(", ")}</strong>. Compara tu texto con la respuesta modelo.` : "¡Muy bien! Compara ahora tu texto con la respuesta modelo para detectar matices."}</p></div>`;
+    };
+
+    $("#wmodel-btn").onclick = () => {
+      if (countWords(ta.value) < min && !confirm("Aún no has terminado tu respuesta. ¿Quieres ver el modelo de todos modos?")) return;
+      const box = $("#wmodel");
+      box.hidden = false;
+      box.innerHTML = `<div class="model">${w.model.map(m => `<div class="model-row">
+          <div class="model-text">${m.h ? `<p class="model-h">${m.h}</p>` : ""}${m.text ? `<p>${m.text}</p>` : ""}</div>
+          ${m.note ? `<div class="model-note">${m.note}</div>` : "<div></div>"}</div>`).join("")}</div>
+        <p class="muted" style="font-size:.88rem">Respuesta modelo: ${countWords(w.model.map(m => (m.h || "") + " " + m.text.replace(/<[^>]+>/g, " ")).join(" "))} palabras.</p>`;
+      $("#wmodel-btn").remove();
+    };
+  }
+
   /* ---------- Arranque ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     chrome();
     const page = document.body.dataset.page;
-    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen }[page] || (() => {}))();
+    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen, writing: renderWritingList, write: renderWrite }[page] || (() => {}))();
     if ("speechSynthesis" in window) speechSynthesis.getVoices();
   });
 })();
