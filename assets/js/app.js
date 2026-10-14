@@ -27,6 +27,14 @@
       if (!prev || score >= prev.score) p.lessons[id] = { score, total, date: new Date().toISOString() };
       this.save(p);
     },
+    setMock(id, score, total, scale) {
+      const p = this.load();
+      p.mocks = p.mocks || {};
+      const prev = p.mocks[id];
+      if (!prev || score >= prev.score) p.mocks[id] = { score, total, scale, date: new Date().toISOString() };
+      this.save(p);
+    },
+    mock(id) { return (this.load().mocks || {})[id]; },
     setPlacement(level) { const p = this.load(); p.placement = { level, date: new Date().toISOString() }; this.save(p); },
     reset() { try { localStorage.removeItem(KEY); } catch { /* nada */ } }
   };
@@ -55,6 +63,7 @@
       ["niveles.html", "Niveles", "levels"],
       ["test.html", "Test de nivel", "test"],
       ["examenes.html", "Certificaciones", "exams"],
+      ["simulacros.html", "Simulacros", "mocks"],
       ["metodo.html", "Método", "method"]
     ];
     const header = el("header", { class: "site-header" }, `
@@ -62,7 +71,7 @@
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">Id</span>Idioma</a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
-          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
+          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
         </nav>
       </div>`);
     document.body.prepend(header);
@@ -334,11 +343,179 @@
     intro();
   }
 
+  /* ---------- Simulacros: estimación en la escala de Cambridge ---------- */
+  function scaleScore(mock, ratio) {
+    const pts = mock.scale;
+    for (let k = 1; k < pts.length; k++) {
+      const [x0, y0] = pts[k - 1], [x1, y1] = pts[k];
+      if (ratio <= x1) return Math.round(y0 + (y1 - y0) * (ratio - x0) / (x1 - x0));
+    }
+    return pts[pts.length - 1][1];
+  }
+  const scaleLabel = (mock, score) => score < mock.minReport ? `< ${mock.minReport}` : `≈ ${score}`;
+  function scaleBand(mock, score) {
+    if (mock.level === "c1") return score >= 200 ? "C2 (grado A)" : score >= 193 ? "C1 (grado B)" : score >= 180 ? "C1 (grado C)" : score >= 160 ? "B2" : "Por debajo de B2";
+    return score >= 220 ? "C2 (grado A)" : score >= 213 ? "C2 (grado B)" : score >= 200 ? "C2 (grado C)" : score >= 180 ? "C1" : "Por debajo de C1";
+  }
+
+  /* ---------- Página: listado de simulacros ---------- */
+  function renderMocks() {
+    $("#mocks-grid").innerHTML = I.mocks.map(m => {
+      const n = m.parts.reduce((a, p) => a + (p.gaps || p.items || p.questions).length, 0);
+      const best = Progress.mock(m.id);
+      return `<a class="card" href="simulacro.html?id=${m.id}">
+        <span class="badge ${m.level}">${m.level.toUpperCase()}</span>
+        <h3 style="margin-top:14px">${m.exam}</h3>
+        <p class="muted">${m.title}. Partes 1–5: ${n} preguntas.</p>
+        <div class="meta"><span>⏱ ${m.minutes} min</span>${best ? `<span class="tag ok">Mejor: ${best.score}/${best.total} · ${scaleLabel(m, best.scale)}</span>` : `<span class="tag">Sin intentos</span>`}</div>
+      </a>`;
+    }).join("");
+  }
+
+  /* ---------- Página: simulacro ---------- */
+  function renderMock() {
+    const id = new URLSearchParams(location.search).get("id");
+    const m = I.mockById(id), main = $("#main");
+    if (!m) { main.innerHTML = `<div class="narrow page-head"><h1>Simulacro no encontrado</h1><a href="simulacros.html">Ver simulacros</a></div>`; return; }
+    document.title = `${m.exam} · ${m.title} — Idioma`;
+    const total = m.parts.reduce((a, p) => a + (p.gaps || p.items || p.questions).length * p.marks, 0);
+    const kwtRange = m.level === "c1" ? "3 y 6" : "3 y 8";
+
+    main.innerHTML = `
+      <div class="narrow page-head">
+        <p><a href="simulacros.html">← Simulacros</a></p>
+        <span class="badge ${m.level}">${m.level.toUpperCase()}</span>
+        <h1 style="margin-top:12px">${m.exam}</h1>
+        <p class="muted" style="font-size:1.12rem">${m.title}</p>
+      </div>
+      <div class="narrow" id="mock-body" style="padding-bottom:64px">
+        <div class="card">
+          <h2>Instrucciones</h2>
+          <ul class="check">
+            <li>Partes 1 a 5 del Reading &amp; Use of English, con el formato del examen oficial.</li>
+            <li>Tiempo: <strong>${m.minutes} minutos</strong>. Al terminar el tiempo, el simulacro se entrega automáticamente.</li>
+            <li>Puntuación: 1 punto por hueco en las partes 1–3; 2 puntos por pregunta en las partes 4 y 5. Total: ${total} puntos.</li>
+            <li>En la parte 4 usa entre ${kwtRange} palabras (las contracciones cuentan como dos).</li>
+          </ul>
+          <p class="muted" style="font-size:.9rem;margin-top:12px">La nota en la escala de Cambridge es una estimación orientativa basada en el porcentaje de aciertos; no equivale a un resultado oficial.</p>
+          <button class="btn btn-primary" id="mock-start">Empezar simulacro</button>
+        </div>
+      </div>`;
+    $("#mock-start").onclick = () => start();
+
+    let timerId = null, finished = false;
+
+    const gapHtml = (p, g) => {
+      if (p.type === "mcCloze")
+        return `<span class="gap"><span class="gap-n">${g.n}</span><select data-n="${g.n}" aria-label="Hueco ${g.n}"><option value="">—</option>${g.options.map((o, k) => `<option value="${k}">${"ABCD"[k]} ${esc(o)}</option>`).join("")}</select></span>`;
+      return `<span class="gap"><span class="gap-n">${g.n}</span><input data-n="${g.n}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Hueco ${g.n}">${g.word ? `<span class="gap-word">${g.word}</span>` : ""}</span>`;
+    };
+
+    const partHtml = p => {
+      let body = "";
+      if (p.text) {
+        const byN = Object.fromEntries(p.gaps.map(g => [g.n, g]));
+        body = p.text.split("\n\n").map(par => `<p>${par.replace(/\{\{(\d+)\}\}/g, (_, n) => gapHtml(p, byN[n]))}</p>`).join("");
+        body = `<div class="mock-text">${p.heading ? `<h3>${p.heading}</h3>` : ""}${body}</div>`;
+      } else if (p.type === "kwt") {
+        body = p.items.map(it => `<div class="exercise"><div class="q-num">Pregunta ${it.n}</div>
+          <div class="prompt">${esc(it.first)}<br><span class="keyword">${esc(it.keyword)}</span><br>${esc(it.before)} ______ ${esc(it.after)}</div>
+          <div class="answer-row"><input data-n="${it.n}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Respuesta ${it.n}"></div>
+          <div class="mock-fb" data-fb="${it.n}"></div></div>`).join("");
+      } else if (p.type === "readingMC") {
+        body = `<div class="mock-text"><h3>${p.heading}</h3>${p.passage.map(x => `<p>${x}</p>`).join("")}</div>` +
+          p.questions.map(q => `<div class="exercise"><div class="q-num">Pregunta ${q.n}</div><div class="prompt">${esc(q.prompt)}</div>
+            <div class="options" data-q="${q.n}">${q.options.map((o, k) => `<label class="option mock-opt"><input type="radio" name="q${q.n}" value="${k}"> <strong>${"ABCD"[k]}</strong> ${esc(o)}</label>`).join("")}</div>
+            <div class="mock-fb" data-fb="${q.n}"></div></div>`).join("");
+      }
+      return `<section class="mock-part"><h2>${p.title}</h2><p class="muted">${p.instructions}</p>${body}</section>`;
+    };
+
+    function start() {
+      const body = $("#mock-body");
+      body.innerHTML = `<div class="mock-bar"><span>⏱ <strong id="mock-clock"></strong></span><span id="mock-count" class="muted"></span><button class="btn btn-primary btn-sm" id="mock-submit">Entregar</button></div>
+        ${m.parts.map(partHtml).join("")}
+        <div style="text-align:center;margin-top:24px"><button class="btn btn-primary" id="mock-submit-2">Entregar simulacro</button></div>
+        <div id="mock-result"></div>`;
+      const end = Date.now() + m.minutes * 60000;
+      const tick = () => {
+        const left = Math.max(0, end - Date.now());
+        const mm = Math.floor(left / 60000), ss = Math.floor(left / 1000) % 60;
+        const clock = $("#mock-clock");
+        clock.textContent = `${mm}:${String(ss).padStart(2, "0")}`;
+        clock.parentElement.classList.toggle("low", left < 5 * 60000);
+        if (left === 0) submit(true);
+      };
+      const count = () => {
+        const n = body.querySelectorAll("select, input[type=text]").length + m.parts.filter(p => p.questions).reduce((a, p) => a + p.questions.length, 0);
+        const done = [...body.querySelectorAll("select, input[type=text]")].filter(e => e.value.trim()).length + body.querySelectorAll("input[type=radio]:checked").length;
+        $("#mock-count").textContent = `${done}/${n} respondidas`;
+        return n - done;
+      };
+      body.addEventListener("input", count); body.addEventListener("change", count);
+      tick(); count(); timerId = setInterval(tick, 1000);
+      const ask = () => { const left = count(); if (left === 0 || confirm(`Te quedan ${left} preguntas sin responder. ¿Entregar de todos modos?`)) submit(false); };
+      $("#mock-submit").onclick = ask; $("#mock-submit-2").onclick = ask;
+      window.onbeforeunload = () => finished ? undefined : true;
+    }
+
+    function submit(timeUp) {
+      if (finished) return;
+      finished = true; clearInterval(timerId); window.onbeforeunload = null;
+      const body = $("#mock-body");
+      const perPart = m.parts.map(p => {
+        let got = 0;
+        const max = (p.gaps || p.items || p.questions).length * p.marks;
+        if (p.gaps) p.gaps.forEach(g => {
+          const el = body.querySelector(`[data-n="${g.n}"]`);
+          const ok = p.type === "mcCloze" ? el.value !== "" && Number(el.value) === g.answer : isCorrect(el.value, g.answers);
+          if (ok) got += p.marks;
+          el.disabled = true; el.classList.add(ok ? "correct" : "wrong");
+          if (!ok) el.closest(".gap").insertAdjacentHTML("beforeend", `<span class="gap-key">${esc(p.type === "mcCloze" ? g.options[g.answer] : g.answers[0])}</span>`);
+        });
+        if (p.items) p.items.forEach(it => {
+          const el = body.querySelector(`[data-n="${it.n}"]`), ok = isCorrect(el.value, it.answers);
+          if (ok) got += p.marks;
+          el.disabled = true; el.classList.add(ok ? "correct" : "wrong");
+          body.querySelector(`[data-fb="${it.n}"]`).innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta modelo: <em>${esc(it.answers[0])}</em></span>`;
+        });
+        if (p.questions) p.questions.forEach(q => {
+          const chosen = body.querySelector(`input[name="q${q.n}"]:checked`), ok = chosen && Number(chosen.value) === q.answer;
+          if (ok) got += p.marks;
+          body.querySelectorAll(`input[name="q${q.n}"]`).forEach(r => {
+            r.disabled = true;
+            const lab = r.closest("label");
+            if (Number(r.value) === q.answer) lab.classList.add("correct");
+            else if (r.checked) lab.classList.add("wrong");
+          });
+          body.querySelector(`[data-fb="${q.n}"]`).innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta correcta: ${"ABCD"[q.answer]}</span>`;
+        });
+        return { title: p.title, got, max };
+      });
+      const score = perPart.reduce((a, x) => a + x.got, 0);
+      const scale = scaleScore(m, score / total);
+      Progress.setMock(m.id, score, total, scale);
+      body.querySelectorAll(".mock-bar, #mock-submit-2").forEach(b => b.remove());
+      $("#mock-result").innerHTML = "";
+      body.insertAdjacentHTML("afterbegin", `<div class="card score-box" id="mock-score">
+        ${timeUp ? `<p class="err-txt"><strong>Se acabó el tiempo.</strong></p>` : ""}
+        <span class="eyebrow">Resultado</span>
+        <div class="big">${score}/${total}</div>
+        <p style="font-size:1.1rem">Estimación en la escala de Cambridge: <strong>${scaleLabel(m, scale)}</strong> · ${scaleBand(m, scale)}</p>
+        <div class="result-bars" style="text-align:left">${perPart.map(x => `<div class="result-bar" style="grid-template-columns:1fr 2fr 56px"><span style="font-size:.9rem">${x.title.split(" · ")[0]}</span>
+          <div class="progress"><span style="width:${(x.got / x.max) * 100}%"></span></div><span>${x.got}/${x.max}</span></div>`).join("")}</div>
+        <p class="muted" style="font-size:.88rem">Revisa abajo cada respuesta: en verde las correctas y en rojo las incorrectas, con la solución al lado.</p>
+        <div class="lesson-nav" style="justify-content:center"><button class="btn btn-ghost" onclick="location.reload()">Repetir</button><a class="btn btn-primary" href="simulacros.html">Volver a simulacros</a></div>
+      </div>`);
+      $("#mock-score").scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   /* ---------- Arranque ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     chrome();
     const page = document.body.dataset.page;
-    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest }[page] || (() => {}))();
+    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock }[page] || (() => {}))();
     if ("speechSynthesis" in window) speechSynthesis.getVoices();
   });
 })();
