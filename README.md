@@ -10,7 +10,8 @@ C1 Advanced, C2 Proficiency e IELTS.
 - **Lecciones interactivas**: teoría en español, ejemplos con audio (inglés británico)
   y ejercicios corregidos al instante (opción múltiple, huecos, *key word transformations*).
 - **54 lecciones** (9 por nivel), de A1 a C2.
-- **Simulacros de examen**: Reading & Use of English (partes 1–5) de C1 Advanced y C2 Proficiency,
+- **Simulacros de examen**: Reading & Use of English completo de C1 Advanced (8 partes, 78 puntos) y C2 Proficiency
+  (7 partes, 72 puntos), en 90 minutos,
   con temporizador, corrección por partes y estimación orientativa en la escala de Cambridge.
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
 - **Guía de certificaciones**: formatos y puntuaciones de Cambridge C1/C2, IELTS, Trinity,

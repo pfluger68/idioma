@@ -366,7 +366,7 @@
       return `<a class="card" href="simulacro.html?id=${m.id}">
         <span class="badge ${m.level}">${m.level.toUpperCase()}</span>
         <h3 style="margin-top:14px">${m.exam}</h3>
-        <p class="muted">${m.title}. Partes 1–5: ${n} preguntas.</p>
+        <p class="muted">${m.title}: ${m.parts.length} partes, ${n} preguntas.</p>
         <div class="meta"><span>⏱ ${m.minutes} min</span>${best ? `<span class="tag ok">Mejor: ${best.score}/${best.total} · ${scaleLabel(m, best.scale)}</span>` : `<span class="tag">Sin intentos</span>`}</div>
       </a>`;
     }).join("");
@@ -392,9 +392,9 @@
         <div class="card">
           <h2>Instrucciones</h2>
           <ul class="check">
-            <li>Partes 1 a 5 del Reading &amp; Use of English, con el formato del examen oficial.</li>
+            <li>Las ${m.parts.length} partes del Reading &amp; Use of English, con el formato y la puntuación del examen oficial.</li>
             <li>Tiempo: <strong>${m.minutes} minutos</strong>. Al terminar el tiempo, el simulacro se entrega automáticamente.</li>
-            <li>Puntuación: 1 punto por hueco en las partes 1–3; 2 puntos por pregunta en las partes 4 y 5. Total: ${total} puntos.</li>
+            <li>Cada parte indica cuántos puntos vale cada pregunta. Total: ${total} puntos.</li>
             <li>En la parte 4 usa entre ${kwtRange} palabras (las contracciones cuentan como dos).</li>
           </ul>
           <p class="muted" style="font-size:.9rem;margin-top:12px">La nota en la escala de Cambridge es una estimación orientativa basada en el porcentaje de aciertos; no equivale a un resultado oficial.</p>
@@ -422,13 +422,25 @@
           <div class="prompt">${esc(it.first)}<br><span class="keyword">${esc(it.keyword)}</span><br>${esc(it.before)} ______ ${esc(it.after)}</div>
           <div class="answer-row"><input data-n="${it.n}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Respuesta ${it.n}"></div>
           <div class="mock-fb" data-fb="${it.n}"></div></div>`).join("");
+      } else if (p.type === "matching") {
+        const letters = (p.options || p.texts).map(x => x.label);
+        const sel = n => `<span class="gap"><span class="gap-n">${n}</span><select data-n="${n}" aria-label="Pregunta ${n}"><option value="">—</option>${letters.map(l => `<option>${l}</option>`).join("")}</select></span>`;
+        if (p.gapped) {
+          body = `<div class="mock-text">${p.heading ? `<h3>${p.heading}</h3>` : ""}${p.passage.map(x => x.gap ? `<p class="gap-slot">${sel(x.gap)}</p>` : `<p>${x}</p>`).join("")}</div>
+            <div class="mock-options"><h3>Párrafos</h3>${p.options.map(o => `<p><strong class="opt-label">${o.label}</strong> ${o.text}</p>`).join("")}</div>`;
+        } else {
+          body = `<div class="mock-text">${p.heading ? `<h3>${p.heading}</h3>` : ""}${p.texts.map(t => `<div class="mt-block"><strong class="opt-label">${t.label}</strong>${t.heading ? ` <strong>${t.heading}</strong>` : ""}<p>${t.body}</p></div>`).join("")}</div>
+            <div class="exercise"><div class="q-num">Elige la letra para cada pregunta</div>
+            ${p.questions.map(q => `<div class="match-row">${sel(q.n)}<span>${esc(q.prompt)}</span><span class="mock-fb" data-fb="${q.n}"></span></div>`).join("")}</div>`;
+        }
       } else if (p.type === "readingMC") {
         body = `<div class="mock-text"><h3>${p.heading}</h3>${p.passage.map(x => `<p>${x}</p>`).join("")}</div>` +
           p.questions.map(q => `<div class="exercise"><div class="q-num">Pregunta ${q.n}</div><div class="prompt">${esc(q.prompt)}</div>
             <div class="options" data-q="${q.n}">${q.options.map((o, k) => `<label class="option mock-opt"><input type="radio" name="q${q.n}" value="${k}"> <strong>${"ABCD"[k]}</strong> ${esc(o)}</label>`).join("")}</div>
             <div class="mock-fb" data-fb="${q.n}"></div></div>`).join("");
       }
-      return `<section class="mock-part"><h2>${p.title}</h2><p class="muted">${p.instructions}</p>${body}</section>`;
+      const nq = (p.gaps || p.items || p.questions).length;
+      return `<section class="mock-part"><h2>${p.title}</h2><p class="muted">${p.instructions} <span class="tag">${nq} preguntas · ${p.marks} ${p.marks === 1 ? "punto" : "puntos"} c/u</span></p>${body}</section>`;
     };
 
     function start() {
@@ -447,7 +459,7 @@
         if (left === 0) submit(true);
       };
       const count = () => {
-        const n = body.querySelectorAll("select, input[type=text]").length + m.parts.filter(p => p.questions).reduce((a, p) => a + p.questions.length, 0);
+        const n = body.querySelectorAll("select, input[type=text]").length + m.parts.filter(p => p.type === "readingMC").reduce((a, p) => a + p.questions.length, 0);
         const done = [...body.querySelectorAll("select, input[type=text]")].filter(e => e.value.trim()).length + body.querySelectorAll("input[type=radio]:checked").length;
         $("#mock-count").textContent = `${done}/${n} respondidas`;
         return n - done;
@@ -479,7 +491,13 @@
           el.disabled = true; el.classList.add(ok ? "correct" : "wrong");
           body.querySelector(`[data-fb="${it.n}"]`).innerHTML = ok ? `<span class="ok-txt">Correcto</span>` : `<span class="err-txt">Respuesta modelo: <em>${esc(it.answers[0])}</em></span>`;
         });
-        if (p.questions) p.questions.forEach(q => {
+        if (p.type === "matching") p.questions.forEach(q => {
+          const el = body.querySelector(`select[data-n="${q.n}"]`), ok = el.value === q.answer;
+          if (ok) got += p.marks;
+          el.disabled = true; el.classList.add(ok ? "correct" : "wrong");
+          if (!ok) el.closest(".gap").insertAdjacentHTML("beforeend", `<span class="gap-key">${q.answer}</span>`);
+        });
+        if (p.type === "readingMC") p.questions.forEach(q => {
           const chosen = body.querySelector(`input[name="q${q.n}"]:checked`), ok = chosen && Number(chosen.value) === q.answer;
           if (ok) got += p.marks;
           body.querySelectorAll(`input[name="q${q.n}"]`).forEach(r => {

@@ -213,3 +213,12 @@ dl.facts dd { margin: 0; font-weight: 600; }
 .ok-txt { color: var(--ok); font-weight: 600; }
 .err-txt { color: var(--err); }
 @media (max-width: 600px) { .mock-text { padding: 16px; } .gap input { width: 7.5em; } }
+.gap-slot { text-align: center; border: 1px dashed var(--border); border-radius: 10px; padding: 6px; }
+.mock-options { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 16px; }
+.mock-options p { margin: 0 0 12px; }
+.opt-label { display: inline-grid; place-items: center; min-width: 24px; height: 24px; border-radius: 6px; background: var(--text); color: var(--bg); font-size: .85rem; margin-right: 6px; }
+.mt-block { margin-bottom: 18px; line-height: 1.75; }
+.mt-block p { margin: 6px 0 0; }
+.match-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 8px 0; border-top: 1px solid var(--border); }
+.match-row:first-of-type { border-top: 0; }
+@media (max-width: 600px) { .match-row { grid-template-columns: auto 1fr; } .match-row .mock-fb { grid-column: 1 / -1; } }
