@@ -251,7 +251,7 @@
         box.append(opts);
       } else {
         if (ex.type === "transform") {
-          box.append(el("div", { class: "instr" }, "Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre 2 y 5 palabras."));
+          box.append(el("div", { class: "instr" }, `Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre ${{a1:"2 y 5",a2:"2 y 5",b1:"2 y 5",b2:"2 y 5",c1:"3 y 6",c2:"3 y 8"}[ls.level]} palabras (las contracciones cuentan como dos).`));
           box.append(el("div", { class: "prompt" }, `${ex.first}<br><span class="keyword">${ex.keyword}</span><br>${ex.before} ______ ${ex.after}`));
         } else {
           box.append(el("div", { class: "prompt" }, ex.prompt.replace("___", "______")));
