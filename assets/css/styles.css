@@ -270,3 +270,21 @@ dl.facts dd { margin: 0; font-weight: 600; }
 .grade.g2 { border-color: var(--ok); color: var(--ok); }
 .grade.g3 { border-color: var(--brand); color: var(--brand); }
 @media (max-width: 480px) { .grade-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Speaking ---------- */
+.phrases { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; margin: 16px 0; }
+.phrases summary, .sp-model summary { cursor: pointer; font-weight: 600; }
+.phrases p { margin: 10px 0 0; }
+.sp-card { margin-top: 20px; }
+.sp-prompt { font-family: var(--serif); font-size: 1.25rem; line-height: 1.45; margin: 10px 0 14px; }
+.sp-visuals { display: grid; gap: 8px; margin-bottom: 16px; }
+.sp-visuals div { background: var(--surface-2); border: 1px dashed var(--border); border-radius: 10px; padding: 10px 14px; font-size: .95rem; }
+.sp-controls { display: flex; gap: 10px; flex-wrap: wrap; }
+.sp-clock { display: flex; align-items: center; gap: 10px; font-size: 2rem; font-family: var(--serif); margin: 16px 0 8px; }
+.sp-clock .low { color: var(--err); }
+.rec-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--err); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+.sp-audio { width: 100%; margin: 6px 0 12px; }
+.sp-model { margin: 12px 0; border-top: 1px solid var(--border); padding-top: 12px; }
+.sp-model-text { margin: 10px 0; padding: 12px 16px; background: var(--surface-2); border-radius: 10px; }
+.sp-model-text p { margin: 0 0 8px; }

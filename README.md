@@ -19,6 +19,8 @@ C1 Advanced, C2 Proficiency e IELTS.
   voces distintas por hablante (síntesis de voz del navegador) y transcripción tras corregir.
 - **Writing**: 9 tareas con formato de examen (B1 Preliminary a C2 Proficiency), editor con contador
   de palabras y temporizador, autoevaluación con los criterios de Cambridge y respuestas modelo comentadas.
+- **Speaking**: 7 prácticas con formato de examen (B1 Preliminary a C2 Proficiency), pregunta leída
+  en voz alta, cronómetro con el tiempo oficial, grabación con el micrófono, respuesta modelo y autoevaluación.
 - **Vocabulario**: 150 tarjetas (25 por nivel) con repetición espaciada, audio, estudio en ambas
   direcciones y copia de seguridad del progreso (exportar/importar).
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
@@ -44,7 +46,7 @@ Netlify o cualquier hosting estático.
 
 ```
 index.html, niveles.html, nivel.html, leccion.html, test.html, examenes.html, metodo.html,
-simulacros.html, simulacro.html, listening.html, escuchar.html, writing.html, escribir.html, vocabulario.html
+simulacros.html, simulacro.html, listening.html, escuchar.html, writing.html, escribir.html, vocabulario.html, speaking.html, hablar.html
 assets/css/styles.css
 assets/js/app.js                 # lógica común y renderizado
 assets/js/data/curriculum.js     # niveles, unidades y lecciones planificadas
@@ -54,6 +56,7 @@ assets/js/data/mocks.js          # simulacros de examen
 assets/js/data/listening.js      # ejercicios de listening
 assets/js/data/writing.js        # tareas de writing
 assets/js/data/vocab.js          # mazos de vocabulario
+assets/js/data/speaking.js       # prácticas de speaking
 ```
 
 ## Añadir una lección

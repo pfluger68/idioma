@@ -50,6 +50,8 @@
       this.save(p);
     },
     writing(id) { return (this.load().writing || {})[id]; },
+    setSpeaking(id) { const p = this.load(); p.speaking = p.speaking || {}; p.speaking[id] = { date: new Date().toISOString() }; this.save(p); },
+    speaking(id) { return (this.load().speaking || {})[id]; },
     setPlacement(level) { const p = this.load(); p.placement = { level, date: new Date().toISOString() }; this.save(p); },
     reset() { try { localStorage.removeItem(KEY); } catch { /* nada */ } }
   };
@@ -82,6 +84,7 @@
       ["simulacros.html", "Simulacros", "mocks"],
       ["listening.html", "Listening", "listening"],
       ["writing.html", "Writing", "writing"],
+      ["speaking.html", "Speaking", "speaking"],
       ["vocabulario.html", "Vocabulario", "vocab"],
       ["metodo.html", "Método", "method"]
     ];
@@ -90,7 +93,7 @@
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">Id</span>Idioma</a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menú</button>
         <nav class="nav" id="nav" aria-label="Principal">
-          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") || (page === "listen" && k === "listening") || (page === "write" && k === "writing") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
+          ${links.map(([h, t, k]) => `<a href="${h}"${k === page || (page === "lesson" && k === "levels") || (page === "level" && k === "levels") || (page === "mock" && k === "mocks") || (page === "listen" && k === "listening") || (page === "write" && k === "writing") || (page === "speak" && k === "speaking") ? ' aria-current="page"' : ""}>${t}</a>`).join("")}
         </nav>
       </div>`);
     document.body.prepend(header);
@@ -1008,11 +1011,163 @@
     home();
   }
 
+  /* ---------- Speaking ---------- */
+  function renderSpeakingList() {
+    const order = I.levels.map(l => l.id);
+    $("#speaking-grid").innerHTML = [...I.speaking].sort((a, b) => order.indexOf(a.level) - order.indexOf(b.level)).map(x => {
+      const done = Progress.speaking(x.id);
+      return `<a class="card" href="hablar.html?id=${x.id}">
+        <span class="badge ${x.level}">${x.level.toUpperCase()}</span>
+        <h3 style="margin-top:14px">${x.title}</h3>
+        <p class="muted">${x.exam} · ${x.part}</p>
+        <div class="meta"><span>${x.tasks.length} ${x.tasks.length === 1 ? "tarea" : "tareas"}</span>${done ? `<span class="tag ok">Practicado</span>` : ""}</div>
+      </a>`;
+    }).join("");
+  }
+
+  function renderSpeak() {
+    const id = new URLSearchParams(location.search).get("id");
+    const sp = I.speakingById(id), main = $("#main");
+    if (!sp) { main.innerHTML = `<div class="narrow page-head"><h1>Práctica no encontrada</h1><a href="speaking.html">Ver prácticas</a></div>`; return; }
+    document.title = `${sp.title} (${sp.level.toUpperCase()}) — Idioma`;
+    const canRecord = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+    let stream = null, recorder = null, chunks = [], timerId = null, t = 0;
+    const recordings = [];
+
+    main.innerHTML = `
+      <article class="narrow lesson">
+        <p><a href="speaking.html">← Speaking</a></p>
+        <span class="badge ${sp.level}">${sp.level.toUpperCase()}</span>
+        <h1 style="margin-top:12px">${sp.title}</h1>
+        <p class="muted">${sp.exam} · ${sp.part}</p>
+        <p style="font-size:1.08rem">${sp.intro}</p>
+        <div class="callout"><strong>Consejos:</strong><ul style="margin:6px 0 0;padding-left:20px">${sp.tips.map(x => `<li>${x}</li>`).join("")}</ul></div>
+        <details class="phrases"><summary>Frases útiles</summary>
+          ${sp.phrases.map(g => `<p><strong>${g.f}:</strong> ${g.items.map(i => `<em>${esc(i)}</em>`).join(" · ")}</p>`).join("")}</details>
+        ${canRecord ? `<p class="muted" style="font-size:.88rem">Al empezar, el navegador te pedirá permiso para usar el micrófono. Las grabaciones solo se guardan en esta página mientras la tengas abierta; no se envían a ningún sitio.</p>`
+          : `<div class="callout"><strong>Aviso:</strong> tu navegador no permite grabar audio. Puedes practicar igualmente con el cronómetro.</div>`}
+        <div id="sp-task"></div>
+        <div id="sp-end"></div>
+      </article>`;
+
+    const fmt = n => `${Math.floor(n / 60)}:${String(n % 60).padStart(2, "0")}`;
+    const stopAll = () => {
+      clearInterval(timerId); timerId = null;
+      if (recorder && recorder.state === "recording") recorder.stop();
+    };
+
+    const showTask = i => {
+      stopAll();
+      const task = sp.tasks[i];
+      $("#sp-task").innerHTML = `
+        <div class="card sp-card">
+          <div class="q-num">Tarea ${i + 1} de ${sp.tasks.length} · ${fmt(task.seconds)} para hablar</div>
+          <p class="sp-prompt">${esc(task.prompt)}</p>
+          ${task.visuals ? `<div class="sp-visuals">${task.visuals.map(v => `<div>${esc(v)}</div>`).join("")}</div>` : ""}
+          <div class="sp-controls">
+            <button class="btn btn-ghost" id="sp-listen">▶ Escuchar la pregunta</button>
+            <button class="btn btn-primary" id="sp-start">● Empezar a hablar</button>
+            <button class="btn btn-ghost" id="sp-stop" hidden>■ Terminar</button>
+          </div>
+          <div id="sp-timer" hidden>
+            <div class="sp-clock"><span id="sp-rec" class="rec-dot" hidden></span><strong id="sp-time">${fmt(task.seconds)}</strong></div>
+            <div class="progress"><span id="sp-bar" style="width:0%"></span></div>
+          </div>
+          <div id="sp-after" hidden>
+            <div id="sp-playback"></div>
+            <details class="sp-model"><summary>Ver respuesta modelo</summary>
+              <div class="sp-model-text">${task.model.split("\n").map(l => `<p>${esc(l)}</p>`).join("")}</div>
+              <button class="btn btn-ghost btn-sm" id="sp-model-listen">▶ Escuchar el modelo</button>
+            </details>
+            <div class="lesson-nav">
+              <button class="btn btn-ghost" id="sp-retry">↺ Repetir</button>
+              ${i + 1 < sp.tasks.length ? `<button class="btn btn-primary" id="sp-next">Siguiente tarea →</button>` : `<button class="btn btn-primary" id="sp-finish">Terminar práctica</button>`}
+            </div>
+          </div>
+        </div>`;
+      $("#sp-listen").onclick = () => speak(task.prompt);
+      $("#sp-start").onclick = () => start(task);
+      $("#sp-stop").onclick = () => finish();
+      $("#sp-retry").onclick = () => showTask(i);
+      $("#sp-model-listen").onclick = () => speak(task.model.replace(/^[AB]: /gm, ""));
+      if ($("#sp-next")) $("#sp-next").onclick = () => { showTask(i + 1); $("#sp-task").scrollIntoView({ behavior: "smooth" }); };
+      if ($("#sp-finish")) $("#sp-finish").onclick = end;
+    };
+
+    async function start(task) {
+      if ("speechSynthesis" in window) speechSynthesis.cancel();
+      $("#sp-start").hidden = true; $("#sp-listen").hidden = true; $("#sp-stop").hidden = false;
+      $("#sp-timer").hidden = false; $("#sp-after").hidden = true;
+      if (canRecord) {
+        try {
+          stream = stream || await navigator.mediaDevices.getUserMedia({ audio: true });
+          chunks = [];
+          recorder = new MediaRecorder(stream);
+          recorder.ondataavailable = e => e.data.size && chunks.push(e.data);
+          recorder.onstop = () => {
+            const blob = new Blob(chunks, { type: recorder.mimeType || "audio/webm" });
+            const url = URL.createObjectURL(blob);
+            recordings.push(url);
+            $("#sp-playback").innerHTML = `<p><strong>Tu respuesta:</strong></p><audio controls src="${url}" class="sp-audio"></audio>`;
+          };
+          recorder.start();
+          $("#sp-rec").hidden = false;
+        } catch {
+          $("#sp-playback").innerHTML = `<p class="muted">No se pudo acceder al micrófono, así que esta vez no hay grabación. Puedes permitirlo en los ajustes del navegador.</p>`;
+        }
+      }
+      t = task.seconds;
+      const total = task.seconds;
+      const tick = () => {
+        $("#sp-time").textContent = fmt(t);
+        $("#sp-bar").style.width = `${((total - t) / total) * 100}%`;
+        if (t <= 10) $("#sp-time").classList.add("low");
+        if (t-- <= 0) finish();
+      };
+      tick(); timerId = setInterval(tick, 1000);
+    }
+
+    function finish() {
+      if (!timerId && !(recorder && recorder.state === "recording")) return;
+      stopAll();
+      $("#sp-rec").hidden = true; $("#sp-stop").hidden = true;
+      $("#sp-time").textContent = "¡Tiempo!";
+      $("#sp-after").hidden = false;
+      if (!canRecord) $("#sp-playback").innerHTML = "";
+    }
+
+    function end() {
+      stopAll();
+      Progress.setSpeaking(sp.id);
+      $("#sp-task").innerHTML = "";
+      const crit = [
+        ["Grammatical Resource", "He usado estructuras variadas con pocos errores."],
+        ["Lexical Resource", "He usado vocabulario preciso y variado, sin repetir siempre las mismas palabras."],
+        ["Discourse Management", "Mis respuestas han tenido la extensión adecuada y han estado bien organizadas."],
+        ["Pronunciation", "Me entiendo bien al escuchar la grabación: sonidos, acento de palabra y entonación."],
+        ["Interactive Communication", "He respondido exactamente a lo que se preguntaba (y, en pareja, he interactuado)."]
+      ];
+      $("#sp-end").innerHTML = `<div class="card">
+        <span class="eyebrow">Práctica terminada</span>
+        <h2>Autoevaluación</h2>
+        <p class="muted">Escucha tus grabaciones y marca lo que cumples. Son los cinco criterios con los que Cambridge evalúa el Speaking.</p>
+        ${crit.map(([c, d]) => `<label class="check-item"><input type="checkbox"> <span><strong>${c}:</strong> ${d}</span></label>`).join("")}
+        ${recordings.length ? `<h3 style="margin-top:18px">Tus grabaciones</h3>${recordings.map((u, k) => `<p class="muted" style="margin:8px 0 4px">Respuesta ${k + 1}</p><audio controls src="${u}" class="sp-audio"></audio>`).join("")}` : ""}
+        <div class="lesson-nav"><button class="btn btn-ghost" onclick="location.reload()">Repetir práctica</button><a class="btn btn-primary" href="speaking.html">Otras prácticas</a></div>
+      </div>`;
+      if (stream) { stream.getTracks().forEach(tr => tr.stop()); stream = null; }
+      $("#sp-end").scrollIntoView({ behavior: "smooth" });
+    }
+
+    window.addEventListener("beforeunload", () => { stopAll(); if (stream) stream.getTracks().forEach(tr => tr.stop()); });
+    showTask(0);
+  }
+
   /* ---------- Arranque ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     chrome();
     const page = document.body.dataset.page;
-    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen, writing: renderWritingList, write: renderWrite, vocab: renderVocab }[page] || (() => {}))();
+    ({ home: renderHome, levels: renderLevels, level: renderLevel, lesson: renderLesson, test: renderTest, mocks: renderMocks, mock: renderMock, listening: renderListeningList, listen: renderListen, writing: renderWritingList, write: renderWrite, vocab: renderVocab, speaking: renderSpeakingList, speak: renderSpeak }[page] || (() => {}))();
     if ("speechSynthesis" in window) speechSynthesis.getVoices();
   });
 })();
