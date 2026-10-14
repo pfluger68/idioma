@@ -1037,6 +1037,277 @@ IDIOMA.lessons = {
   ]
 },
 
+"b2-01": {
+  level: "b2", title: "Third conditional", minutes: 25,
+  intro: "El tercer condicional imagina un pasado diferente: lo que habría pasado si las cosas hubieran sido de otra manera. Se usa para arrepentimientos, críticas y especulaciones sobre el pasado.",
+  content: [
+    { h: "Forma" },
+    { p: "<strong>If + past perfect, would have + participio.</strong>" },
+    { examples: [
+      ["If I had left earlier, I wouldn't have missed the train.", "Si hubiera salido antes, no habría perdido el tren."],
+      ["If she hadn't helped me, I would have failed.", "Si ella no me hubiera ayudado, habría suspendido."],
+      ["What would you have done if you had been there?", "¿Qué habrías hecho si hubieras estado allí?"]
+    ]},
+    { h: "Variantes con modales" },
+    { table: { head: ["Modal", "Significado", "Ejemplo"], rows: [
+      ["would have", "resultado seguro", "We would have won."],
+      ["could have", "posibilidad / capacidad", "We could have won."],
+      ["might have", "posibilidad menos segura", "We might have won."]
+    ]}},
+    { callout: "<strong>Contracciones al hablar:</strong> <em>'d</em> puede ser <em>had</em> o <em>would</em>: <em>If I'd known (had), I'd have told you (would)</em>. Y <em>would have</em> suena /ˈwʊdəv/ («would've»), nunca «would of»." },
+    { callout: "<strong>Error clásico:</strong> «If I would have known…» ✗ → <em>If I had known…</em> ✓. Nunca va <em>would</em> en la parte del <em>if</em>." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "If I ___ (know) about the party, I would have gone.", answers: ["had known", "'d known"], explain: "If + past perfect." },
+    { type: "gap", prompt: "If we had taken a taxi, we ___ (arrive) on time.", answers: ["would have arrived", "'d have arrived", "would've arrived"], explain: "Resultado → would have + participio." },
+    { type: "mc", prompt: "If she ___ harder, she would have passed.", options: ["studied", "had studied", "would have studied"], answer: 1, explain: "Pasado irreal → past perfect." },
+    { type: "mc", prompt: "We ___ the match if our best player hadn't been injured. (posibilidad)", options: ["could have won", "can win", "could win"], answer: 0, explain: "Posibilidad en el pasado → could have + participio." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["If I would have seen you, I'd have said hello.", "If I had seen you, I'd have said hello.", "If I saw you, I'd have say hello."], answer: 1, explain: "If + had + participio." },
+    { type: "gap", prompt: "If you ___ (not / remind) me, I would have forgotten.", answers: ["hadn't reminded", "had not reminded"], explain: "Negativa: hadn't + participio." },
+    { type: "transform", first: "I didn't have your number, so I didn't call you.", keyword: "HAD", before: "I would have called you if", after: "your number.", answers: ["i had had", "i'd had"], explain: "Had + had (past perfect de have)." }
+  ]
+},
+
+"b2-03": {
+  level: "b2", title: "Wish e if only", minutes: 25,
+  intro: "Wish e if only expresan deseos sobre situaciones irreales y arrepentimientos. El tiempo verbal que siguen depende de si hablas del presente, del pasado o de una queja sobre el comportamiento de otro.",
+  content: [
+    { h: "Las tres estructuras" },
+    { table: { head: ["Se refiere a", "Estructura", "Ejemplo"], rows: [
+      ["Presente (situación)", "wish + past simple", "I wish I lived by the sea."],
+      ["Pasado (arrepentimiento)", "wish + past perfect", "I wish I had studied harder."],
+      ["Queja / deseo de cambio de otro", "wish + would + infinitivo", "I wish you would stop interrupting."]
+    ]}},
+    { examples: [
+      ["I wish I knew the answer.", "Ojalá supiera la respuesta."],
+      ["She wishes she hadn't sold her flat.", "Se arrepiente de haber vendido su piso."],
+      ["I wish it would stop raining.", "Ojalá dejara de llover."],
+      ["If only I had more time!", "¡Si al menos tuviera más tiempo!"]
+    ]},
+    { callout: "<strong>If only</strong> funciona igual que <em>wish</em> pero es más enfático y emocional." },
+    { callout: "<strong>No uses would para ti mismo:</strong> «I wish I would be taller» ✗ → <em>I wish I were/was taller</em> ✓. <em>Wish + would</em> es para quejarse de otros o de situaciones externas." },
+    { h: "Expresiones relacionadas" },
+    { p: "<em>It's (high) time</em> + past simple (ya es hora de que): <em>It's time we left</em>. <em>I'd rather</em> + sujeto + past simple (preferiría que): <em>I'd rather you didn't smoke here</em>." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "I wish I ___ (have) a bigger flat.", answers: ["had"], explain: "Presente → wish + past simple." },
+    { type: "gap", prompt: "I wish I ___ (not / eat) so much last night.", answers: ["hadn't eaten", "had not eaten"], explain: "Arrepentimiento pasado → past perfect." },
+    { type: "mc", prompt: "I wish my neighbours ___ so much noise.", options: ["didn't make", "wouldn't make", "hadn't made"], answer: 1, explain: "Queja sobre el comportamiento de otros → wouldn't." },
+    { type: "mc", prompt: "If only I ___ the truth back then!", options: ["knew", "had known", "would know"], answer: 1, explain: "Pasado → had known." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["I wish I would be taller.", "I wish I were taller.", "I wish I am taller."], answer: 1, explain: "Situación presente propia → past simple (were)." },
+    { type: "gap", prompt: "It's high time you ___ (get) a job.", answers: ["got"], explain: "It's high time + past simple." },
+    { type: "transform", first: "I regret not going to the concert.", keyword: "WISH", before: "I", after: "to the concert.", answers: ["wish i had gone", "wish i'd gone", "wish i had been", "wish i'd been"], explain: "Arrepentimiento → wish + past perfect." }
+  ]
+},
+
+"b2-04": {
+  level: "b2", title: "Modales de deducción en presente", minutes: 25,
+  intro: "Los modales de deducción expresan lo seguros que estamos de algo a partir de pruebas. En B2 son imprescindibles en el Speaking (al comparar fotos) y en las key word transformations.",
+  content: [
+    { h: "Escala de certeza" },
+    { table: { head: ["Certeza", "Modal", "Ejemplo"], rows: [
+      ["Casi seguro que sí (≈ 95 %)", "must", "She must be tired; she's been working all day."],
+      ["Posible (≈ 50 %)", "may / might / could", "He might be at home, I'm not sure."],
+      ["Casi seguro que no (≈ 5 %)", "can't / couldn't", "That can't be Tom. He's in Australia."]
+    ]}},
+    { examples: [
+      ["You must be joking!", "¡Debes de estar de broma!"],
+      ["The keys could be in the car.", "Las llaves podrían estar en el coche."],
+      ["It can't be true.", "No puede ser verdad."],
+      ["They must be having a party; the music is so loud.", "Deben de estar de fiesta; la música está altísima."]
+    ]},
+    { callout: "<strong>Lo contrario de must no es mustn't:</strong> en deducción, lo opuesto de <em>must</em> es <em>can't</em>. «He mustn't be at home» ✗ → <em>He can't be at home</em> ✓." },
+    { callout: "<strong>Acción en curso:</strong> modal + <em>be</em> + -ing: <em>She might be sleeping</em>." },
+    { h: "En el Speaking (Part 2)" },
+    { p: "Al describir fotos, usa la deducción en vez de afirmar: <em>They <strong>might be</strong> colleagues…</em>, <em>She <strong>must be</strong> feeling nervous…</em>, <em>It <strong>can't be</strong> very comfortable…</em>." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "He's been running for two hours. He ___ be exhausted.", options: ["must", "can't", "might not"], answer: 0, explain: "Deducción casi segura → must." },
+    { type: "mc", prompt: "That ___ be Laura. She's on holiday in Peru.", options: ["must", "can't", "mustn't"], answer: 1, explain: "Imposible → can't." },
+    { type: "mc", prompt: "I'm not sure where she is. She ___ be in the library.", options: ["must", "might", "can't"], answer: 1, explain: "Posibilidad → might." },
+    { type: "gap", prompt: "Don't call now. They ___ be having dinner. (posibilidad)", answers: ["might", "may", "could"], explain: "Posibilidad → might/may/could + be + -ing." },
+    { type: "mc", prompt: "Lo contrario de «He must be rich» es:", options: ["He mustn't be rich.", "He can't be rich.", "He doesn't must be rich."], answer: 1, explain: "Opuesto de must (deducción) → can't." },
+    { type: "gap", prompt: "You've been travelling all day. You ___ be hungry. (casi seguro)", answers: ["must"], explain: "Deducción lógica → must." },
+    { type: "transform", first: "I'm sure this isn't the right address.", keyword: "BE", before: "This", after: "the right address.", answers: ["can't be", "cannot be", "couldn't be"], explain: "Seguro de que no → can't be." }
+  ]
+},
+
+"b2-05": {
+  level: "b2", title: "Modales de deducción en pasado", minutes: 25,
+  intro: "Para deducir sobre el pasado se usa modal + have + participio. También sirven para criticar o lamentar lo que alguien hizo o no hizo.",
+  content: [
+    { h: "Deducción" },
+    { table: { head: ["Certeza", "Estructura", "Ejemplo"], rows: [
+      ["Casi seguro que sí", "must have + participio", "She must have forgotten."],
+      ["Posible", "may / might / could have + participio", "They might have missed the bus."],
+      ["Casi seguro que no", "can't / couldn't have + participio", "He can't have seen us."]
+    ]}},
+    { examples: [
+      ["The ground is wet. It must have rained.", "El suelo está mojado. Debe de haber llovido."],
+      ["She isn't answering. She might have gone out.", "No contesta. Puede que haya salido."],
+      ["You can't have finished already!", "¡No puede ser que ya hayas terminado!"]
+    ]},
+    { h: "Crítica y arrepentimiento" },
+    { table: { head: ["Estructura", "Significado", "Ejemplo"], rows: [
+      ["should have + participio", "debería haber (y no lo hizo)", "You should have told me."],
+      ["shouldn't have + participio", "no debería haber (y lo hizo)", "I shouldn't have eaten so much."],
+      ["could have + participio", "podría haber (oportunidad no aprovechada)", "You could have called!"],
+      ["needn't have + participio", "no hacía falta (pero lo hizo)", "You needn't have brought a present."]
+    ]}},
+    { callout: "<strong>Needn't have vs didn't need to:</strong> <em>I needn't have hurried</em> = me di prisa sin necesidad. <em>I didn't need to hurry</em> = no hacía falta (y normalmente no lo hice)." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "The window is broken. Someone ___ it.", options: ["must have broken", "must break", "can't have broken"], answer: 0, explain: "Deducción segura en pasado → must have + participio." },
+    { type: "mc", prompt: "He ___ stolen the money; he was with me all day.", options: ["must have", "can't have", "should have"], answer: 1, explain: "Imposible en pasado → can't have." },
+    { type: "gap", prompt: "You ___ have told me earlier! Now it's too late. (crítica)", answers: ["should", "could"], explain: "Crítica → should have / could have." },
+    { type: "gap", prompt: "I ___ have eaten that last cake. I feel sick. (arrepentimiento)", answers: ["shouldn't", "should not"], explain: "Arrepentimiento → shouldn't have." },
+    { type: "mc", prompt: "She's late. She ___ got stuck in traffic.", options: ["might have", "must", "can't"], answer: 0, explain: "Posibilidad en pasado → might have." },
+    { type: "mc", prompt: "Llevé paraguas, pero no llovió. «I ___ an umbrella.»", options: ["needn't have taken", "didn't take", "mustn't have taken"], answer: 0, explain: "Hice algo innecesario → needn't have + participio." },
+    { type: "transform", first: "I'm sure she forgot about the meeting.", keyword: "MUST", before: "She", after: "about the meeting.", answers: ["must have forgotten", "must've forgotten"], explain: "Seguro en pasado → must have + participio." }
+  ]
+},
+
+"b2-06": {
+  level: "b2", title: "Past perfect simple y continuous", minutes: 25,
+  intro: "El past perfect sitúa una acción antes de otra acción pasada: es «el pasado del pasado». La forma continua destaca la duración de esa acción anterior.",
+  content: [
+    { h: "Past perfect simple: had + participio" },
+    { examples: [
+      ["When we arrived, the film had already started.", "Cuando llegamos, la película ya había empezado."],
+      ["She told me she had lost her job.", "Me dijo que había perdido su trabajo."],
+      ["I had never seen snow before I went to Canada.", "Nunca había visto la nieve antes de ir a Canadá."]
+    ]},
+    { callout: "<strong>Compara:</strong> <em>When I arrived, she <strong>left</strong></em> (se fue al llegar yo) · <em>When I arrived, she <strong>had left</strong></em> (ya se había ido)." },
+    { h: "Past perfect continuous: had been + -ing" },
+    { p: "Destaca la <strong>duración</strong> de una actividad que continuó hasta un momento del pasado, a menudo con resultados visibles." },
+    { examples: [
+      ["I had been waiting for an hour when the bus finally came.", "Llevaba una hora esperando cuando por fin llegó el autobús."],
+      ["Her eyes were red. She had been crying.", "Tenía los ojos rojos. Había estado llorando."]
+    ]},
+    { table: { head: ["Simple", "Continuous"], rows: [
+      ["Acción completada, resultado", "Duración, actividad en proceso"],
+      ["She had written three emails.", "She had been writing emails all morning."],
+      ["Con cantidades (how many)", "Con duraciones (how long)"]
+    ]}},
+    { callout: "<strong>By the time:</strong> expresión muy frecuente con past perfect: <em>By the time the police arrived, the thieves had escaped.</em>" }
+  ],
+  exercises: [
+    { type: "gap", prompt: "When I got to the station, the train ___ (leave).", answers: ["had left", "had already left", "'d left"], explain: "Acción anterior a otra pasada → had + participio." },
+    { type: "mc", prompt: "By the time we arrived, they ___ dinner.", options: ["finished", "had finished", "have finished"], answer: 1, explain: "By the time + past perfect." },
+    { type: "gap", prompt: "She was tired because she ___ (work) all day.", answers: ["had been working", "'d been working"], explain: "Duración hasta un momento pasado → past perfect continuous." },
+    { type: "mc", prompt: "I ___ never flown before that trip.", options: ["have", "had", "was"], answer: 1, explain: "Experiencia anterior a un momento pasado → had never." },
+    { type: "mc", prompt: "He ___ for three hours when he finally found the address.", options: ["had been looking", "had looked", "was looked"], answer: 0, explain: "Duración (for three hours) → continuous." },
+    { type: "mc", prompt: "By the end of the day, she ___ five reports.", options: ["had been writing", "had written", "wrote"], answer: 1, explain: "Cantidad completada → simple." },
+    { type: "transform", first: "I arrived after the meeting started.", keyword: "ALREADY", before: "When I arrived, the meeting", after: ".", answers: ["had already started", "had already begun"], explain: "Already + past perfect." }
+  ]
+},
+
+"b2-07": {
+  level: "b2", title: "Word formation: sufijos", minutes: 30,
+  intro: "En la Parte 3 del Reading & Use of English del B2 First debes transformar 8 palabras para completar un texto. Conocer los sufijos más frecuentes es la clave para resolverla.",
+  content: [
+    { h: "Sufijos para formar sustantivos" },
+    { table: { head: ["Sufijo", "Ejemplos"], rows: [
+      ["-tion / -sion", "inform → information, decide → decision"],
+      ["-ment", "develop → development, govern → government"],
+      ["-ness", "happy → happiness, aware → awareness"],
+      ["-ity", "possible → possibility, popular → popularity"],
+      ["-ance / -ence", "appear → appearance, differ → difference"],
+      ["-er / -or / -ist / -ant (personas)", "employ → employer, act → actor, science → scientist, assist → assistant"]
+    ]}},
+    { h: "Adjetivos, verbos y adverbios" },
+    { table: { head: ["Categoría", "Sufijos", "Ejemplos"], rows: [
+      ["Adjetivos", "-ful, -less, -able/-ible, -ous, -ive, -al, -ic", "careful, useless, comfortable, famous, creative, national, scientific"],
+      ["Verbos", "-en, -ise/-ize, -ify", "widen, modernise, simplify"],
+      ["Adverbios", "-ly", "careful → carefully, easy → easily"]
+    ]}},
+    { h: "Prefijos negativos frecuentes" },
+    { p: "<strong>un-</strong> (unhappy, unusual), <strong>in-</strong> (independent), <strong>im-</strong> delante de p/m (impossible, impatient), <strong>il-</strong> delante de l (illegal), <strong>ir-</strong> delante de r (irregular), <strong>dis-</strong> (disagree, dishonest)." },
+    { callout: "<strong>Comprueba siempre:</strong> 1) qué categoría pide el hueco (¿hay un artículo delante? → sustantivo; ¿modifica a un verbo? → adverbio), 2) si el sentido es negativo, 3) si necesita plural." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "The ___ of the new hospital took three years. (CONSTRUCT)", answers: ["construction"], explain: "Sustantivo: construct → construction." },
+    { type: "gap", prompt: "She showed great ___ during the crisis. (CALM)", answers: ["calmness"], explain: "Sustantivo con -ness: calmness." },
+    { type: "gap", prompt: "The film was ___ boring; I fell asleep. (INCREDIBLE)", answers: ["incredibly"], explain: "Modifica a un adjetivo → adverbio: incredibly." },
+    { type: "gap", prompt: "It's ___ to park here without a permit. (LEGAL)", answers: ["illegal"], explain: "Sentido negativo: il- + legal." },
+    { type: "gap", prompt: "The ___ of the city centre has attracted more tourists. (MODERN)", answers: ["modernisation", "modernization"], explain: "Modern → modernise → modernisation." },
+    { type: "gap", prompt: "He's a very ___ person; he never gets angry. (PATIENCE)", answers: ["patient"], explain: "Adjetivo: patience → patient." },
+    { type: "gap", prompt: "There is a growing ___ of the dangers of plastic. (AWARE)", answers: ["awareness"], explain: "Sustantivo: aware → awareness." },
+    { type: "gap", prompt: "The instructions were completely ___. Nobody understood them. (USE)", answers: ["useless"], explain: "Adjetivo negativo: use → useless." }
+  ]
+},
+
+"b2-08": {
+  level: "b2", title: "Key word transformations", minutes: 35,
+  intro: "En la Parte 4 del Reading & Use of English del B2 First hay 6 transformaciones: debes completar una frase con entre 2 y 5 palabras, incluyendo la palabra clave, para que signifique lo mismo que la original. Cada una vale 2 puntos.",
+  content: [
+    { h: "Qué se evalúa" },
+    { p: "Cada transformación combina un punto gramatical y uno léxico. Estos son los más frecuentes en el B2 First:" },
+    { table: { head: ["Punto", "Ejemplo"], rows: [
+      ["Pasiva", "They built it in 1900. → It <strong>was built</strong> in 1900."],
+      ["Estilo indirecto", "«Don't be late», he said. → He <strong>told us not to</strong> be late."],
+      ["Comparativos", "She's taller than me. → I'm <strong>not as tall as</strong> her."],
+      ["Wish / regret", "I regret selling it. → I <strong>wish I hadn't sold</strong> it."],
+      ["Modales de deducción", "I'm sure he's at home. → He <strong>must be</strong> at home."],
+      ["Phrasal verbs", "We cancelled the match. → We <strong>called off</strong> the match."],
+      ["Too / enough", "It's too cold to swim. → It <strong>isn't warm enough</strong> to swim."],
+      ["Present perfect", "I started working here in 2020. → I <strong>have worked here since</strong> 2020."]
+    ]}},
+    { h: "Método en 4 pasos" },
+    { p: "1) Lee las dos frases y localiza qué falta. 2) Identifica la estructura que exige la palabra clave. 3) Escribe la respuesta sin cambiar la palabra clave. 4) Cuenta las palabras (las contracciones cuentan como dos: <em>didn't</em> = <em>did not</em>)." },
+    { callout: "<strong>Puntuación parcial:</strong> cada respuesta tiene dos partes que valen un punto cada una. Aunque no estés seguro de todo, escribe siempre algo." }
+  ],
+  exercises: [
+    { type: "transform", first: "They will deliver the parcel tomorrow.", keyword: "BE", before: "The parcel", after: "tomorrow.", answers: ["will be delivered"], explain: "Futuro pasivo: will be + participio." },
+    { type: "transform", first: "«Don't touch the paintings», the guide said to us.", keyword: "TOLD", before: "The guide", after: "the paintings.", answers: ["told us not to touch"], explain: "Orden negativa: told + objeto + not to." },
+    { type: "transform", first: "My brother is older than me.", keyword: "AS", before: "I am", after: "my brother.", answers: ["not as old as", "isn't as old as"], explain: "Not as + adjetivo + as." },
+    { type: "transform", first: "They postponed the meeting until next week.", keyword: "OFF", before: "They", after: "the meeting until next week.", answers: ["put off"], explain: "Postpone = put off." },
+    { type: "transform", first: "The water is too cold for swimming.", keyword: "ENOUGH", before: "The water", after: "for swimming.", answers: ["isn't warm enough", "is not warm enough", "isn't hot enough", "is not hot enough"], explain: "Too cold = not warm enough." },
+    { type: "transform", first: "I started learning the piano three years ago.", keyword: "BEEN", before: "I", after: "the piano for three years.", answers: ["have been learning", "'ve been learning", "have been playing", "'ve been playing"], explain: "Acción que continúa → present perfect continuous + for." },
+    { type: "transform", first: "It was a mistake to lend him money.", keyword: "SHOULDN'T", before: "I", after: "him money.", answers: ["shouldn't have lent"], explain: "Arrepentimiento → shouldn't have + participio." }
+  ]
+},
+
+"b2-09": {
+  level: "b2", title: "Writing: el essay de opinión", minutes: 35,
+  intro: "La Parte 1 del Writing del B2 First es siempre un essay obligatorio de 140–190 palabras. Te dan una pregunta, dos ideas que debes tratar y te piden una tercera idea propia.",
+  content: [
+    { h: "Estructura recomendada" },
+    { table: { head: ["Párrafo", "Contenido", "Palabras aprox."], rows: [
+      ["1. Introducción", "Presenta el tema; reformula la pregunta.", "25–30"],
+      ["2. Idea 1", "Primera nota del enunciado con argumento y ejemplo.", "40–45"],
+      ["3. Idea 2", "Segunda nota del enunciado.", "40–45"],
+      ["4. Idea propia", "Tu tercera idea (obligatoria).", "35–40"],
+      ["5. Conclusión", "Tu opinión clara y resumida.", "25–30"]
+    ]}},
+    { callout: "<strong>Error que cuesta puntos:</strong> olvidar la tercera idea propia o no responder a la pregunta. Antes de escribir, subraya las dos notas y decide tu idea." },
+    { h: "Lenguaje útil" },
+    { table: { head: ["Función", "Expresiones"], rows: [
+      ["Introducir", "Nowadays… · It is often said that… · Many people believe that…"],
+      ["Añadir", "Moreover · Furthermore · In addition · What is more"],
+      ["Contrastar", "However · On the other hand · Although · Despite / In spite of"],
+      ["Ejemplificar", "For example · For instance · such as"],
+      ["Opinar", "In my opinion · I strongly believe that · From my point of view"],
+      ["Concluir", "To sum up · In conclusion · All things considered"]
+    ]}},
+    { examples: [
+      ["Nowadays, more and more people choose to work from home.", "Hoy en día, cada vez más gente elige trabajar desde casa."],
+      ["On the other hand, working alone can be quite isolating.", "Por otro lado, trabajar solo puede aislar bastante."],
+      ["All things considered, I believe the advantages outweigh the disadvantages.", "En conjunto, creo que las ventajas superan a los inconvenientes."]
+    ]},
+    { callout: "<strong>Registro:</strong> neutro o formal. Evita contracciones, exclamaciones y expresiones coloquiales (<em>stuff, kids, a lot of</em> → <em>things, children, many</em>)." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "¿Cuántas palabras debe tener el essay del B2 First?", options: ["100–120", "140–190", "220–260"], answer: 1, explain: "B2 First: 140–190 palabras (220–260 es C1)." },
+    { type: "mc", prompt: "Además de las dos notas del enunciado, debes incluir…", options: ["una conclusión sin opinión", "una idea propia", "un título"], answer: 1, explain: "La tercera idea propia es obligatoria." },
+    { type: "mc", prompt: "Conector para contrastar:", options: ["Moreover", "However", "For instance"], answer: 1, explain: "However introduce contraste." },
+    { type: "gap", prompt: "All things ___, I believe it is a positive change.", answers: ["considered"], explain: "All things considered = en conjunto." },
+    { type: "gap", prompt: "___ the high cost, many families choose private schools. (a pesar de; una palabra)", answers: ["despite"], explain: "Despite + sustantivo." },
+    { type: "mc", prompt: "Frase más adecuada para el essay:", options: ["Kids spend loads of time on their phones!", "Children spend a great deal of time on their phones.", "Kids are always on their phones, lol."], answer: 1, explain: "Registro neutro-formal, sin coloquialismos." },
+    { type: "gap", prompt: "Public transport is cheap. ___, it reduces pollution. (además, formal)", answers: ["moreover", "furthermore", "in addition", "what is more", "what's more"], explain: "Conectores de adición formales." }
+  ]
+},
+
 /* =========================== C1 =========================== */
 "c1-01": {
   level: "c1", title: "Inversión enfática", minutes: 35,
