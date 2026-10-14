@@ -411,6 +411,279 @@ IDIOMA.lessons = {
   ]
 },
 
+"a2-01": {
+  level: "a2", title: "Past simple de to be", minutes: 20,
+  intro: "Was y were son el pasado de to be. Sirven para decir dónde estabas, cómo era algo o cuándo naciste, y son la base para contar cualquier historia.",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["", "I / he / she / it", "you / we / they"], rows: [
+      ["Afirmativa", "was", "were"],
+      ["Negativa", "wasn't (was not)", "weren't (were not)"],
+      ["Pregunta", "Was he…?", "Were you…?"]
+    ]}},
+    { examples: [
+      ["I was at home last night.", "Anoche estaba en casa."],
+      ["The film was really boring.", "La película fue muy aburrida."],
+      ["We weren't tired.", "No estábamos cansados."],
+      ["Were you at the party? — Yes, I was.", "¿Estuviste en la fiesta? — Sí."]
+    ]},
+    { h: "Expresiones útiles" },
+    { examples: [
+      ["I was born in 1995.", "Nací en 1995."],
+      ["There was a problem with the car.", "Hubo un problema con el coche."],
+      ["There were a lot of people.", "Había mucha gente."]
+    ]},
+    { callout: "<strong>Born:</strong> en inglés «nacer» se expresa con <em>to be born</em>. «I born in Chile» ✗ · «I was born in Chile» ✓." },
+    { callout: "<strong>Pronunciación:</strong> en afirmativa <em>was</em> suena débil /wəz/; en respuestas cortas y negativas suena fuerte /wɒz/: <em>Yes, I was</em>." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "My parents ___ in Paris last week.", options: ["was", "were", "are"], answer: 1, explain: "Plural en pasado → were." },
+    { type: "mc", prompt: "The hotel ___ very expensive.", options: ["were", "was", "is been"], answer: 1, explain: "Singular → was." },
+    { type: "gap", prompt: "I ___ born in 1988.", answers: ["was"], explain: "To be born → I was born." },
+    { type: "gap", prompt: "We ___ at work yesterday. It was a holiday. (negativa)", answers: ["weren't", "were not"], explain: "Plural negativo: weren't." },
+    { type: "mc", prompt: "___ there many people at the concert?", options: ["Was", "Were", "Did"], answer: 1, explain: "Many people → plural → Were there…?" },
+    { type: "mc", prompt: "«Was she angry?» — «No, ___»", options: ["she didn't", "she wasn't", "she weren't"], answer: 1, explain: "Respuesta corta con to be: No, she wasn't." },
+    { type: "gap", prompt: "There ___ a strange noise in the night.", answers: ["was"], explain: "Singular → there was." }
+  ]
+},
+
+"a2-03": {
+  level: "a2", title: "Past continuous vs past simple", minutes: 25,
+  intro: "El past continuous describe una acción en progreso en un momento del pasado. Combinado con el past simple, permite contar qué estaba pasando cuando ocurrió algo.",
+  content: [
+    { h: "Forma del past continuous" },
+    { p: "<strong>was / were + verbo en -ing.</strong>" },
+    { examples: [
+      ["At 9 pm I was having dinner.", "A las 9 estaba cenando."],
+      ["They were watching TV.", "Estaban viendo la tele."],
+      ["What were you doing at midnight?", "¿Qué estabas haciendo a medianoche?"]
+    ]},
+    { h: "Acción larga interrumpida" },
+    { table: { head: ["Past continuous (acción larga)", "Past simple (acción corta)"], rows: [
+      ["I was cooking", "when the phone rang."],
+      ["While she was driving,", "she saw an accident."],
+      ["We were walking home", "when it started to rain."]
+    ]}},
+    { callout: "<strong>When y while:</strong> <em>when</em> suele ir con la acción corta (past simple) y <em>while</em> con la larga (past continuous)." },
+    { h: "Dos acciones simultáneas" },
+    { examples: [
+      ["While I was studying, my brother was playing video games.", "Mientras yo estudiaba, mi hermano jugaba a videojuegos."]
+    ]},
+    { callout: "<strong>Verbos de estado:</strong> verbos como <em>know, like, want, believe</em> no suelen ir en forma continua. «I was knowing him» ✗ · «I knew him» ✓." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "I ___ (sleep) when you called me.", answers: ["was sleeping"], explain: "Acción larga interrumpida → past continuous." },
+    { type: "gap", prompt: "While we were having lunch, the lights ___ (go) out.", answers: ["went"], explain: "Acción corta → past simple: went." },
+    { type: "mc", prompt: "What ___ at 8 o'clock last night?", options: ["did you do", "were you doing", "you were doing"], answer: 1, explain: "Acción en progreso en un momento concreto → past continuous." },
+    { type: "mc", prompt: "She broke her leg while she ___.", options: ["skied", "was skiing", "is skiing"], answer: 1, explain: "While + acción larga → was skiing." },
+    { type: "mc", prompt: "I ___ him for years before we worked together.", options: ["was knowing", "knew", "was know"], answer: 1, explain: "Know es verbo de estado → past simple." },
+    { type: "gap", prompt: "They ___ (not / listen) when the teacher explained it.", answers: ["weren't listening", "were not listening"], explain: "Negativa: weren't + -ing." },
+    { type: "mc", prompt: "When I arrived, everybody ___.", options: ["danced", "was dancing", "were dancing"], answer: 1, explain: "Everybody es singular → was dancing." }
+  ]
+},
+
+"a2-04": {
+  level: "a2", title: "Comparativos", minutes: 25,
+  intro: "Los comparativos sirven para comparar dos cosas. La forma depende de la longitud del adjetivo, y hay algunos irregulares muy frecuentes.",
+  content: [
+    { h: "Formación" },
+    { table: { head: ["Adjetivo", "Regla", "Ejemplo"], rows: [
+      ["Una sílaba", "+ -er", "cheap → cheaper, tall → taller"],
+      ["Una sílaba terminada en consonante-vocal-consonante", "doble consonante + -er", "big → bigger, hot → hotter"],
+      ["Dos sílabas terminadas en -y", "-y → -ier", "easy → easier, happy → happier"],
+      ["Dos o más sílabas", "more + adjetivo", "expensive → more expensive"],
+      ["Irregulares", "—", "good → better, bad → worse, far → further/farther"]
+    ]}},
+    { examples: [
+      ["London is bigger than Madrid.", "Londres es más grande que Madrid."],
+      ["This exercise is easier than the last one.", "Este ejercicio es más fácil que el anterior."],
+      ["Flying is more expensive than taking the train.", "Volar es más caro que ir en tren."],
+      ["My English is better than it was last year.", "Mi inglés es mejor que el año pasado."]
+    ]},
+    { h: "Igualdad: as … as" },
+    { examples: [
+      ["She is as tall as her mother.", "Es tan alta como su madre."],
+      ["The film wasn't as good as the book.", "La película no fue tan buena como el libro."]
+    ]},
+    { callout: "<strong>Errores típicos:</strong> «more big» ✗ → <em>bigger</em> ✓ · «more better» ✗ → <em>better</em> ✓ · «bigger that» ✗ → <em>bigger than</em> ✓." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "A car is ___ (fast) than a bike.", answers: ["faster"], explain: "Una sílaba: + -er." },
+    { type: "gap", prompt: "Today is ___ (hot) than yesterday.", answers: ["hotter"], explain: "Consonante-vocal-consonante → doble t: hotter." },
+    { type: "gap", prompt: "Spanish is ___ (easy) than Chinese for me.", answers: ["easier"], explain: "-y → -ier." },
+    { type: "gap", prompt: "This hotel is ___ (comfortable) than the other one.", answers: ["more comfortable"], explain: "Adjetivo largo → more + adjetivo." },
+    { type: "mc", prompt: "My cold is ___ today than yesterday.", options: ["badder", "worse", "more bad"], answer: 1, explain: "Bad → worse (irregular)." },
+    { type: "mc", prompt: "He's not as ___ as his brother.", options: ["tall", "taller", "tallest"], answer: 0, explain: "As + adjetivo base + as." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["She is more older than me.", "She is older that me.", "She is older than me."], answer: 2, explain: "Old → older + than." }
+  ]
+},
+
+"a2-05": {
+  level: "a2", title: "Superlativos", minutes: 20,
+  intro: "El superlativo expresa que algo es el que más de un grupo: el más alto, el mejor, el más caro. Siempre lleva the.",
+  content: [
+    { h: "Formación" },
+    { table: { head: ["Adjetivo", "Comparativo", "Superlativo"], rows: [
+      ["cheap", "cheaper", "the cheapest"],
+      ["big", "bigger", "the biggest"],
+      ["happy", "happier", "the happiest"],
+      ["beautiful", "more beautiful", "the most beautiful"],
+      ["good", "better", "the best"],
+      ["bad", "worse", "the worst"],
+      ["far", "further", "the furthest"]
+    ]}},
+    { examples: [
+      ["Everest is the highest mountain in the world.", "El Everest es la montaña más alta del mundo."],
+      ["This is the most interesting book I've ever read.", "Es el libro más interesante que he leído nunca."],
+      ["It was the worst day of my life.", "Fue el peor día de mi vida."]
+    ]},
+    { callout: "<strong>In / of:</strong> con lugares y grupos se usa <em>in</em> (<em>the best student in the class</em>); con periodos y cantidades, <em>of</em> (<em>the best day of the year</em>, <em>the tallest of the three</em>). «The highest of the world» ✗." },
+    { callout: "<strong>El menos:</strong> <em>the least</em> + adjetivo: <em>the least expensive option</em> (la opción menos cara)." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "This is ___ (cheap) restaurant in town.", answers: ["the cheapest"], explain: "The + adjetivo corto + -est." },
+    { type: "gap", prompt: "It's ___ (important) decision of my career.", answers: ["the most important"], explain: "Adjetivo largo → the most." },
+    { type: "mc", prompt: "She's the ___ singer I know.", options: ["goodest", "best", "better"], answer: 1, explain: "Good → the best." },
+    { type: "mc", prompt: "Russia is the biggest country ___ the world.", options: ["of", "in", "on"], answer: 1, explain: "Lugares → in." },
+    { type: "mc", prompt: "It was the happiest day ___ my life.", options: ["in", "of", "at"], answer: 1, explain: "Periodos → of my life." },
+    { type: "gap", prompt: "That was ___ (bad) film I've ever seen.", answers: ["the worst"], explain: "Bad → the worst." },
+    { type: "gap", prompt: "Which is ___ (big) city in your country?", answers: ["the biggest"], explain: "Doble consonante: the biggest." }
+  ]
+},
+
+"a2-06": {
+  level: "a2", title: "Much, many, a lot of", minutes: 20,
+  intro: "Para hablar de cantidades en inglés hay que saber si el sustantivo es contable (se puede contar: books) o incontable (no se cuenta: water, money, information).",
+  content: [
+    { h: "Contables e incontables" },
+    { table: { head: ["", "Contables (plural)", "Incontables"], rows: [
+      ["Mucho/s (preguntas y negativas)", "many", "much"],
+      ["Mucho/s (afirmativas)", "a lot of / lots of", "a lot of / lots of"],
+      ["Pocos / poco (cantidad pequeña positiva)", "a few", "a little"],
+      ["¿Cuántos? / ¿Cuánto?", "How many…?", "How much…?"],
+      ["Demasiado/s", "too many", "too much"]
+    ]}},
+    { examples: [
+      ["How many brothers have you got?", "¿Cuántos hermanos tienes?"],
+      ["How much money do you need?", "¿Cuánto dinero necesitas?"],
+      ["We don't have much time.", "No tenemos mucho tiempo."],
+      ["There are a lot of tourists in summer.", "Hay muchos turistas en verano."],
+      ["I have a few friends in London.", "Tengo algunos amigos en Londres."]
+    ]},
+    { callout: "<strong>Incontables que en español sí se cuentan:</strong> <em>information, advice, news, furniture, luggage, homework, research</em>. Nunca llevan -s ni <em>a</em>: «an advice» ✗ → <em>a piece of advice</em> / <em>some advice</em> ✓." },
+    { callout: "<strong>Matiz:</strong> <em>a few / a little</em> = algunos/un poco (positivo). <em>few / little</em> sin «a» = pocos/poco (negativo, casi nada)." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "How ___ people came to the meeting?", options: ["much", "many", "lot"], answer: 1, explain: "People es contable → many." },
+    { type: "mc", prompt: "I don't have ___ money this month.", options: ["many", "much", "a few"], answer: 1, explain: "Money es incontable → much." },
+    { type: "gap", prompt: "How ___ sugar do you take in your coffee?", answers: ["much"], explain: "Sugar es incontable → how much." },
+    { type: "mc", prompt: "Can you give me some ___?", options: ["advices", "advice", "an advice"], answer: 1, explain: "Advice es incontable: sin -s ni a." },
+    { type: "mc", prompt: "There's ___ milk left. Enough for a coffee.", options: ["a little", "a few", "many"], answer: 0, explain: "Milk incontable, cantidad pequeña positiva → a little." },
+    { type: "mc", prompt: "There were ___ cars on the road, so we arrived late.", options: ["too much", "too many", "much"], answer: 1, explain: "Cars contable → too many." },
+    { type: "gap", prompt: "I've got a ___ questions for you. (unas pocas)", answers: ["few"], explain: "Contable → a few." }
+  ]
+},
+
+"a2-07": {
+  level: "a2", title: "Going to para planes", minutes: 20,
+  intro: "Be going to + infinitivo expresa planes e intenciones ya decididos y también predicciones basadas en lo que vemos ahora.",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["", "Forma", "Ejemplo"], rows: [
+      ["Afirmativa", "am/is/are + going to + infinitivo", "I'm going to study medicine."],
+      ["Negativa", "am not / isn't / aren't + going to", "She isn't going to come."],
+      ["Pregunta", "Am/Is/Are + sujeto + going to…?", "Are you going to buy it?"]
+    ]}},
+    { h: "Uso 1: planes e intenciones" },
+    { examples: [
+      ["We're going to get married next year.", "Nos vamos a casar el año que viene."],
+      ["I'm going to start running.", "Voy a empezar a correr."],
+      ["What are you going to do this weekend?", "¿Qué vas a hacer este fin de semana?"]
+    ]},
+    { h: "Uso 2: predicción con evidencia" },
+    { examples: [
+      ["Look at those clouds! It's going to rain.", "¡Mira esas nubes! Va a llover."],
+      ["Be careful! You're going to fall.", "¡Cuidado! Te vas a caer."]
+    ]},
+    { callout: "<strong>Con go:</strong> se puede decir <em>I'm going to go</em>, pero es más natural <em>I'm going to the cinema tonight</em> (present continuous)." },
+    { callout: "<strong>Lengua hablada:</strong> en conversación informal <em>going to</em> suena a menudo /ˈɡʌnə/ («gonna»). Entiéndelo, pero no lo escribas en textos formales." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "I ___ going to visit my aunt on Sunday.", answers: ["am", "'m"], explain: "I → am going to." },
+    { type: "gap", prompt: "They ___ going to sell their house. (negativa)", answers: ["aren't", "are not"], explain: "Plural negativo: aren't going to." },
+    { type: "mc", prompt: "___ she going to study abroad?", options: ["Does", "Is", "Will"], answer: 1, explain: "Pregunta con be: Is she going to…?" },
+    { type: "mc", prompt: "Look at that driver! He ___ crash!", options: ["is going to", "goes to", "going"], answer: 0, explain: "Predicción con evidencia → is going to." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["I going to learn Italian.", "I'm going to learn Italian.", "I'm going learn Italian."], answer: 1, explain: "Am + going to + infinitivo." },
+    { type: "gap", prompt: "What ___ you going to cook tonight?", answers: ["are"], explain: "You → are." },
+    { type: "transform", first: "My plan is to buy a new laptop.", keyword: "GOING", before: "I", after: "a new laptop.", answers: ["am going to buy", "'m going to buy", "am going to get", "'m going to get"], explain: "Plan → am going to + infinitivo." }
+  ]
+},
+
+"a2-08": {
+  level: "a2", title: "Will para predicciones y decisiones", minutes: 20,
+  intro: "Will + infinitivo se usa para predicciones basadas en opiniones, decisiones tomadas en el momento de hablar, ofrecimientos y promesas.",
+  content: [
+    { h: "Forma" },
+    { p: "<strong>will ('ll) + infinitivo</strong> para todas las personas. Negativa: <strong>won't</strong> (will not)." },
+    { h: "Usos" },
+    { table: { head: ["Uso", "Ejemplo"], rows: [
+      ["Predicción u opinión", "I think it will be a great match."],
+      ["Decisión espontánea", "It's cold. I'll close the window."],
+      ["Ofrecimiento", "I'll help you with your bags."],
+      ["Promesa", "I won't tell anyone, I promise."],
+      ["Petición", "Will you marry me?"]
+    ]}},
+    { examples: [
+      ["I think robots will do most jobs in the future.", "Creo que los robots harán la mayoría de trabajos en el futuro."],
+      ["The phone's ringing. — I'll get it!", "Suena el teléfono. — ¡Ya lo cojo yo!"],
+      ["Don't worry, I won't be late.", "No te preocupes, no llegaré tarde."]
+    ]},
+    { callout: "<strong>Will vs going to:</strong> si lo decides <em>ahora</em> → <em>will</em> (<em>I'll have the fish</em>). Si ya lo habías decidido → <em>going to</em> (<em>I'm going to have the fish, I saw it on the menu yesterday</em>)." },
+    { callout: "<strong>Opinión en negativo:</strong> lo natural es <em>I don't think it will rain</em>, no «I think it won't rain»." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "«I'm thirsty.» — «___ get you a glass of water.»", options: ["I'm going to", "I'll", "I"], answer: 1, explain: "Ofrecimiento / decisión espontánea → I'll." },
+    { type: "mc", prompt: "I promise I ___ forget your birthday again.", options: ["won't", "don't", "am not going"], answer: 0, explain: "Promesa negativa → won't." },
+    { type: "gap", prompt: "I think Brazil ___ win the next World Cup.", answers: ["will", "'ll"], explain: "Predicción basada en opinión → will." },
+    { type: "mc", prompt: "Mejor forma natural:", options: ["I think it won't rain.", "I don't think it will rain.", "I think it doesn't rain."], answer: 1, explain: "Se niega think: I don't think it will…" },
+    { type: "mc", prompt: "We've booked the tickets. We ___ to Rome in May.", options: ["'ll fly", "are going to fly", "fly will"], answer: 1, explain: "Plan ya decidido → going to." },
+    { type: "gap", prompt: "___ you help me with this box, please? (petición)", answers: ["will", "could", "can", "would"], explain: "Petición: Will/Could/Can you…?" },
+    { type: "gap", prompt: "Don't worry. I ___ (not / be) late.", answers: ["won't be", "will not be"], explain: "Won't + infinitivo." }
+  ]
+},
+
+"a2-09": {
+  level: "a2", title: "Present continuous con valor de futuro", minutes: 20,
+  intro: "Para citas y planes fijos con hora o fecha (ya organizados con otras personas), el inglés usa el present continuous, igual que en español decimos «mañana ceno con Ana».",
+  content: [
+    { h: "Arreglos fijos" },
+    { examples: [
+      ["I'm meeting Ana for dinner tomorrow.", "Mañana ceno con Ana."],
+      ["We're flying to Lisbon on Friday.", "Volamos a Lisboa el viernes."],
+      ["What are you doing tonight?", "¿Qué haces esta noche?"],
+      ["She isn't coming to the party.", "Ella no viene a la fiesta."]
+    ]},
+    { callout: "<strong>Clave:</strong> se usa cuando hay algo concreto organizado (billete, reserva, cita). Suele acompañarse de una expresión de tiempo: <em>tonight, tomorrow, next week, on Monday</em>." },
+    { h: "Resumen de los futuros de A2" },
+    { table: { head: ["Forma", "Uso", "Ejemplo"], rows: [
+      ["Present continuous", "Arreglos con fecha/hora", "I'm seeing the dentist at 10."],
+      ["Going to", "Intenciones, planes decididos", "I'm going to learn to drive."],
+      ["Will", "Decisiones al momento, opiniones, promesas", "I'll call you later."],
+      ["Present simple", "Horarios oficiales", "The train leaves at 7.15."]
+    ]}},
+    { callout: "<strong>Horarios:</strong> para transporte, cines o clases con horario fijo se usa el present simple: <em>The film starts at 8</em>." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "I ___ my grandparents this Saturday. It's all arranged.", options: ["visit", "am visiting", "will visit"], answer: 1, explain: "Arreglo fijo → present continuous." },
+    { type: "mc", prompt: "The bus ___ at 6.30 every morning.", options: ["leaves", "is leaving", "will leave"], answer: 0, explain: "Horario oficial → present simple." },
+    { type: "gap", prompt: "What ___ you doing tomorrow evening?", answers: ["are"], explain: "Present continuous: are you doing." },
+    { type: "gap", prompt: "We ___ (have) a party on Saturday. Do you want to come?", answers: ["are having", "'re having"], explain: "Plan organizado → are having." },
+    { type: "mc", prompt: "«The phone is ringing.» — «OK, I ___ answer it.»", options: ["'m answering", "'ll", "answer"], answer: 1, explain: "Decisión espontánea → will." },
+    { type: "mc", prompt: "Elige el futuro más adecuado: «Tengo cita con el médico a las 10.»", options: ["I'll see the doctor at 10.", "I'm seeing the doctor at 10.", "I see the doctor at 10 always."], answer: 1, explain: "Cita fija → present continuous." },
+    { type: "gap", prompt: "She ___ (not / come) to the wedding. She's working.", answers: ["isn't coming", "is not coming", "'s not coming"], explain: "Negativa: isn't coming." }
+  ]
+},
+
 /* =========================== B1 =========================== */
 "b1-02": {
   level: "b1", title: "Present perfect vs past simple", minutes: 30,
@@ -452,6 +725,279 @@ IDIOMA.lessons = {
     { type: "mc", prompt: "When ___ to London?", options: ["have you moved", "did you move", "you moved"], answer: 1, explain: "«When» pregunta por un momento concreto → past simple." },
     { type: "mc", prompt: "Has the parcel arrived ___?", options: ["already", "yet", "just"], answer: 1, explain: "En preguntas y negativas se usa yet al final." },
     { type: "transform", first: "I started learning English five years ago.", keyword: "BEEN", before: "I", after: "English for five years.", answers: ["have been learning", "'ve been learning"], explain: "Acción que empezó hace 5 años y continúa: have been learning … for five years." }
+  ]
+},
+
+"b1-01": {
+  level: "b1", title: "Present perfect: experiencias", minutes: 25,
+  intro: "El present perfect (have/has + participio) se usa para hablar de experiencias vividas en algún momento de tu vida, sin decir cuándo.",
+  content: [
+    { h: "Forma" },
+    { table: { head: ["", "Forma", "Ejemplo"], rows: [
+      ["Afirmativa", "have/has + participio", "I've visited Rome."],
+      ["Negativa", "haven't/hasn't + participio", "She hasn't seen the film."],
+      ["Pregunta", "Have/Has + sujeto + participio?", "Have you ever tried sushi?"]
+    ]}},
+    { p: "El participio de los verbos regulares termina en -ed (<em>worked</em>); los irregulares hay que aprenderlos: <em>be → been, see → seen, eat → eaten, go → gone, do → done, write → written</em>." },
+    { h: "Ever y never" },
+    { examples: [
+      ["Have you ever been to Ireland?", "¿Has estado alguna vez en Irlanda?"],
+      ["I've never eaten octopus.", "Nunca he comido pulpo."],
+      ["It's the best book I've ever read.", "Es el mejor libro que he leído nunca."]
+    ]},
+    { h: "Been vs gone" },
+    { table: { head: ["Forma", "Significado"], rows: [
+      ["He has <strong>been</strong> to Paris.", "Fue y ya volvió (experiencia)."],
+      ["He has <strong>gone</strong> to Paris.", "Se ha ido y todavía está allí."]
+    ]}},
+    { callout: "<strong>Never + afirmativa:</strong> «I haven't never been» ✗ → <em>I've never been</em> ✓ (o <em>I haven't ever been</em>)." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "Have you ever ___ (eat) Indian food?", answers: ["eaten"], explain: "Participio de eat: eaten." },
+    { type: "gap", prompt: "I've never ___ (see) the sea.", answers: ["seen"], explain: "Participio de see: seen." },
+    { type: "mc", prompt: "She ___ been to Japan three times.", options: ["have", "has", "is"], answer: 1, explain: "She → has." },
+    { type: "mc", prompt: "Tom isn't here. He's ___ to the bank.", options: ["been", "gone", "went"], answer: 1, explain: "Se ha ido y sigue allí → gone." },
+    { type: "mc", prompt: "I've ___ to Mexico, and I loved it.", options: ["been", "gone", "go"], answer: 0, explain: "Experiencia (ya volviste) → been." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["I haven't never flown.", "I've never flown.", "I never have flew."], answer: 1, explain: "Never con verbo afirmativo." },
+    { type: "gap", prompt: "This is the most beautiful place I have ___ (be) to.", answers: ["ever been", "been"], explain: "Superlativo + I've ever been." }
+  ]
+},
+
+"b1-03": {
+  level: "b1", title: "For, since, just, already, yet", minutes: 25,
+  intro: "Estas palabras acompañan al present perfect y cada una tiene una posición fija en la frase. Usarlas bien hace que tu inglés suene mucho más natural.",
+  content: [
+    { h: "Significado y posición" },
+    { table: { head: ["Palabra", "Significado", "Posición", "Ejemplo"], rows: [
+      ["just", "acabar de", "entre have y participio", "I've just arrived."],
+      ["already", "ya (antes de lo esperado)", "entre have y participio", "She's already finished."],
+      ["yet", "ya (preguntas) / todavía (negativas)", "al final", "Have you eaten yet? / I haven't eaten yet."],
+      ["still", "todavía (sigue igual)", "delante de haven't", "He still hasn't called."],
+      ["for", "durante, desde hace (periodo)", "antes del periodo", "for two years"],
+      ["since", "desde (punto de inicio)", "antes del inicio", "since 2020, since Monday"]
+    ]}},
+    { examples: [
+      ["I've just had lunch.", "Acabo de comer."],
+      ["Have you finished yet? — Yes, I've already finished.", "¿Has terminado ya? — Sí, ya he terminado."],
+      ["The bus hasn't come yet.", "El autobús no ha llegado todavía."],
+      ["She has worked here for six months.", "Trabaja aquí desde hace seis meses."],
+      ["I haven't seen him since Christmas.", "No lo veo desde Navidad."]
+    ]},
+    { callout: "<strong>For vs since:</strong> si puedes contarlo (<em>three days, a long time</em>) → <strong>for</strong>. Si es un momento en el calendario o un suceso (<em>2015, last week, I was a child</em>) → <strong>since</strong>." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "I've known her ___ ten years.", options: ["since", "for", "from"], answer: 1, explain: "Periodo → for." },
+    { type: "mc", prompt: "They've lived here ___ 2018.", options: ["since", "for", "during"], answer: 0, explain: "Punto de inicio → since." },
+    { type: "mc", prompt: "Have you done your homework ___?", options: ["already", "just", "yet"], answer: 2, explain: "Pregunta → yet al final." },
+    { type: "gap", prompt: "I've ___ seen him. He left a minute ago. (acabar de)", answers: ["just"], explain: "Just = acabar de." },
+    { type: "gap", prompt: "The film hasn't started ___.", answers: ["yet"], explain: "Negativa → yet al final." },
+    { type: "mc", prompt: "Elige la posición correcta:", options: ["I've finished already the report.", "I've already finished the report.", "Already I've finished the report."], answer: 1, explain: "Already entre have y el participio." },
+    { type: "gap", prompt: "We haven't spoken ___ last summer.", answers: ["since"], explain: "Last summer es un punto de inicio → since." }
+  ]
+},
+
+"b1-04": {
+  level: "b1", title: "First conditional", minutes: 25,
+  intro: "El primer condicional habla de situaciones reales o probables en el futuro y de sus consecuencias. Es el condicional más usado en la vida diaria.",
+  content: [
+    { h: "Forma" },
+    { p: "<strong>If + present simple, will + infinitivo.</strong> Las dos partes pueden ir en cualquier orden; si empieza con <em>if</em>, se pone coma." },
+    { examples: [
+      ["If it rains, we'll stay at home.", "Si llueve, nos quedaremos en casa."],
+      ["I'll call you if I have time.", "Te llamaré si tengo tiempo."],
+      ["If you don't hurry, you'll miss the bus.", "Si no te das prisa, perderás el autobús."]
+    ]},
+    { callout: "<strong>Error clásico:</strong> poner <em>will</em> después de <em>if</em>. «If it will rain…» ✗ → <em>If it rains…</em> ✓. Igual que en español: «si llueve», no «si lloverá»." },
+    { h: "Variantes" },
+    { table: { head: ["Variante", "Ejemplo"], rows: [
+      ["Imperativo en el resultado", "If you see Tom, tell him to call me."],
+      ["Modal en el resultado", "If you finish early, you can go home."],
+      ["When (cuando seguro que pasará)", "When I get home, I'll phone you."],
+      ["Unless (= if not)", "We'll be late unless we leave now."]
+    ]}},
+    { callout: "<strong>If vs when:</strong> <em>If I see her</em> = puede que la vea. <em>When I see her</em> = sé que la veré." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "If you ___ (study), you will pass.", answers: ["study"], explain: "If + present simple." },
+    { type: "gap", prompt: "If it's sunny tomorrow, we ___ (go) to the beach.", answers: ["will go", "'ll go"], explain: "Resultado → will + infinitivo." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["If I will see him, I'll tell him.", "If I see him, I'll tell him.", "If I see him, I tell him tomorrow."], answer: 1, explain: "No se usa will después de if." },
+    { type: "mc", prompt: "___ I get home, I'll send you the photos. (seguro)", options: ["If", "When", "Unless"], answer: 1, explain: "Algo seguro → when." },
+    { type: "mc", prompt: "You'll be cold ___ you take a coat.", options: ["if", "unless", "when"], answer: 1, explain: "Unless = if you don't." },
+    { type: "gap", prompt: "If you ___ (not / hurry), you'll miss the train.", answers: ["don't hurry", "do not hurry"], explain: "Negativa en present simple." },
+    { type: "transform", first: "Leave now or you'll be late.", keyword: "UNLESS", before: "You'll be late", after: "now.", answers: ["unless you leave", "unless you go"], explain: "Unless + present simple." }
+  ]
+},
+
+"b1-05": {
+  level: "b1", title: "Second conditional", minutes: 25,
+  intro: "El segundo condicional habla de situaciones imaginarias, improbables o contrarias a la realidad presente. Equivale a «si tuviera…, haría…».",
+  content: [
+    { h: "Forma" },
+    { p: "<strong>If + past simple, would + infinitivo.</strong>" },
+    { examples: [
+      ["If I had more money, I would travel the world.", "Si tuviera más dinero, viajaría por el mundo."],
+      ["If she lived closer, we'd see her more often.", "Si viviera más cerca, la veríamos más a menudo."],
+      ["What would you do if you won the lottery?", "¿Qué harías si ganaras la lotería?"]
+    ]},
+    { callout: "<strong>Aunque use pasado, habla del presente o futuro:</strong> el pasado aquí marca que es <em>imaginario</em>, no que sea pasado." },
+    { h: "If I were you" },
+    { p: "Para dar consejos se usa <strong>If I were you, I'd…</strong> (Yo que tú…). Con <em>I/he/she/it</em> se prefiere <em>were</em>, sobre todo en inglés escrito." },
+    { examples: [
+      ["If I were you, I'd talk to your boss.", "Yo que tú, hablaría con tu jefe."]
+    ]},
+    { h: "First vs second" },
+    { table: { head: ["First (probable)", "Second (improbable / imaginario)"], rows: [
+      ["If I find a job, I'll move to London.", "If I found a job, I'd move to London."],
+      ["(lo estoy buscando, es posible)", "(no lo veo probable)"]
+    ]}},
+    { callout: "<strong>Nunca would después de if:</strong> «If I would have time…» ✗ → <em>If I had time…</em> ✓." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "If I ___ (know) the answer, I would tell you.", answers: ["knew"], explain: "If + past simple." },
+    { type: "gap", prompt: "If we had a garden, we ___ (get) a dog.", answers: ["would get", "'d get"], explain: "Resultado → would + infinitivo." },
+    { type: "mc", prompt: "If I ___ you, I'd accept the offer.", options: ["am", "were", "would be"], answer: 1, explain: "If I were you… para consejos." },
+    { type: "mc", prompt: "What would you do if you ___ a million euros?", options: ["win", "won", "would win"], answer: 1, explain: "If + past simple: won." },
+    { type: "mc", prompt: "Situación improbable: «Si fuera presidente, cambiaría muchas cosas.»", options: ["If I am president, I will change many things.", "If I were president, I would change many things.", "If I would be president, I changed many things."], answer: 1, explain: "Imaginario → second conditional." },
+    { type: "gap", prompt: "She ___ (not / work) so hard if she didn't need the money.", answers: ["wouldn't work", "would not work"], explain: "Negativa: wouldn't + infinitivo." },
+    { type: "transform", first: "I don't have a car, so I can't drive you home.", keyword: "HAD", before: "If I", after: ", I could drive you home.", answers: ["had a car"], explain: "Realidad contraria en presente → if + past simple." }
+  ]
+},
+
+"b1-06": {
+  level: "b1", title: "Unless, as long as, provided that", minutes: 20,
+  intro: "Además de if, el inglés tiene otras conjunciones para expresar condiciones con matices: excepción, requisito o precaución.",
+  content: [
+    { h: "Las conjunciones" },
+    { table: { head: ["Conjunción", "Significado", "Ejemplo"], rows: [
+      ["unless", "a menos que (= if not)", "I won't go unless you come with me."],
+      ["as long as / so long as", "siempre que, con tal de que", "You can borrow my car as long as you're careful."],
+      ["provided (that) / providing", "siempre que (más formal)", "We'll sign the contract provided that the price is right."],
+      ["in case", "por si (acaso)", "Take a jacket in case it gets cold."]
+    ]}},
+    { examples: [
+      ["Unless you study, you won't pass.", "Si no estudias, no aprobarás."],
+      ["I'll lend you the money as long as you pay me back next week.", "Te prestaré el dinero siempre que me lo devuelvas la semana que viene."],
+      ["Write down my number in case you need it.", "Apunta mi número por si lo necesitas."]
+    ]},
+    { callout: "<strong>Unless ya es negativo:</strong> «unless you don't study» ✗ → <em>unless you study</em> ✓." },
+    { callout: "<strong>Tiempos:</strong> igual que con <em>if</em>, después de estas conjunciones se usa presente para hablar del futuro: <em>as long as you <strong>are</strong> careful</em>, no «will be»." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "I won't help you ___ you ask me nicely.", options: ["if", "unless", "in case"], answer: 1, explain: "A menos que → unless." },
+    { type: "mc", prompt: "Take an umbrella ___ it rains.", options: ["in case", "unless", "as long as"], answer: 0, explain: "Precaución → in case." },
+    { type: "mc", prompt: "You can stay out late ___ you call me.", options: ["unless", "as long as", "in case"], answer: 1, explain: "Requisito → as long as." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["Unless you don't hurry, we'll be late.", "Unless you hurry, we'll be late.", "Unless you will hurry, we'll be late."], answer: 1, explain: "Unless + afirmativa en presente." },
+    { type: "gap", prompt: "We'll go to the beach ___ it rains. (a menos que)", answers: ["unless"], explain: "Unless = a menos que." },
+    { type: "gap", prompt: "I'll come, ___ that I can leave early. (formal: siempre que)", answers: ["provided", "providing"], explain: "Provided/providing that." },
+    { type: "transform", first: "If you don't practise, you won't improve.", keyword: "UNLESS", before: "You won't improve", after: ".", answers: ["unless you practise", "unless you practice"], explain: "If you don't = unless you." }
+  ]
+},
+
+"b1-07": {
+  level: "b1", title: "Voz pasiva", minutes: 30,
+  intro: "La pasiva se usa cuando lo importante es la acción o quien la recibe, no quién la hace. Es muy frecuente en noticias, textos académicos e instrucciones.",
+  content: [
+    { h: "Formación: be + participio" },
+    { table: { head: ["Tiempo", "Activa", "Pasiva"], rows: [
+      ["Present simple", "They make cars here.", "Cars <strong>are made</strong> here."],
+      ["Past simple", "Someone stole my bike.", "My bike <strong>was stolen</strong>."],
+      ["Present perfect", "They have opened a new shop.", "A new shop <strong>has been opened</strong>."],
+      ["Future (will)", "They will announce the results.", "The results <strong>will be announced</strong>."],
+      ["Modal", "You must wear a helmet.", "A helmet <strong>must be worn</strong>."],
+      ["Present continuous", "They are repairing the road.", "The road <strong>is being repaired</strong>."]
+    ]}},
+    { examples: [
+      ["English is spoken all over the world.", "El inglés se habla en todo el mundo."],
+      ["The Mona Lisa was painted by Leonardo da Vinci.", "La Mona Lisa fue pintada por Leonardo da Vinci."],
+      ["The meeting has been cancelled.", "La reunión se ha cancelado."]
+    ]},
+    { h: "Cuándo mencionar el agente (by)" },
+    { p: "Solo si es importante o novedoso. «My bike was stolen <em>by someone</em>» no aporta nada; «Hamlet was written <em>by Shakespeare</em>» sí." },
+    { callout: "<strong>El «se» español:</strong> muchas frases con «se» se traducen con pasiva: <em>Se habla inglés</em> → <em>English is spoken</em>; <em>Se construyó en 1900</em> → <em>It was built in 1900</em>." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "This bridge ___ (build) in 1890.", answers: ["was built"], explain: "Pasado → was + participio." },
+    { type: "gap", prompt: "Spanish ___ (speak) in more than 20 countries.", answers: ["is spoken"], explain: "Presente → is + participio." },
+    { type: "mc", prompt: "The winners ___ next week.", options: ["will announce", "will be announced", "are announce"], answer: 1, explain: "Futuro pasivo: will be + participio." },
+    { type: "mc", prompt: "My wallet ___. I can't find it anywhere!", options: ["has stolen", "has been stolen", "is stealing"], answer: 1, explain: "Present perfect pasivo: has been stolen." },
+    { type: "mc", prompt: "The road ___ at the moment, so take another route.", options: ["is repaired", "is being repaired", "repairs"], answer: 1, explain: "Acción en curso → is being + participio." },
+    { type: "gap", prompt: "Seatbelts must ___ worn at all times.", answers: ["be"], explain: "Modal + be + participio." },
+    { type: "transform", first: "Someone cleans the offices every evening.", keyword: "ARE", before: "The offices", after: "every evening.", answers: ["are cleaned"], explain: "Present simple pasivo: are + participio." }
+  ]
+},
+
+"b1-08": {
+  level: "b1", title: "Estilo indirecto", minutes: 30,
+  intro: "El estilo indirecto (reported speech) sirve para contar lo que otra persona dijo. Normalmente los tiempos verbales retroceden un paso hacia el pasado.",
+  content: [
+    { h: "Cambio de tiempos (backshift)" },
+    { table: { head: ["Estilo directo", "Estilo indirecto"], rows: [
+      ["«I <strong>am</strong> tired.»", "She said (that) she <strong>was</strong> tired."],
+      ["«I <strong>work</strong> in a bank.»", "He said he <strong>worked</strong> in a bank."],
+      ["«I <strong>saw</strong> the film.»", "She said she <strong>had seen</strong> the film."],
+      ["«I <strong>have finished</strong>.»", "He said he <strong>had finished</strong>."],
+      ["«I <strong>will</strong> call you.»", "She said she <strong>would</strong> call me."],
+      ["«I <strong>can</strong> swim.»", "He said he <strong>could</strong> swim."]
+    ]}},
+    { h: "Say vs tell" },
+    { p: "<strong>Tell</strong> necesita a quién: <em>She told <strong>me</strong> that…</em>. <strong>Say</strong> no: <em>She said that…</em> (o <em>said to me</em>)." },
+    { callout: "«She said me that…» ✗ → <em>She told me that…</em> ✓ / <em>She said that…</em> ✓." },
+    { h: "Preguntas y órdenes" },
+    { examples: [
+      ["He asked me where I lived.", "Me preguntó dónde vivía. (sin inversión: «where I lived»)"],
+      ["She asked if I was hungry.", "Me preguntó si tenía hambre."],
+      ["The doctor told me to rest.", "El médico me dijo que descansara."],
+      ["They told us not to worry.", "Nos dijeron que no nos preocupáramos."]
+    ]},
+    { callout: "<strong>Otros cambios:</strong> <em>today → that day, tomorrow → the next day, yesterday → the day before, here → there, this → that</em>." }
+  ],
+  exercises: [
+    { type: "gap", prompt: "«I'm hungry.» → She said she ___ hungry.", answers: ["was"], explain: "Am → was." },
+    { type: "gap", prompt: "«I will help you.» → He said he ___ help me.", answers: ["would"], explain: "Will → would." },
+    { type: "mc", prompt: "She ___ me that she was leaving.", options: ["said", "told", "asked"], answer: 1, explain: "Con objeto (me) → told." },
+    { type: "mc", prompt: "«Where do you live?» → He asked me where ___.", options: ["do I live", "I lived", "did I live"], answer: 1, explain: "Pregunta indirecta: orden afirmativo y backshift." },
+    { type: "mc", prompt: "«Are you OK?» → She asked ___ I was OK.", options: ["that", "if", "what"], answer: 1, explain: "Preguntas de sí/no → if / whether." },
+    { type: "gap", prompt: "«Don't touch it!» → He told me ___ touch it. (dos palabras)", answers: ["not to"], explain: "Orden negativa → told someone not to + infinitivo." },
+    { type: "gap", prompt: "«I have lost my keys.» → She said she ___ lost her keys.", answers: ["had"], explain: "Present perfect → past perfect." }
+  ]
+},
+
+"b1-09": {
+  level: "b1", title: "Oraciones de relativo", minutes: 30,
+  intro: "Las oraciones de relativo añaden información sobre un sustantivo con who, which, that, whose o where. Permiten unir frases y escribir con más fluidez.",
+  content: [
+    { h: "Pronombres relativos" },
+    { table: { head: ["Pronombre", "Se refiere a", "Ejemplo"], rows: [
+      ["who", "personas", "The woman who lives next door is a doctor."],
+      ["which", "cosas, animales", "The book which I bought is great."],
+      ["that", "personas o cosas (solo en especificativas)", "The car that I want is expensive."],
+      ["whose", "posesión (cuyo)", "That's the man whose dog bit me."],
+      ["where", "lugares", "This is the hotel where we stayed."],
+      ["when", "momentos", "I remember the day when we met."]
+    ]}},
+    { h: "Especificativas vs explicativas" },
+    { table: { head: ["Especificativas (defining)", "Explicativas (non-defining)"], rows: [
+      ["Identifican de quién o qué hablamos.", "Añaden información extra."],
+      ["Sin comas.", "Entre comas."],
+      ["Se puede usar that.", "No se puede usar that."],
+      ["The students who passed got a certificate.", "My brother, who lives in Berlin, is an engineer."]
+    ]}},
+    { h: "Omitir el relativo" },
+    { p: "En las especificativas se puede omitir el relativo cuando es <strong>objeto</strong> del verbo (va seguido de otro sujeto):" },
+    { examples: [
+      ["The film (that) we saw was brilliant.", "La película que vimos fue genial."],
+      ["The man who called you is here.", "El hombre que te llamó está aquí. (who es sujeto: no se omite)"]
+    ]},
+    { callout: "<strong>Error típico:</strong> repetir el pronombre. «The book which I bought it» ✗ → <em>The book which I bought</em> ✓." }
+  ],
+  exercises: [
+    { type: "mc", prompt: "That's the girl ___ won the competition.", options: ["which", "who", "whose"], answer: 1, explain: "Persona como sujeto → who (o that)." },
+    { type: "mc", prompt: "This is the restaurant ___ we had our first date.", options: ["which", "where", "who"], answer: 1, explain: "Lugar → where." },
+    { type: "mc", prompt: "I met a woman ___ son plays for Real Madrid.", options: ["who", "whose", "which"], answer: 1, explain: "Posesión → whose." },
+    { type: "mc", prompt: "Paris, ___ is the capital of France, is beautiful.", options: ["that", "which", "where"], answer: 1, explain: "Explicativa (entre comas) → which, nunca that." },
+    { type: "gap", prompt: "The phone ___ I bought last week has stopped working.", answers: ["which", "that"], explain: "Cosa → which/that (aquí también se podría omitir)." },
+    { type: "mc", prompt: "¿Cuál es correcta?", options: ["The film which I saw it was boring.", "The film I saw was boring.", "The film who I saw was boring."], answer: 1, explain: "Relativo objeto omitido, sin repetir it." },
+    { type: "transform", first: "I have a friend. Her father is a famous actor.", keyword: "WHOSE", before: "I have a friend", after: "is a famous actor.", answers: ["whose father"], explain: "Whose + sustantivo = cuyo." }
   ]
 },
 
