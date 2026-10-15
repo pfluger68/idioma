@@ -19,7 +19,12 @@
   const KEY = "idioma.progress.v1";
   const Progress = {
     load() { try { return JSON.parse(localStorage.getItem(KEY)) || { lessons: {} }; } catch { return { lessons: {} }; } },
-    save(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* almacenamiento no disponible */ } },
+    save(p) {
+      p.days = p.days || {};
+      p.days[new Date().toLocaleDateString("sv")] = 1; // AAAA-MM-DD en hora local
+      try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* almacenamiento no disponible */ }
+    },
+    touch() { this.save(this.load()); },
     lesson(id) { return this.load().lessons[id]; },
     setLesson(id, score, total) {
       const p = this.load();
@@ -126,8 +131,88 @@
     if (box && p.placement) {
       const lv = I.levelById(p.placement.level);
       box.innerHTML = `<div class="card" style="margin-top:28px"><span class="eyebrow">Tu nivel recomendado</span>
-        <p style="margin:0"><span class="badge ${lv.id}">${lv.code}</span> &nbsp;<strong>${lv.name}</strong> — <a href="nivel.html?n=${lv.id}">continuar tu ruta</a></p></div>`;
+        <p style="margin:0"><span class="badge ${lv.id}">${lv.code}</span> &nbsp;<strong>${lv.name}</strong> — <a href="#mi-progreso">ver tu progreso</a></p></div>`;
     }
+    renderDashboard();
+  }
+
+  /* ---------- Panel «Mi progreso» (portada) ---------- */
+  function streakDays(days) {
+    const d = new Date(); let n = 0;
+    const key = x => x.toLocaleDateString("sv");
+    if (!days[key(d)]) d.setDate(d.getDate() - 1); // la racha sigue viva si estudiaste ayer
+    while (days[key(d)]) { n++; d.setDate(d.getDate() - 1); }
+    return n;
+  }
+
+  function renderDashboard() {
+    const el = $("#dashboard");
+    if (!el || !I.vocab || !I.mocks) return;
+    const p = Progress.load(), srs = SRS.load(), now = Date.now();
+    const order = I.levels.map(l => l.id);
+    const allLessons = I.levels.flatMap(l => l.units.flatMap(u => u.lessons)).filter(x => I.lessons[x.id]);
+    const done = allLessons.filter(x => p.lessons[x.id]);
+    const avg = done.length ? Math.round(done.reduce((a, x) => a + p.lessons[x.id].score / p.lessons[x.id].total, 0) / done.length * 100) : 0;
+    const vocabTotal = Object.values(I.vocab).reduce((a, v) => a + v.length, 0);
+    const vocabDue = Object.keys(srs).filter(k => srs[k].due <= now).length;
+    const vocabMastered = Object.values(srs).filter(c => c.interval >= 21).length;
+    const lis = I.listening.filter(x => Progress.listening(x.id)).length;
+    const wri = I.writing.filter(x => Progress.writing(x.id)).length;
+    const spk = I.speaking.filter(x => Progress.speaking(x.id)).length;
+    const mocksDone = I.mocks.filter(m => Progress.mock(m.id));
+    const bestBy = exam => { const r = I.mocks.filter(m => m.exam === exam).map(m => Progress.mock(m.id)).filter(Boolean); return r.length ? Math.max(...r.map(x => x.scale)) : null; };
+    const anyActivity = done.length || Object.keys(srs).length || mocksDone.length || lis || wri || spk || p.placement;
+    const streak = streakDays(p.days || {});
+
+    // Nivel de referencia: el recomendado por el test o, si no, el de la última lección hecha.
+    const lastLevel = done.length ? I.lessons[done[done.length - 1].id].level : "a1";
+    const level = (p.placement && p.placement.level) || lastLevel;
+    const lvIdx = order.indexOf(level);
+    const nextLesson = allLessons.find(x => !p.lessons[x.id] && order.indexOf(I.lessons[x.id].level) >= lvIdx) || allLessons.find(x => !p.lessons[x.id]);
+    // Primero tu nivel, luego el siguiente, el anterior y así sucesivamente.
+    const dist = x => { const d = order.indexOf(x.level) - lvIdx; return d >= 0 ? d * 2 : -d * 2 + 1; };
+    const nextOf = (list, isDone) => [...list].sort((a, b) => dist(a) - dist(b)).find(x => !isDone(x.id));
+
+    const todo = [];
+    if (!p.placement) todo.push({ icon: "◎", t: "Haz el test de nivel", d: "10–15 minutos para saber por dónde empezar.", h: "test.html" });
+    if (vocabDue) todo.push({ icon: "▤", t: `Repasa ${vocabDue} ${vocabDue === 1 ? "tarjeta" : "tarjetas"} de vocabulario`, d: "Tocan hoy: unos minutos bastan.", h: "vocabulario.html" });
+    else if (Object.keys(srs).length < vocabTotal) todo.push({ icon: "▤", t: "Aprende vocabulario nuevo", d: `Mazo ${I.levelById(level).code}: 10 tarjetas nuevas.`, h: "vocabulario.html" });
+    if (nextLesson) { const ls = I.lessons[nextLesson.id]; todo.push({ icon: "✎", t: `Lección: ${ls.title}`, d: `${ls.level.toUpperCase()} · ${ls.minutes} min`, h: `leccion.html?id=${nextLesson.id}` }); }
+    const skills = [
+      [nextOf(I.listening, Progress.listening.bind(Progress)), x => ({ icon: "♪", t: `Listening: ${x.title}`, d: `${x.level.toUpperCase()} · ${x.kind}`, h: `escuchar.html?id=${x.id}` })],
+      [nextOf(I.speaking, Progress.speaking.bind(Progress)), x => ({ icon: "◉", t: `Speaking: ${x.title}`, d: `${x.exam} · ${x.part}`, h: `hablar.html?id=${x.id}` })],
+      [nextOf(I.writing, Progress.writing.bind(Progress)), x => ({ icon: "✍", t: `Writing: ${x.title}`, d: `${x.exam} · ${x.part}`, h: `escribir.html?id=${x.id}` })]
+    ].filter(([x]) => x);
+    // Rota la destreza sugerida cada día para equilibrar la práctica.
+    if (skills.length) { const [x, f] = skills[new Date().getDate() % skills.length]; todo.push(f(x)); }
+
+    const tile = (label, value, sub, href, pct) => `<a class="stat" href="${href}">
+      <span class="stat-label">${label}</span><span class="stat-value">${value}</span>
+      ${pct !== undefined ? `<span class="progress"><span style="width:${pct}%"></span></span>` : ""}
+      <span class="stat-sub">${sub}</span></a>`;
+    const c1 = bestBy("C1 Advanced"), c2 = bestBy("C2 Proficiency");
+    const scaleTxt = (v, min) => v == null ? "—" : v < min ? `< ${min}` : `≈ ${v}`;
+
+    el.innerHTML = `
+      <div class="section-head" style="margin-bottom:20px">
+        <div class="eyebrow">Mi progreso</div>
+        <h2>${anyActivity ? "Sigue donde lo dejaste" : "Empieza tu ruta"}</h2>
+        ${anyActivity ? `<p class="muted">${streak > 1 ? `🔥 <strong>${streak} días</strong> seguidos estudiando. ` : streak === 1 ? "🔥 Llevas <strong>1 día</strong> de racha: vuelve mañana para mantenerla. " : ""}Nivel de referencia: <span class="badge ${level}">${level.toUpperCase()}</span></p>` : `<p class="muted">Tu progreso se guarda en este navegador. Puedes hacer una copia de seguridad desde la página de Vocabulario.</p>`}
+      </div>
+      <div class="dash-grid">
+        <div class="card">
+          <h3>Para hoy</h3>
+          <ol class="todo">${todo.slice(0, 3).map(x => `<li><a href="${x.h}"><span class="todo-icon" aria-hidden="true">${x.icon}</span><span><strong>${esc(x.t)}</strong><small>${esc(x.d)}</small></span><span aria-hidden="true">→</span></a></li>`).join("")}</ol>
+        </div>
+        <div class="stats">
+          ${tile("Lecciones", `${done.length}/${allLessons.length}`, done.length ? `Media de aciertos: ${avg} %` : "Aún sin empezar", "niveles.html", done.length / allLessons.length * 100)}
+          ${tile("Vocabulario", `${vocabMastered}/${vocabTotal}`, `dominadas · ${vocabDue} para hoy`, "vocabulario.html", vocabMastered / vocabTotal * 100)}
+          ${tile("Simulacros", `${mocksDone.length}/${I.mocks.length}`, `C1: ${scaleTxt(c1, 142)} · C2: ${scaleTxt(c2, 162)}`, "simulacros.html", mocksDone.length / I.mocks.length * 100)}
+          ${tile("Listening", `${lis}/${I.listening.length}`, "ejercicios hechos", "listening.html", lis / I.listening.length * 100)}
+          ${tile("Writing", `${wri}/${I.writing.length}`, "tareas autoevaluadas", "writing.html", wri / I.writing.length * 100)}
+          ${tile("Speaking", `${spk}/${I.speaking.length}`, "prácticas hechas", "speaking.html", spk / I.speaking.length * 100)}
+        </div>
+      </div>`;
   }
 
   /* ---------- Página: listado de niveles ---------- */
@@ -844,7 +929,7 @@
   const DAY = 86400000;
   const SRS = {
     load() { try { return JSON.parse(localStorage.getItem(SRS_KEY)) || {}; } catch { return {}; } },
-    save(d) { try { localStorage.setItem(SRS_KEY, JSON.stringify(d)); } catch { /* sin almacenamiento */ } }
+    save(d) { try { localStorage.setItem(SRS_KEY, JSON.stringify(d)); } catch { /* sin almacenamiento */ } Progress.touch(); }
   };
   // Calcula el nuevo estado de una tarjeta. grade: 0 otra vez · 1 difícil · 2 bien · 3 fácil
   function srsNext(c, grade, now = Date.now()) {

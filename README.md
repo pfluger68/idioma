@@ -8,6 +8,8 @@ C1 Advanced, C2 Proficiency e IELTS.
 
 ## Qué incluye
 
+- **Panel «Mi progreso»** en la portada: racha de días, sugerencias para hoy según tu nivel y resumen
+  de todas las secciones.
 - **Programa A1–C2**: descriptores "puedo hacer", gramática, vocabulario y unidades por nivel.
 - **Lecciones interactivas**: teoría en español, ejemplos con audio (inglés británico)
   y ejercicios corregidos al instante (opción múltiple, huecos, *key word transformations*).
