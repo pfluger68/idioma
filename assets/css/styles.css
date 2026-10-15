@@ -307,3 +307,12 @@ dl.facts dd { margin: 0; font-weight: 600; }
 .stat-sub { font-size: .8rem; color: var(--muted); }
 .stat .progress { height: 6px; }
 #mi-progreso { scroll-margin-top: 72px; }
+
+/* ---------- Pronunciación figurada ---------- */
+.pr { font-style: italic; color: var(--accent); font-size: .93rem; letter-spacing: .01em; }
+.examples .pr { margin: 2px 0 1px; }
+.pr-legend { font-size: .88rem; color: var(--muted); background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 10px 14px; }
+.flashcard > .pr { font-size: 1rem; margin-top: -12px; }
+#flash-back { display: flex; flex-direction: column; gap: 6px; }
+#flash-back .pr { font-size: .95rem; margin-bottom: 10px; }
+#flash-back .flash-ex { margin-top: 8px; }

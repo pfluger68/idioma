@@ -78,6 +78,11 @@
     speechSynthesis.speak(u);
   }
 
+  /* ---------- Pronunciación figurada ---------- */
+  const pronounce = text => !I.pron ? "" : String(text).replace(/<[^>]+>/g, "")
+    .replace(/[A-Za-zÀ-ÿ]+(?:'[A-Za-z]+)?/g, w => I.pron[w.toLowerCase()] || w);
+  const pronHtml = text => I.pron ? `<div class="pr" title="Pronunciación aproximada">${esc(pronounce(text))}</div>` : "";
+
   /* ---------- Cabecera y pie ---------- */
   function chrome() {
     const page = document.body.dataset.page;
@@ -299,7 +304,7 @@
         <tbody>${b.table.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
       if (b.examples) return `<ul class="examples">${b.examples.map(([en, es]) => `
         <li><button class="speak" data-say="${esc(en)}" aria-label="Escuchar: ${esc(en)}" title="Escuchar">▶</button>
-        <div><div class="en">${en}</div><div class="es">${es}</div></div></li>`).join("")}</ul>`;
+        <div><div class="en">${en}</div>${pronHtml(en)}<div class="es">${es}</div></div></li>`).join("")}</ul>`;
       return "";
     }).join("");
 
@@ -310,6 +315,7 @@
         <h1 style="margin-top:12px">${ls.title}</h1>
         <p class="muted" style="font-size:1.12rem">${ls.intro}</p>
         <p class="muted" style="font-size:.9rem">⏱ ${ls.minutes} min · ${ls.exercises.length} ejercicios</p>
+        ${I.pron && ls.content.some(b => b.examples) ? `<p class="pr-legend">Debajo de cada ejemplo verás <span class="pr">cómo se lee</span>, con la sílaba fuerte marcada con tilde. Es una aproximación: escucha siempre el audio. <a href="metodo.html#pronunciacion">Cómo leer la pronunciación</a></p>` : ""}
         <div class="lesson-body">${blocks}</div>
         <h2 style="margin-top:48px">Practica</h2>
         <p class="muted">Responde y comprueba cada ejercicio. Tu mejor puntuación se guarda en este navegador.</p>
@@ -1024,9 +1030,12 @@
           <div class="progress" style="margin:10px 0 18px"><span style="width:${(stats.done / total) * 100}%"></span></div>
           <div class="flashcard">
             <div class="flash-front">${esc(front)} ${dir === "en" ? `<button class="speak" data-say="${esc(en)}" aria-label="Escuchar">▶</button>` : ""}</div>
+            ${dir === "en" ? pronHtml(en) : ""}
             <div id="flash-back" hidden>
               <div class="flash-answer">${esc(back)} ${dir === "es" ? `<button class="speak" data-say="${esc(en)}" aria-label="Escuchar">▶</button>` : ""}</div>
+              ${dir === "es" ? pronHtml(en) : ""}
               <div class="flash-ex"><button class="speak" data-say="${esc(ex)}" aria-label="Escuchar ejemplo">▶</button> <em>${esc(ex)}</em></div>
+              ${pronHtml(ex)}
             </div>
           </div>
           <div id="flash-actions">

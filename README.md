@@ -25,6 +25,8 @@ C1 Advanced, C2 Proficiency e IELTS.
   en voz alta, cronómetro con el tiempo oficial, grabación con el micrófono, respuesta modelo y autoevaluación.
 - **Vocabulario**: 300 tarjetas (50 por nivel) con repetición espaciada, audio, estudio en ambas
   direcciones y copia de seguridad del progreso (exportar/importar).
+- **Pronunciación figurada** para hispanohablantes debajo de cada ejemplo y tarjeta (generada a partir
+  del diccionario de pronunciación CMU), con guía de lectura en la página Método.
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
 - **Guía de certificaciones**: formatos y puntuaciones de Cambridge C1/C2, IELTS, Trinity,
   LanguageCert y EOI.
@@ -59,6 +61,17 @@ assets/js/data/listening.js      # ejercicios de listening
 assets/js/data/writing.js        # tareas de writing
 assets/js/data/vocab.js          # mazos de vocabulario
 assets/js/data/speaking.js       # prácticas de speaking
+assets/js/data/pron.js           # pronunciación figurada (generado con tools/mkpron.py)
+```
+
+## Pronunciación figurada
+
+El archivo `assets/js/data/pron.js` se genera automáticamente. Si añades ejemplos o tarjetas nuevas,
+vuelve a generarlo:
+
+```bash
+pip install cmudict
+python3 tools/mkpron.py
 ```
 
 ## Añadir una lección
