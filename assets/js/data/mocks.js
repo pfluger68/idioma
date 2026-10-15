@@ -575,6 +575,287 @@ IDIOMA.mocks = [
       ]
     }
   ]
+},
+
+/* ============================ C1 ADVANCED · 3 ============================ */
+{
+  id: "c1-rue-3", level: "c1", exam: "C1 Advanced", title: "Reading & Use of English completo · Simulacro 3", minutes: 90, minReport: 142,
+  scale: [[0, 120], [0.2, 142], [0.4, 160], [0.6, 180], [0.8, 200], [1, 210]],
+  parts: [
+    { type: "mcCloze", title: "Parte 1 · Multiple-choice cloze", marks: 1,
+      instructions: "Elige la palabra (A, B, C o D) que mejor completa cada hueco.",
+      heading: "The power of walking",
+      text: "Walking is so much a part of everyday life that we rarely give it a second {{1}}. Yet a growing body of research suggests that a daily walk may be one of the most effective ways to {{2}} both physical and mental health. Studies have found that people who walk regularly are less {{3}} to suffer from heart disease, and that even a brief stroll can {{4}} a person's mood.\n\nWalking also appears to {{5}} creativity. In one experiment, participants came up with significantly more ideas while walking than when they {{6}} seated. Many famous writers and thinkers, from Dickens to Darwin, were in the {{7}} of taking long daily walks, which they believed helped them {{8}} through problems.",
+      gaps: [
+        { n: 1, options: ["thought", "idea", "mind", "notion"], answer: 0 },
+        { n: 2, options: ["improve", "heal", "cure", "repair"], answer: 0 },
+        { n: 3, options: ["likely", "possible", "probable", "able"], answer: 0 },
+        { n: 4, options: ["lift", "climb", "rise", "grow"], answer: 0 },
+        { n: 5, options: ["boost", "push", "press", "thrust"], answer: 0 },
+        { n: 6, options: ["remained", "kept", "stood", "held"], answer: 0 },
+        { n: 7, options: ["habit", "custom", "routine", "practice"], answer: 0 },
+        { n: 8, options: ["think", "ponder", "reflect", "consider"], answer: 0 }
+      ]
+    },
+    { type: "openCloze", title: "Parte 2 · Open cloze", marks: 1,
+      instructions: "Escribe una sola palabra en cada hueco.",
+      heading: "In defence of handwriting",
+      text: "In an age of keyboards and touchscreens, it is tempting to regard handwriting {{9}} an outdated skill. However, research suggests that writing {{10}} hand may have benefits that typing cannot match. Students who take notes with a pen tend to remember more, {{11}} because they cannot write fast enough to record everything and must therefore summarise. {{12}} other words, the slowness of handwriting forces the brain to process information more deeply.\n\nThis does not mean that schools should abandon technology altogether, {{13}} it does suggest that handwriting deserves more attention than it currently receives. {{14}} all, a skill that has served humanity for thousands of years should not be discarded simply {{15}} something faster has come {{16}}.",
+      gaps: [
+        { n: 9, answers: ["as"] }, { n: 10, answers: ["by"] }, { n: 11, answers: ["perhaps", "probably", "possibly", "partly", "presumably"] },
+        { n: 12, answers: ["in"] }, { n: 13, answers: ["but", "yet"] }, { n: 14, answers: ["after"] },
+        { n: 15, answers: ["because"] }, { n: 16, answers: ["along"] }
+      ]
+    },
+    { type: "wordForm", title: "Parte 3 · Word formation", marks: 1,
+      instructions: "Forma una palabra a partir de la que aparece en mayúsculas para completar cada hueco.",
+      heading: "Giving your time",
+      text: "Volunteering is often described as a selfless act, but research suggests that the {{17}} are mutual. People who volunteer regularly report higher levels of life {{18}} and tend to feel more {{19}} to their communities. For young people, volunteering can also be an {{20}} good way to develop new skills, and {{21}} increasingly look for evidence of such activities, particularly when candidates have few formal {{22}}.\n\nHowever, charities warn that volunteers' goodwill should not be taken for granted. {{23}} training can lead to frustration, and volunteers who feel {{24}} are far more likely to give up.",
+      gaps: [
+        { n: 17, word: "BENEFIT", answers: ["benefits"] },
+        { n: 18, word: "SATISFY", answers: ["satisfaction"] },
+        { n: 19, word: "CONNECT", answers: ["connected"] },
+        { n: 20, word: "EXCEPTION", answers: ["exceptionally"] },
+        { n: 21, word: "EMPLOY", answers: ["employers"] },
+        { n: 22, word: "QUALIFY", answers: ["qualifications"] },
+        { n: 23, word: "ADEQUATE", answers: ["inadequate"] },
+        { n: 24, word: "APPRECIATE", answers: ["unappreciated"] }
+      ]
+    },
+    { type: "kwt", title: "Parte 4 · Key word transformations", marks: 2,
+      instructions: "Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre 3 y 6 palabras.",
+      items: [
+        { n: 25, first: "It was such a boring film that I fell asleep.", keyword: "SO", before: "The film", after: "I fell asleep.", answers: ["was so boring that", "was so dull that"] },
+        { n: 26, first: "I haven't seen Mark for ages.", keyword: "LAST", before: "The", after: "Mark was ages ago.", answers: ["last time i saw"] },
+        { n: 27, first: "I strongly advise you to apologise to her.", keyword: "BETTER", before: "You", after: "to her.", answers: ["had better apologise", "'d better apologise", "had better apologize", "'d better apologize"] },
+        { n: 28, first: "Someone stole my bike while I was shopping.", keyword: "HAD", before: "I", after: "while I was shopping.", answers: ["had my bike stolen"] },
+        { n: 29, first: "Paul regrets not studying harder at school.", keyword: "WISHES", before: "Paul", after: "harder at school.", answers: ["wishes he had studied", "wishes he'd studied", "wishes he had worked", "wishes he'd worked"] },
+        { n: 30, first: "They postponed the meeting because the manager was ill.", keyword: "PUT", before: "The meeting", after: "because the manager was ill.", answers: ["was put off", "had been put off", "was put back", "had been put back"] }
+      ]
+    },
+    { type: "readingMC", title: "Parte 5 · Multiple choice", marks: 2,
+      instructions: "Lee el texto y elige la respuesta (A, B, C o D) que mejor se ajusta a lo que dice.",
+      heading: "The four-day week",
+      passage: [
+        "When a number of companies began experimenting with a four-day working week, many observers predicted that productivity would collapse. Staff would surely achieve less in four days than in five; customers would be left waiting; the whole enterprise would quietly be abandoned. The results of several large trials have proved these predictions largely wrong.",
+        "In the majority of participating firms, output remained stable or even rose, while staff reported lower levels of stress and burnout. Absences due to illness fell, and companies found it easier to attract and retain employees. Perhaps most tellingly, the overwhelming majority of firms chose to continue with the arrangement once the trial had ended.",
+        "Supporters argue that the explanation is straightforward. Much of the traditional working week, they say, is taken up with low-value activities: unnecessary meetings, constant email and what one researcher memorably called 'performative busyness'. Faced with less time, employees and managers are forced to prioritise, and much of this clutter simply disappears.",
+        "Sceptics, however, urge caution. The companies that volunteered for the trials were, almost by definition, those most likely to succeed: often small, office-based firms with enthusiastic leadership. Whether the model would work as well in hospitals, schools or factories, where output is closely tied to hours, is far from clear. There are also concerns that the compressed week may simply intensify work, leaving employees exhausted by Thursday.",
+        "What seems beyond dispute is that the experiments have reopened a question that many had assumed was settled. The five-day week is, after all, a relatively recent invention, and there is nothing inevitable about it. Whether or not the four-day week becomes the norm, it has forced employers to ask what their staff are actually doing with their time."
+      ],
+      questions: [
+        { n: 31, prompt: "In the first paragraph, the writer suggests that early predictions about the four-day week were", options: ["based on careful research.", "mostly inaccurate.", "made mainly by employees.", "partly confirmed by the trials."], answer: 1 },
+        { n: 32, prompt: "Which result does the writer present as the most significant evidence of the trials' success?", options: ["Output rose in some firms.", "Staff felt less stressed.", "Fewer people took sick leave.", "Most firms kept the arrangement afterwards."], answer: 3 },
+        { n: 33, prompt: "What does the phrase 'performative busyness' refer to?", options: ["Work done to impress customers.", "Activity that looks like work but achieves little.", "Stress caused by long working hours.", "Tasks that require a great deal of creativity."], answer: 1 },
+        { n: 34, prompt: "What concern do the sceptics raise in the fourth paragraph?", options: ["The trials did not last long enough.", "The companies taking part were not typical.", "Employees were paid less during the trials.", "Managers resisted the changes."], answer: 1 },
+        { n: 35, prompt: "The phrase 'leaving employees exhausted by Thursday' suggests that", options: ["the same work may be squeezed into fewer, harder days.", "employees would prefer to have Thursday off.", "the trials ended on a Thursday.", "hospitals cannot adopt the model."], answer: 0 },
+        { n: 36, prompt: "What is the writer's conclusion?", options: ["The four-day week will soon become universal.", "The trials have prompted a useful re-examination of working time.", "The five-day week should be abolished.", "The evidence is too weak to draw any conclusions."], answer: 1 }
+      ]
+    },
+    { type: "matching", title: "Parte 6 · Cross-text multiple matching", marks: 2,
+      instructions: "Cuatro profesores opinan sobre los deberes escolares. ¿Qué profesor (A–D)…?",
+      heading: "Is homework worth it?",
+      texts: [
+        { label: "A", body: "There is good evidence that, at secondary level, homework makes a real difference to pupils' progress, provided it is purposeful. A carefully designed task that consolidates what was learnt in class is worth far more than an hour of mechanical exercises. For children in their first years of school, though, I see no case for it at all: their time is better spent playing, reading for pleasure and simply being children." },
+        { label: "B", body: "Homework undoubtedly helps older pupils to achieve better results, but we should not ignore its cost. I regularly see teenagers who are anxious and exhausted, juggling assignments from several subjects late into the evening. The answer is not more or less homework but better homework: short, focused tasks with a clear purpose. With younger children, a little shared reading at home is valuable, but formal assignments are another matter." },
+        { label: "C", body: "Regular homework is one of the most reliable ways to improve attainment, and I have seen it transform the results of many pupils. Concerns about stress are, in my view, overstated; homework builds discipline and independence rather than anxiety. What matters most is consistency and volume: pupils need plenty of practice, and twenty minutes a week simply will not do. That said, I would not set homework for children under eight; it is far too early." },
+        { label: "D", body: "The research on homework is far less conclusive than its defenders admit; for many pupils, the link between homework and better results is weak at best. What is clear is the damage it can do to family life and to young people's mental health when it becomes excessive. If we must set it, it should be short, creative and genuinely useful. For younger pupils, encouraging them to read with their parents is worthwhile; anything more seems unnecessary." }
+      ],
+      questions: [
+        { n: 37, prompt: "has a different view from the others on whether homework improves pupils' results?", answer: "D" },
+        { n: 38, prompt: "shares A's view on homework for young children?", answer: "C" },
+        { n: 39, prompt: "shares B's concern about the effect of homework on pupils' wellbeing?", answer: "D" },
+        { n: 40, prompt: "has a different opinion from the others on whether the amount of homework matters more than its design?", answer: "C" }
+      ]
+    },
+    { type: "matching", gapped: true, title: "Parte 7 · Gapped text", marks: 2,
+      instructions: "Se han eliminado seis párrafos del artículo. Elige el párrafo (A–G) que encaja en cada hueco. Sobra un párrafo.",
+      heading: "My first marathon",
+      passage: [
+        "I have never been what anyone would call sporty. At school I was the child who 'forgot' her PE kit, and as an adult my exercise consisted mainly of running for buses. So when a colleague suggested that I sign up for a marathon to raise money for a children's charity, I laughed.",
+        { gap: 41 },
+        "My first training run lasted precisely eleven minutes. I came home red-faced and gasping, and seriously considered emailing the charity to withdraw.",
+        { gap: 42 },
+        "Over the following months, the running intervals grew longer and the walking breaks shorter. By the spring, I could run for an hour without stopping, something I would once have considered impossible.",
+        { gap: 43 },
+        "When I started again, I was slower than before and terrified the injury would return. A physiotherapist gave me exercises to strengthen the muscles around the knee, and insisted that I build up gradually.",
+        { gap: 44 },
+        "On the morning of the marathon, the atmosphere at the start line was electric. Thousands of runners, many in fancy dress, stood shivering in the early light, waiting for the signal.",
+        { gap: 45 },
+        "What carried me through those final miles was not fitness but the thought of the children the charity supports, and the hundreds of people who had sponsored me.",
+        { gap: 46 }
+      ],
+      options: [
+        { label: "A", text: "Not everything went smoothly. In April, a knee injury kept me off my feet for three weeks, and I watched my carefully built fitness drain away while I sat on the sofa with an ice pack." },
+        { label: "B", text: "A week later, however, I found myself filling in the application form. The cause was one I cared about deeply, and I had a nagging feeling that if I didn't do something difficult now, I never would." },
+        { label: "C", text: "The first half passed in a blur of cheering crowds and brass bands. It was somewhere around the twentieth mile that things became difficult; my legs felt like lead, and every step was an act of will." },
+        { label: "D", text: "As a lifelong runner, I had always assumed that a marathon would be the natural next step, and I was looking forward to the challenge." },
+        { label: "E", text: "I crossed the line in a little under five hours, which will not trouble any records. But as someone who once couldn't run for eleven minutes, I have never been prouder of anything." },
+        { label: "F", text: "Her advice was frustrating at the time, but it almost certainly saved my race. Several of the runners I had met online, who had pushed through similar injuries, ended up unable to start at all." },
+        { label: "G", text: "Instead, I downloaded a beginners' plan that started by alternating one minute of running with two of walking. It seemed almost embarrassingly easy, which, I later realised, was exactly the point." }
+      ],
+      questions: [
+        { n: 41, answer: "B" }, { n: 42, answer: "G" }, { n: 43, answer: "A" },
+        { n: 44, answer: "F" }, { n: 45, answer: "C" }, { n: 46, answer: "E" }
+      ]
+    },
+    { type: "matching", title: "Parte 8 · Multiple matching", marks: 1,
+      instructions: "Cuatro adultos hablan de aprender a tocar un instrumento. ¿Qué persona (A–D)…?",
+      heading: "Never too late to play",
+      texts: [
+        { label: "A", heading: "Martin, piano", body: "It was my daughter who finally persuaded me to start. She'd been having lessons for a couple of years and kept telling me that it was never too late. I'm not especially talented, but I've found that half an hour at the piano at the end of a working day does wonders for my stress levels. Whatever has been going on at work just melts away." },
+        { label: "B", heading: "Claire, violin", body: "I'd played the violin until I was about twelve and then gave it up, so I assumed I'd pick it up again in no time. I couldn't have been more wrong; it took months before I was producing anything other than painful scratching. I'm still embarrassed to practise when my neighbours are at home, so I tend to wait until they've gone out." },
+        { label: "C", heading: "Raj, guitar", body: "My first mistake was buying a very expensive guitar before I knew whether I'd stick with it, which in hindsight was rather foolish. I tried lessons with a local teacher but, to be honest, I've learnt far more from video tutorials, which I can pause and repeat as often as I like. The real problem is fitting practice around work and two small children." },
+        { label: "D", heading: "Lucía, cello", body: "I heard a recording of Bach's cello suites on the radio and decided there and then that I had to learn to play them. I knew it would take years, and it has. But I've joined an amateur orchestra, and we give concerts twice a year in local churches. Playing in front of an audience still terrifies me, but it's a wonderful feeling." }
+      ],
+      questions: [
+        { n: 47, prompt: "found that progress was slower than they had expected?", answer: "B" },
+        { n: 48, prompt: "was encouraged to start by a family member?", answer: "A" },
+        { n: 49, prompt: "has found online resources more useful than a teacher?", answer: "C" },
+        { n: 50, prompt: "now performs in public?", answer: "D" },
+        { n: 51, prompt: "had learnt the instrument as a child?", answer: "B" },
+        { n: 52, prompt: "finds it difficult to make time to practise?", answer: "C" },
+        { n: 53, prompt: "says that playing helps them to relax?", answer: "A" },
+        { n: 54, prompt: "was inspired by a particular piece of music?", answer: "D" },
+        { n: 55, prompt: "feels self-conscious about being heard practising?", answer: "B" },
+        { n: 56, prompt: "admits to spending money unwisely?", answer: "C" }
+      ]
+    }
+  ]
+},
+
+/* =========================== C2 PROFICIENCY · 3 =========================== */
+{
+  id: "c2-rue-3", level: "c2", exam: "C2 Proficiency", title: "Reading & Use of English completo · Simulacro 3", minutes: 90, minReport: 162,
+  scale: [[0, 130], [0.3, 162], [0.45, 180], [0.6, 200], [0.75, 213], [0.85, 220], [1, 230]],
+  parts: [
+    { type: "mcCloze", title: "Parte 1 · Multiple-choice cloze", marks: 1,
+      instructions: "Elige la palabra (A, B, C o D) que mejor completa cada hueco.",
+      heading: "Bringing back the mammoth",
+      text: "Scientists are now closer than ever to bringing extinct species back to life, a prospect that until recently {{1}} firmly in the realm of science fiction. Advocates argue that resurrecting animals such as the woolly mammoth could help restore damaged ecosystems and {{2}} amends for the harm humans have caused. Critics, however, are quick to {{3}} out that the money might be better spent protecting species that are still alive. There is also the question of whether a resurrected animal would truly be the same species or merely a {{4}} imitation.\n\nBeyond the practical objections {{5}} deeper ethical concerns. Some philosophers warn that the promise of de-extinction could {{6}} public support for conservation, by suggesting that extinction is no longer {{7}}. Others counter that such fears are overblown, and that the research is likely to {{8}} valuable insights into genetics regardless of its outcome.",
+      gaps: [
+        { n: 1, options: ["lay", "stood", "stayed", "set"], answer: 0 },
+        { n: 2, options: ["make", "do", "take", "give"], answer: 0 },
+        { n: 3, options: ["point", "bring", "set", "call"], answer: 0 },
+        { n: 4, options: ["pale", "faint", "weak", "dim"], answer: 0 },
+        { n: 5, options: ["lie", "stay", "rest", "dwell"], answer: 0 },
+        { n: 6, options: ["erode", "wear", "wash", "waste"], answer: 0 },
+        { n: 7, options: ["permanent", "perpetual", "everlasting", "eternal"], answer: 0 },
+        { n: 8, options: ["yield", "grant", "bear", "hand"], answer: 0 }
+      ]
+    },
+    { type: "openCloze", title: "Parte 2 · Open cloze", marks: 1,
+      instructions: "Escribe una sola palabra en cada hueco.",
+      heading: "In praise of the comma",
+      text: "Few punctuation marks inspire {{9}} much passion as the humble comma. Misplace one, and the meaning of a sentence can change entirely; omit one, and a list can become {{10}} more than a muddle. Yet for {{11}} its importance, there is surprisingly little agreement on how commas should be used. Style guides differ, editors disagree, and writers tend to rely {{12}} instinct as much as on rules.\n\n{{13}} this suggests is that punctuation is less a matter of strict law than of judgement. A comma, after {{14}}, exists to help the reader, and {{15}} helps one reader may confuse another. Good writers, therefore, punctuate not by rote but with their audience firmly {{16}} mind.",
+      gaps: [
+        { n: 9, answers: ["as", "so"] }, { n: 10, answers: ["little", "nothing", "no"] }, { n: 11, answers: ["all"] },
+        { n: 12, answers: ["on", "upon"] }, { n: 13, answers: ["what"] }, { n: 14, answers: ["all"] },
+        { n: 15, answers: ["what", "whatever"] }, { n: 16, answers: ["in"] }
+      ]
+    },
+    { type: "wordForm", title: "Parte 3 · Word formation", marks: 1,
+      instructions: "Forma una palabra a partir de la que aparece en mayúsculas para completar cada hueco.",
+      heading: "Bored at work",
+      text: "Workplace boredom is a widespread but rarely discussed source of {{17}}. Employees who are chronically bored become {{18}} and are more likely to leave. Boredom tends to arise when work is {{19}} and {{20}}, offering little challenge.\n\nIts costs are considerable: lost {{21}}, higher staff turnover and a decline in {{22}}. {{23}}, some researchers argue that short periods of boredom can be beneficial, prompting people to seek new challenges. The real danger lies in boredom that goes {{24}} by managers for months or even years.",
+      gaps: [
+        { n: 17, word: "SATISFY", answers: ["dissatisfaction"] },
+        { n: 18, word: "MOTIVE", answers: ["demotivated", "unmotivated"] },
+        { n: 19, word: "PREDICT", answers: ["predictable"] },
+        { n: 20, word: "REPEAT", answers: ["repetitive"] },
+        { n: 21, word: "PRODUCT", answers: ["productivity"] },
+        { n: 22, word: "CREATE", answers: ["creativity"] },
+        { n: 23, word: "SURPRISE", answers: ["surprisingly"] },
+        { n: 24, word: "ACKNOWLEDGE", answers: ["unacknowledged"] }
+      ]
+    },
+    { type: "kwt", title: "Parte 4 · Key word transformations", marks: 2,
+      instructions: "Completa la segunda frase para que signifique lo mismo que la primera. Usa la palabra dada sin cambiarla y entre 3 y 8 palabras.",
+      items: [
+        { n: 25, first: "The success of the project was entirely due to her efforts.", keyword: "CREDIT", before: "She", after: "the success of the project.", answers: ["deserves all the credit for", "deserves full credit for", "deserves the credit for", "should be given all the credit for", "should get all the credit for"] },
+        { n: 26, first: "I had no idea that he was planning to leave.", keyword: "LITTLE", before: "", after: "that he was planning to leave.", answers: ["little did i know", "little did i realise", "little did i realize", "little did i suspect"] },
+        { n: 27, first: "We couldn't have finished without your help.", keyword: "BEEN", before: "Had", after: "your help, we couldn't have finished.", answers: ["it not been for"] },
+        { n: 28, first: "It doesn't matter how hard you try; you won't convince her.", keyword: "HOWEVER", before: "", after: ", you won't convince her.", answers: ["however hard you try", "however much you try"] },
+        { n: 29, first: "The government's decision was severely criticised.", keyword: "CAME", before: "The government's decision", after: "criticism.", answers: ["came in for severe", "came in for heavy", "came under severe", "came under heavy", "came in for a lot of", "came in for a great deal of", "came under a lot of"] },
+        { n: 30, first: "They are unlikely to accept the offer.", keyword: "CHANCES", before: "The", after: "accept the offer are slim.", answers: ["chances that they will", "chances that they'll", "chances of them being willing to"] }
+      ]
+    },
+    { type: "readingMC", title: "Parte 5 · Multiple choice", marks: 2,
+      instructions: "Lee el texto y elige la respuesta (A, B, C o D) que mejor se ajusta a lo que dice.",
+      heading: "The case for slow reading",
+      passage: [
+        "Reading, we are often told, is in crisis. Attention spans are shrinking, screens are displacing books, and the capacity for sustained concentration is said to be withering. There is some truth in these claims, but they tend to obscure a more interesting shift: not that we read less, but that we read differently, skimming and scanning rather than dwelling.",
+        "This is not entirely new. Readers have always varied their pace to suit their purpose, and nobody reads a railway timetable as they would a sonnet. What has changed is the balance. Much of our reading now takes place on devices designed to keep us moving on, and the habits formed there seep into the way we approach longer, more demanding texts.",
+        "Advocates of what has been called 'slow reading' argue that something important is at stake. Certain kinds of understanding, they contend, emerge only through patient attention: the ability to follow a complex argument, to notice ambiguity, to enter imaginatively into another person's experience. These are not luxuries but capacities on which democratic debate and empathy depend.",
+        "Their critics accuse them of nostalgia, and of mistaking a change in reading habits for a decline. Skimming, they point out, is itself a skill, and an essential one in an age of information overload. Besides, the golden age of deep reading that slow-reading advocates seem to mourn was always confined to a small, privileged minority.",
+        "Both sides have a point, and the most persuasive position may lie somewhere between them. The aim need not be to renounce speed, but to cultivate the ability to switch between modes of reading as the occasion demands. That, perhaps, is the real challenge for schools: not to protect children from screens, but to ensure they also learn to slow down."
+      ],
+      questions: [
+        { n: 31, prompt: "In the first paragraph, the writer suggests that claims about a reading crisis", options: ["are entirely unfounded.", "overlook a change in the way people read.", "are supported by strong evidence.", "exaggerate the fall in book sales."], answer: 1 },
+        { n: 32, prompt: "The reference to 'a railway timetable' and 'a sonnet' illustrates that", options: ["poetry is harder to read than practical texts.", "readers have always adapted their approach to the text.", "people now read less poetry than before.", "most digital texts are practical in nature."], answer: 1 },
+        { n: 33, prompt: "According to the second paragraph, digital devices affect reading by", options: ["making texts shorter.", "encouraging habits that carry over into other reading.", "reducing the overall amount people read.", "replacing printed books entirely."], answer: 1 },
+        { n: 34, prompt: "Slow-reading advocates believe that deep reading", options: ["is above all a pleasurable pastime.", "underpins important social and personal abilities.", "should replace digital reading altogether.", "was more widespread in the past."], answer: 1 },
+        { n: 35, prompt: "What point do the critics make in the fourth paragraph?", options: ["Deep reading was never widespread.", "Skimming damages understanding.", "Schools have neglected reading.", "Screens improve concentration."], answer: 0 },
+        { n: 36, prompt: "What does the writer conclude?", options: ["Children should be kept away from screens.", "Fast reading is now more valuable than slow reading.", "Readers should learn to adapt their reading to the situation.", "The debate cannot be resolved."], answer: 2 }
+      ]
+    },
+    { type: "matching", gapped: true, title: "Parte 6 · Gapped text", marks: 2,
+      instructions: "Se han eliminado siete párrafos del artículo. Elige el párrafo (A–H) que encaja en cada hueco. Sobra un párrafo.",
+      heading: "Eight hundred kilometres on foot",
+      passage: [
+        "I had walked a fair amount before, but never for more than a day or two at a time. So setting out to walk the eight hundred kilometres of the Camino Francés, from the French Pyrenees to Santiago de Compostela, was, I knew, a considerable leap.",
+        { gap: 37 },
+        "The first day, crossing the Pyrenees, was brutal. The path climbs steeply for hours, and by the time I reached the monastery at Roncesvalles, my legs were trembling and my shoulders ached from the weight of my pack.",
+        { gap: 38 },
+        "In the weeks that followed, a rhythm established itself: walk, eat, wash clothes, sleep. The simplicity of it was, at first, almost disorienting.",
+        { gap: 39 },
+        "Then there were the other pilgrims. People who would never have spoken to each other at home walked side by side for days, sharing food, blisters and, increasingly, confidences.",
+        { gap: 40 },
+        "Not every stage was memorable. The long, flat plain of the Meseta, which some pilgrims skip by taking a bus, tested my resolve more than any mountain.",
+        { gap: 41 },
+        "When I finally walked into the cathedral square in Santiago, I expected to feel triumphant. Instead, I felt strangely flat.",
+        { gap: 42 },
+        "In the years since, I have often been asked whether I would do it again.",
+        { gap: 43 }
+      ],
+      options: [
+        { label: "A", text: "That evening, I removed almost a third of the contents of my rucksack and posted them home. It was the first of many lessons in how little one actually needs." },
+        { label: "B", text: "My answer is always the same: not yet. Some experiences, I suspect, need time to settle before they can be repeated, and I am not sure this one has finished settling." },
+        { label: "C", text: "I walked for almost a week with a retired Dutch engineer and a young Korean woman who had quit her job in a bank. We had almost nothing in common, and yet by the end we were confiding things we had told no one else." },
+        { label: "D", text: "Having walked the route twice before, I knew exactly what to expect, and was determined to do it faster this time." },
+        { label: "E", text: "It took me some time to understand why. The arrival, I realised, had never been the point; it was the walking itself that mattered, and now it was over." },
+        { label: "F", text: "My reasons for going were, I confess, rather vague. I was not religious, and I had no particular crisis to resolve; I simply had a month free between jobs and a sense that I ought to do something with it." },
+        { label: "G", text: "Day after day, the same straight track stretched to the horizon under a pitiless sun. Yet it was there, oddly, that I did most of my thinking, and where some of the decisions that have since shaped my life began to take form." },
+        { label: "H", text: "Gradually, though, the absence of choice began to feel less like a deprivation than a relief. Without the constant small decisions that fill ordinary life, my mind had space to wander." }
+      ],
+      questions: [
+        { n: 37, answer: "F" }, { n: 38, answer: "A" }, { n: 39, answer: "H" }, { n: 40, answer: "C" },
+        { n: 41, answer: "G" }, { n: 42, answer: "E" }, { n: 43, answer: "B" }
+      ]
+    },
+    { type: "matching", title: "Parte 7 · Multiple matching", marks: 1,
+      instructions: "Cuatro científicos explican qué les llevó a la ciencia. ¿Qué científico (A–D)…?",
+      heading: "Why I became a scientist",
+      texts: [
+        { label: "A", heading: "An astronomer", body: "When I was eight, my grandfather took me out into a field far from any town lights, and I saw the Milky Way for the first time. I remember being almost frightened by it. A few years later, I read Carl Sagan's Cosmos, and that settled it. What astronomy has given me, more than anything, is a sense of proportion: it's hard to get too worked up about small irritations when you spend your days thinking about galaxies." },
+        { label: "B", heading: "A chemist", body: "My chemistry teacher at school told me, quite bluntly, that I didn't have the mind for science and should concentrate on languages. I was furious, and I suspect that fury drove me for years. If I'm honest, I've always been fairly competitive; there's a part of me that wants to solve a problem before anyone else does, and I don't think that's necessarily a bad thing." },
+        { label: "C", heading: "A biologist", body: "I started out as a physicist, but halfway through my doctorate I realised that the questions that really fascinated me were biological, so I switched to studying how cells move. It was a difficult transition, but I've never regretted it. What I love most is that modern research is so collaborative; my best ideas have come out of conversations with colleagues from completely different disciplines. I do wish, though, that the pressure to publish constantly weren't so intense." },
+        { label: "D", heading: "A geologist", body: "Most of what I do doesn't work. Experiments fail, samples turn out to be contaminated, theories collapse, and you learn to treat that as part of the process rather than a personal defeat. I also feel strongly that we scientists need to get out of our laboratories and explain what we do to the public. Too many people have no idea how science actually works, and that makes them vulnerable to misinformation." }
+      ],
+      questions: [
+        { n: 44, prompt: "was told by a teacher that they were not suited to science?", answer: "B" },
+        { n: 45, prompt: "describes a childhood experience that sparked their interest?", answer: "A" },
+        { n: 46, prompt: "believes scientists should communicate more with the public?", answer: "D" },
+        { n: 47, prompt: "moved from one scientific field to another?", answer: "C" },
+        { n: 48, prompt: "particularly values working with people from other fields?", answer: "C" },
+        { n: 49, prompt: "admits to being driven partly by a desire to beat others?", answer: "B" },
+        { n: 50, prompt: "says that setbacks are a normal part of their work?", answer: "D" },
+        { n: 51, prompt: "was influenced by a book?", answer: "A" },
+        { n: 52, prompt: "criticises an aspect of the way research careers work?", answer: "C" },
+        { n: 53, prompt: "says their work has changed how they view everyday problems?", answer: "A" }
+      ]
+    }
+  ]
 }
 
 ];
