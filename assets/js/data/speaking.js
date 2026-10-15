@@ -109,6 +109,81 @@ IDIOMA.speaking = [
       seconds: 120, model: "I'd like to start by saying that rules exist for good reasons. Most of them protect us, and a society in which everyone decided for themselves which rules to follow would quickly descend into chaos. So, as a general principle, I think we have a duty to respect them.\n\nThat said, it would be naïve to suggest that rules are always just. Many of the rights we now take for granted were won by people who were prepared to break the law: think of the suffragettes, or the civil rights movement in the United States. In those cases, breaking the rules was arguably not only justified but necessary for social change.\n\nTurning to personal values, I think there's a strong case to be made for following your conscience when a rule forces you to act in a way you believe is morally wrong. But that comes with responsibility: anyone who breaks a rule on principle should be prepared to accept the consequences openly.\n\nUltimately, then, it comes down to motive and proportion. Breaking a rule for personal convenience is very different from breaking it to challenge an injustice." },
     { prompt: "Do you think people today are more or less willing to follow rules than in the past?", seconds: 30, model: "On the whole, I'd say less willing, at least when it comes to unwritten rules and authority in general. People are far more inclined to question things than their grandparents were, which I think is largely healthy, although it can tip over into a kind of reflexive distrust." }
   ]
+},
+{
+  id: "sp-a2-p1", level: "a2", exam: "A2 Key", part: "Parte 1 · Entrevista", title: "Preguntas sobre ti",
+  intro: "El examinador te hace preguntas sencillas sobre ti y tu vida diaria. Responde con frases completas, unos 20 segundos cada una.",
+  tips: ["Responde con una frase completa y añade un detalle: «I live with my parents and my brother. He's ten.»", "Habla despacio y con claridad: no hace falta correr.", "Si no entiendes, di: «Sorry, can you say that again, please?»"],
+  phrases: [
+    { f: "Dar detalles", items: ["I really like…", "My favourite… is…", "I usually… on…"] },
+    { f: "Pedir ayuda", items: ["Sorry, can you say that again, please?", "What does … mean?"] }
+  ],
+  tasks: [
+    { prompt: "Where are you from?", seconds: 20, model: "I'm from Seville, in the south of Spain. It's a beautiful city, and it's very hot in summer." },
+    { prompt: "Who do you live with?", seconds: 20, model: "I live with my parents and my younger brother. His name is Pablo and he's twelve. We also have a cat." },
+    { prompt: "What do you like doing in your free time?", seconds: 20, model: "I like playing football with my friends and watching films. At the weekend, I sometimes go cycling in the park." },
+    { prompt: "Tell me about your favourite food.", seconds: 20, model: "My favourite food is paella. My grandmother makes it every Sunday, and it's delicious. I also really like pizza." }
+  ]
+},
+{
+  id: "sp-b1-p2", level: "b1", exam: "B1 Preliminary", part: "Parte 2 · Describir una foto", title: "Cocinar con amigos",
+  intro: "Recibes una foto y la describes durante aproximadamente 1 minuto. Aquí la foto se describe por escrito: imagínala.",
+  tips: ["Di dónde está cada cosa: on the left, in the middle, in the background.", "Describe a las personas: qué llevan, qué hacen, cómo parecen sentirse.", "Si no sabes una palabra, explícala: «a thing you use to cut vegetables»."],
+  phrases: [
+    { f: "Situar", items: ["In this photo, I can see…", "On the left / On the right…", "In the background…"] },
+    { f: "Suponer", items: ["They look…", "I think they're probably…", "It might be…"] }
+  ],
+  tasks: [
+    { prompt: "Now, I'd like you to talk on your own about something. Here is your photograph. It shows some people cooking. Please tell us what you can see in the photograph.",
+      visuals: ["Foto: un grupo de cuatro amigos cocinando juntos en una cocina pequeña. Uno corta verduras, una chica remueve una olla y otro pone la mesa. Hay platos y vasos sobre la mesa y una ventana al fondo."],
+      seconds: 60, model: "In this photo, I can see four young people cooking together in a small kitchen. They're probably friends, and they look happy and relaxed. On the left, a young man is cutting some vegetables, maybe for a salad. In the middle, a girl with long dark hair is stirring something in a big pot. I think it might be soup or pasta. On the right, another man is putting plates and glasses on the table. In the background, there's a window, and it looks quite sunny outside. I think they're preparing dinner for a party or a special occasion." }
+  ]
+},
+{
+  id: "sp-b2-p4", level: "b2", exam: "B2 First", part: "Parte 4 · Discussion", title: "Viajes y vacaciones",
+  intro: "Preguntas de opinión relacionadas con el tema de la Parte 3. Desarrolla cada respuesta durante unos 45 segundos.",
+  tips: ["Da tu opinión, explica por qué y pon un ejemplo.", "Reconoce el otro punto de vista: «Some people think…, but…».", "Usa conectores variados: however, on the other hand, as a result."],
+  phrases: [
+    { f: "Opinar", items: ["In my opinion, …", "I'm convinced that…", "As far as I'm concerned, …"] },
+    { f: "Contrastar", items: ["On the other hand, …", "Some people think…, but…", "Having said that, …"] }
+  ],
+  tasks: [
+    { prompt: "Do you think it's better to travel on your own or with other people?", seconds: 45, model: "It depends on the kind of trip, but on the whole I prefer travelling with friends. It's more fun to share experiences, and it's also safer and cheaper, because you can split the cost of accommodation. Having said that, some people say that travelling alone forces you to meet locals and be more independent, and I think that's true. Maybe everyone should try it at least once." },
+    { prompt: "Some people say that tourism does more harm than good to popular destinations. What do you think?", seconds: 45, model: "I think it can, if there are too many tourists. In cities like Venice or Barcelona, rents have gone up so much that local people can't afford to live in the centre any more. On the other hand, tourism creates a lot of jobs, so it isn't all negative. In my opinion, the solution is to manage it better, for example by limiting the number of cruise ships." },
+    { prompt: "How do you think people will go on holiday in the future?", seconds: 45, model: "I imagine that people will travel closer to home, partly because of the environmental impact of flying and partly because it's getting so expensive. I also think trains will become more popular, especially night trains. Of course, people will still want to see exotic places, but maybe they'll travel less often and stay longer." }
+  ]
+},
+{
+  id: "sp-c2-p1", level: "c2", exam: "C2 Proficiency", part: "Parte 1 · Entrevista", title: "Preguntas personales",
+  intro: "Una breve conversación con el examinador sobre ti, tus experiencias y tus opiniones. En C2 se espera precisión, naturalidad y respuestas desarrolladas de unos 30 segundos.",
+  tips: ["Muestra rango sin forzarlo: un idiom o una estructura compleja bien colocados bastan.", "Matiza y personaliza: el examinador valora respuestas reflexivas, no listas.", "Evita respuestas preparadas: suenan rígidas."],
+  phrases: [
+    { f: "Reflexionar", items: ["If I'm honest, …", "Looking back, …", "It's something I've given a lot of thought to."] },
+    { f: "Matizar", items: ["Not so much…, as…", "Up to a point.", "It's not that…; it's more that…"] }
+  ],
+  tasks: [
+    { prompt: "What has been the most valuable thing you've learned outside formal education?", seconds: 30, model: "Probably how to listen properly. Looking back, I spent years waiting for my turn to speak rather than genuinely taking in what people were saying. It was a former manager who made me realise this, and it's transformed not just my working relationships but my friendships too." },
+    { prompt: "How do you think your town or city will have changed in twenty years' time?", seconds: 30, model: "I suspect it will be far greener, if only out of necessity. There's already a push to pedestrianise the centre, and I can't see that being reversed. What worries me slightly is that it might become too expensive for young people, which would drain it of a lot of its character." },
+    { prompt: "Is there anything you used to believe strongly that you've since changed your mind about?", seconds: 30, model: "Yes, the idea that talent matters more than effort. As a teenager I was convinced that people were either naturally gifted or not. It's not that I think talent is irrelevant now; it's more that I've seen how far consistent, unglamorous practice can take someone." }
+  ]
+},
+{
+  id: "sp-c2-p2", level: "c2", exam: "C2 Proficiency", part: "Parte 2 · Collaborative task", title: "La vida en la ciudad",
+  intro: "En el examen hablas con otro candidato sobre unas imágenes: primero 1 minuto sobre una o dos de ellas y después 3 minutos para tomar una decisión sobre todas. Aquí practicas solo, como si respondieras a tu compañero; al final verás un diálogo modelo.",
+  tips: ["En la primera fase, ve más allá de describir: habla de sensaciones, implicaciones y contrastes.", "En la decisión, valora ventajas e inconvenientes de cada opción antes de elegir.", "Usa lenguaje persuasivo y negocia con elegancia."],
+  phrases: [
+    { f: "Valorar opciones", items: ["The downside of this one is that…", "This would appeal to…, whereas…", "It conveys a sense of…"] },
+    { f: "Negociar", items: ["I take your point, but…", "Wouldn't you say that…?", "I could live with that."] }
+  ],
+  tasks: [
+    { prompt: "Look at the pictures. They show different aspects of city life. First, talk together about how these two pictures make you feel about living in a city.",
+      visuals: ["Imagen A: una calle comercial abarrotada en hora punta, con tráfico y pantallas publicitarias.", "Imagen B: un pequeño huerto comunitario en una azotea, con vecinos de distintas edades trabajando juntos."],
+      seconds: 60, model: "A: The first one makes me feel slightly claustrophobic, to be honest. It captures the relentless pace of city life: the noise, the crowds, the constant visual bombardment.\nB: I know what you mean, although some people thrive on that energy. The rooftop garden is the complete opposite, isn't it? It conveys a real sense of community.\nA: Absolutely. It suggests that even in a dense city, people can carve out spaces to slow down and connect with their neighbours." },
+    { prompt: "Now look at all the pictures. Imagine that a city council is producing a brochure to attract new residents. Talk together about the advantages and disadvantages of using each picture, and then decide which would be the most effective.",
+      visuals: ["Imagen A: calle comercial abarrotada en hora punta.", "Imagen B: huerto comunitario en una azotea.", "Imagen C: un moderno tranvía cruzando un puente al atardecer.", "Imagen D: un concierto gratuito al aire libre en una plaza.", "Imagen E: una familia paseando en bicicleta por un carril bici junto al río."],
+      seconds: 180, model: "A: Well, I think we can rule out the busy street straight away. It's honest, but hardly an advertisement.\nB: Agreed. The tram at sunset is visually striking, and it says a lot about efficient public transport, though it's rather impersonal.\nA: True. The concert has the advantage of showing a vibrant cultural life, which would appeal to younger people, whereas the family cycling by the river targets a different audience altogether.\nB: Wouldn't you say the rooftop garden combines both, though? It shows community, sustainability and people of all ages.\nA: I take your point, but it's quite a niche image. Not everyone wants to grow vegetables!\nB: Fair enough. So it's between the garden and the cyclists?\nA: I'd go for the cyclists. It suggests safety, green space and a good quality of life, which is what most new residents are looking for.\nB: I could live with that. The cyclists it is." }
+  ]
 }
+
 ];
 IDIOMA.speakingById = id => IDIOMA.speaking.find(x => x.id === id);

@@ -328,6 +328,96 @@ IDIOMA.listening = [
     { type: "mc", prompt: "Extract 2: What is the woman's view of the cycle lanes?", options: ["They have caused more problems than they have solved.", "Their benefits have been overshadowed by the controversy.", "Drivers' complaints are entirely unjustified.", "They should be extended across the city at once."], answer: 1 },
     { type: "mc", prompt: "Extract 2: What does she criticise about the consultation?", options: ["It took far too long.", "It ignored the views of cyclists.", "Residents were involved too late to influence the plan.", "It was unnecessarily expensive."], answer: 2 }
   ]
+},
+{
+  id: "l-a2-3", level: "a2", title: "Anuncio en el aeropuerto", kind: "Anuncio", plays: 2,
+  intro: "Vas a escuchar un anuncio en un aeropuerto. Elige la respuesta correcta.",
+  speakers: { A: { name: "Announcer", gender: "f", accent: "en-GB" } },
+  script: [
+    ["A", "Good morning, ladies and gentlemen. This is an announcement for passengers on flight BA four seven two to Edinburgh. This flight is now delayed by forty-five minutes because of bad weather in Edinburgh. The new departure time is eleven fifteen."],
+    ["A", "Passengers should now go to gate twenty-three, not gate twelve. Free drinks and snacks are available at the café next to gate twenty for all passengers on this flight. Please show your boarding pass. We're very sorry for the delay."]
+  ],
+  questions: [
+    { type: "mc", prompt: "Where is the flight going?", options: ["Dublin", "Edinburgh", "Glasgow"], answer: 1 },
+    { type: "mc", prompt: "How long is the delay?", options: ["15 minutes", "45 minutes", "50 minutes"], answer: 1 },
+    { type: "mc", prompt: "What is the new departure time?", options: ["10.15", "11.15", "11.50"], answer: 1 },
+    { type: "mc", prompt: "Which gate should passengers go to?", options: ["Gate 12", "Gate 20", "Gate 23"], answer: 2 },
+    { type: "mc", prompt: "What can passengers get for free?", options: ["Drinks and snacks", "A hot meal", "A newspaper"], answer: 0 }
+  ]
+},
+{
+  id: "l-b1-3", level: "b1", title: "Una despedida sorpresa", kind: "Conversación", plays: 2,
+  intro: "Vas a escuchar a dos compañeros de trabajo, Kate y Tom, organizando una comida de despedida para una compañera.",
+  speakers: { A: { name: "Kate", gender: "f", accent: "en-GB" }, B: { name: "Tom", gender: "m", accent: "en-GB" } },
+  script: [
+    ["A", "Tom, have you heard that Sarah's leaving at the end of the month?"],
+    ["B", "Yes, she told me yesterday. She's moving to Manchester, isn't she? Her husband's got a new job there."],
+    ["A", "That's right. I thought we could organise a surprise lunch for her. What do you think?"],
+    ["B", "Good idea. But not on a Friday. Half the team works from home on Fridays. How about Thursday the twenty-eighth?"],
+    ["A", "Perfect. Where shall we go? The Italian place near the office is nice, but it's quite small."],
+    ["B", "What about the new Thai restaurant on the High Street? It's got a big room at the back for groups."],
+    ["A", "Sarah loves Thai food, so that's ideal. And for a present, I was thinking of a book about Manchester."],
+    ["B", "Hmm, she's not much of a reader. Everyone knows she loves gardening. Why don't we get her a voucher for a garden centre?"],
+    ["A", "You're right. I'll collect the money. Ten pounds each?"],
+    ["B", "Let's say fifteen. There are only eight of us."]
+  ],
+  questions: [
+    { type: "mc", prompt: "Why is Sarah moving to Manchester?", options: ["She has found a new job there.", "Her husband has a new job there.", "Her family lives there."], answer: 1 },
+    { type: "mc", prompt: "Why don't they want to have the lunch on a Friday?", options: ["The restaurant is closed.", "Many people work from home that day.", "Sarah is busy on Fridays."], answer: 1 },
+    { type: "mc", prompt: "Which restaurant do they choose?", options: ["An Italian restaurant", "A Thai restaurant", "An Indian restaurant"], answer: 1 },
+    { type: "mc", prompt: "Why do they choose that restaurant?", options: ["It's the cheapest.", "It has a room for groups.", "It's next to the office."], answer: 1 },
+    { type: "mc", prompt: "What present will they buy?", options: ["A book about Manchester", "A plant", "A garden centre voucher"], answer: 2 },
+    { type: "gap", prompt: "Each person will pay £___.", answers: ["15", "fifteen", "£15"] }
+  ]
+},
+{
+  id: "l-b2-4", level: "b2", title: "Rescate en montaña (Parte 4)", kind: "Entrevista", plays: 2,
+  intro: "Vas a escuchar una entrevista de radio con Helen, voluntaria en un equipo de rescate de montaña. Elige la mejor respuesta (A, B o C).",
+  speakers: { P: { name: "Presenter", gender: "m", accent: "en-GB" }, H: { name: "Helen", gender: "f", accent: "en-GB" } },
+  script: [
+    ["P", "Helen, you've been a volunteer with the mountain rescue team for ten years. How did you get involved?"],
+    ["H", "Rather by accident, really. I was out walking with a friend when she slipped and broke her ankle, and the team came out to help us. I was so impressed by how calm and professional they were that I asked how I could join. At the time, I had no medical training at all."],
+    ["P", "So what kind of training do volunteers have to do?"],
+    ["H", "Quite a lot. The first year is mostly first aid and navigation, and you're never sent out on your own. What surprised me was how much of the job is about communication: keeping injured people calm, and working out exactly where someone is from a confused phone call."],
+    ["P", "Is it dangerous?"],
+    ["H", "We take risks seriously, and we never put the team in danger to reach someone. Honestly, the hardest part isn't the danger. It's the cold and the waiting. A search can go on for hours in terrible weather."],
+    ["P", "What's your advice to people heading into the mountains?"],
+    ["H", "Check the forecast, tell someone where you're going, and don't rely on your phone for navigation. Batteries die quickly in the cold, and a paper map never runs out."]
+  ],
+  questions: [
+    { type: "mc", prompt: "How did Helen become a volunteer?", options: ["After a friend had an accident in the mountains.", "Through her job as a nurse.", "Because a friend was already in the team."], answer: 0 },
+    { type: "mc", prompt: "What surprised Helen about the work?", options: ["How much physical training was needed.", "How important communication is.", "How often volunteers work alone."], answer: 1 },
+    { type: "mc", prompt: "What does Helen find hardest about the job?", options: ["The danger.", "Dealing with injured people.", "The cold and the long waits."], answer: 2 },
+    { type: "mc", prompt: "Why does she recommend taking a paper map?", options: ["Phone batteries can run out in the cold.", "Paper maps are more detailed.", "There is no phone signal in the mountains."], answer: 0 }
+  ]
+},
+{
+  id: "l-c2-3", level: "c2", title: "Vivir en el extranjero (Parte 4)", kind: "Cinco hablantes · dos tareas", plays: 2,
+  intro: "Vas a escuchar a cinco personas que se fueron a vivir a otro país. Completa las dos tareas mientras escuchas. Sobran tres opciones en cada una.",
+  boxes: [
+    { title: "Tarea 1 · ¿Por qué se fue cada hablante?", items: ["A A career opportunity.", "B To study.", "C To follow a partner.", "D To escape the climate.", "E A lower cost of living.", "F To learn the language.", "G To connect with family roots.", "H A sense of adventure."] },
+    { title: "Tarea 2 · ¿Qué le ha resultado más difícil?", items: ["A Dealing with bureaucracy.", "B Making friends.", "C Adapting to the food.", "D Learning the language.", "E Being far from family.", "F The climate.", "G The working culture.", "H Finding somewhere to live."] }
+  ],
+  speakers: { S1: { name: "Speaker 1", gender: "m", accent: "en-GB" }, S2: { name: "Speaker 2", gender: "f", accent: "en-GB" }, S3: { name: "Speaker 3", gender: "m", accent: "en-US" }, S4: { name: "Speaker 4", gender: "f", accent: "en-US" }, S5: { name: "Speaker 5", gender: "m", accent: "en-AU" } },
+  script: [
+    ["S1", "Speaker one. I'd been offered a position at a tech start-up in Berlin, and it was simply too good an opportunity to turn down. The job itself has been everything I'd hoped. What nearly broke me, though, was the paperwork. Registering my address, opening a bank account, getting a tax number: each one seemed to depend on another, and it took months to untangle."],
+    ["S2", "Speaker two. Honestly, it came down to money. Rents in London had become absurd, and I could work remotely, so I moved to Lisbon, where my salary stretches much further. The city is wonderful, but I underestimated how lonely it would be at first. Working from home, I had no colleagues, and it took over a year before I had a proper circle of friends."],
+    ["S3", "Speaker three. My wife was offered a research post in Tokyo, and I was happy to go with her. I'd assumed I'd pick up Japanese fairly quickly, but I was hopelessly optimistic. Even now, after three years, I struggle with anything beyond basic conversation, which can be frustrating in a country where relatively few people speak English."],
+    ["S4", "Speaker four. My grandparents left Cork in the fifties, and I grew up hearing stories about it, so moving to Ireland felt like coming home in a strange way. I love it here. The hardest thing has been being so far from my parents back in Boston. Video calls help, but I missed my dad's sixtieth birthday, and that really hit me."],
+    ["S5", "Speaker five. I'd always wanted to live somewhere completely different, just to see if I could, so I packed up and moved to the far north of Sweden. People warned me about the winters, but nothing prepares you for weeks when the sun barely rises. By February, I was struggling to get out of bed."]
+  ],
+  questions: [
+    { type: "select", prompt: "Tarea 1 · Speaker 1", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "A" },
+    { type: "select", prompt: "Tarea 1 · Speaker 2", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "E" },
+    { type: "select", prompt: "Tarea 1 · Speaker 3", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "C" },
+    { type: "select", prompt: "Tarea 1 · Speaker 4", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "G" },
+    { type: "select", prompt: "Tarea 1 · Speaker 5", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "H" },
+    { type: "select", prompt: "Tarea 2 · Speaker 1", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "A" },
+    { type: "select", prompt: "Tarea 2 · Speaker 2", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "B" },
+    { type: "select", prompt: "Tarea 2 · Speaker 3", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "D" },
+    { type: "select", prompt: "Tarea 2 · Speaker 4", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "E" },
+    { type: "select", prompt: "Tarea 2 · Speaker 5", choices: ["A", "B", "C", "D", "E", "F", "G", "H"], answer: "F" }
+  ]
 }
 
 ];
