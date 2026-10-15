@@ -204,6 +204,91 @@ IDIOMA.writing = [
     "Organisation": ["El texto tiene una progresión clara y un cierre memorable.", "Las transiciones entre párrafos son naturales y variadas."],
     "Language": ["Uso estructuras de C2 con naturalidad (inversión, cleft sentences, concesivas).", "Varío la longitud y el ritmo de las frases.", "Uso vocabulario preciso e idiomático sin forzarlo."]
   }
+},
+{
+  id: "w-b1-story", level: "b1", exam: "B1 Preliminary", title: "Story: una sorpresa inesperada", part: "Parte 2 · Story", words: [90, 110], minutes: 20,
+  task: [
+    "Tu profesor de inglés te ha pedido que escribas una historia.",
+    "<blockquote><p>Your story must begin with this sentence:</p><p><strong><em>As soon as I opened the door, I knew something was wrong.</em></strong></p></blockquote>",
+    "Escribe tu <strong>historia</strong> en unas <strong>100 palabras</strong>."
+  ],
+  tips: ["Empieza exactamente con la frase dada.", "Usa tiempos pasados variados: past simple, past continuous y past perfect.", "Crea tensión y termina con un final claro: el lector tiene que saber qué pasó."],
+  model: [
+    { text: "As soon as I opened the door, I knew something was wrong. The living room was completely dark, and I could hear strange noises coming from the kitchen.", note: "Empieza con la frase obligatoria y crea suspense desde el principio." },
+    { text: "My heart was beating fast. I picked up an umbrella and walked slowly towards the kitchen. Suddenly, the lights came on and twenty people shouted, 'Surprise!'", note: "Past continuous para el ambiente («was beating») y past simple para las acciones. «Suddenly» marca el giro." },
+    { text: "It was my birthday, and my friends had organised a party for me. My best friend, Lucía, was laughing so much that she couldn't stop. I was so relieved that I started laughing too. It was the best birthday I've ever had.", note: "Past perfect («had organised») para lo ocurrido antes, estructura so… that y un final claro y positivo." }
+  ],
+  checklist: {
+    "Content": ["Empiezo con la frase obligatoria.", "La historia tiene un principio, un desarrollo y un final claros."],
+    "Communicative Achievement": ["La historia mantiene el interés del lector.", "El tono es adecuado para una historia (descriptivo, con emoción)."],
+    "Organisation": ["Uso conectores de tiempo (then, suddenly, after that, finally).", "Separo la historia en párrafos."],
+    "Language": ["Uso varios tiempos pasados correctamente.", "Uso algunos adjetivos y adverbios para dar vida a la historia."]
+  }
+},
+{
+  id: "w-b1-article", level: "b1", exam: "B1 Preliminary", title: "Article: cómo me relajo", part: "Parte 2 · Article", words: [90, 110], minutes: 20,
+  task: [
+    "Has visto este anuncio en una revista juvenil en inglés:",
+    "<blockquote><p><strong>Articles wanted!</strong></p><p><strong>How do you relax?</strong> What do you do to relax after a busy week? Why does it help you? Write an article answering these questions. The best articles will appear in our magazine.</p></blockquote>",
+    "Escribe tu <strong>artículo</strong> en unas <strong>100 palabras</strong>."
+  ],
+  tips: ["Ponle un título atractivo.", "Responde a las dos preguntas del anuncio: qué haces y por qué te ayuda.", "Habla directamente al lector, por ejemplo con una pregunta al final."],
+  model: [
+    { h: "My secret to relaxing", text: "", note: "Título breve que despierta curiosidad." },
+    { text: "Everybody needs to relax, especially after a busy week. For me, the best way to relax is cooking.", note: "Introducción que responde directamente a la primera pregunta." },
+    { text: "On Saturday afternoons, I choose a new recipe, usually from another country, and I spend two or three hours in the kitchen. I listen to music while I'm cooking, and I forget about all my problems. Then I invite my family or friends to try the food. Sometimes it's delicious and sometimes it's a disaster, but we always have fun!", note: "Explica qué hace y por qué le ayuda, con detalles concretos y un toque de humor." },
+    { text: "If you want to relax, why don't you try cooking? You don't need to be an expert, just curious.", note: "Cierre que se dirige al lector con una sugerencia: típico de un artículo." }
+  ],
+  checklist: {
+    "Content": ["Explico qué hago para relajarme.", "Explico por qué me ayuda."],
+    "Communicative Achievement": ["Tiene un título y un tono cercano, propio de una revista.", "Me dirijo al lector en algún momento."],
+    "Organisation": ["Tiene introducción, desarrollo y cierre.", "Uso conectores (because, while, then, but)."],
+    "Language": ["Uso vocabulario variado sobre el tema.", "Los errores no impiden entender el texto."]
+  }
+},
+{
+  id: "w-b2-email", level: "b2", exam: "B2 First", title: "Email formal: solicitud de empleo", part: "Parte 2 · Email", words: [140, 190], minutes: 40,
+  task: [
+    "Has visto este anuncio en una web de empleo para estudiantes:",
+    "<blockquote><p><strong>Summer camp activity leaders wanted – Ireland</strong></p><p>We are looking for enthusiastic young people to help run activities for children aged 8–14 at our international summer camp in July.</p><p>Write to Ms Kelly, the camp director, telling us <strong>why you would be suitable</strong>, <strong>what relevant experience you have</strong> and <strong>which activities you could help with</strong>.</p></blockquote>",
+    "Escribe tu <strong>email</strong> en entre <strong>140 y 190 palabras</strong>."
+  ],
+  tips: ["Responde a los tres puntos del anuncio, uno por párrafo.", "Registro formal: Dear Ms Kelly … Yours sincerely, sin contracciones.", "Vende tus puntos fuertes con ejemplos concretos, no con adjetivos vacíos."],
+  model: [
+    { text: "Dear Ms Kelly,", note: "Saludo formal con el apellido: se cierra con «Yours sincerely»." },
+    { text: "I am writing to apply for the position of activity leader at your summer camp, which I saw advertised on a student job website.", note: "Propósito del email en la primera línea." },
+    { text: "I am a 21-year-old sports science student from Spain, and I believe I would be well suited to the job. I am outgoing and patient, and I genuinely enjoy working with young people. Last summer, I worked as a monitor at a day camp in Madrid, where I was responsible for a group of fifteen children. This experience taught me how to keep children safe and motivated, even when things do not go to plan.", note: "Por qué es adecuado y experiencia, con un ejemplo concreto que demuestra lo que afirma." },
+    { text: "As for activities, I could help with a wide range of sports, particularly football and swimming, as I have a lifeguard qualification. I also play the guitar, so I would be happy to organise music sessions in the evenings. Finally, my English is at an upper-intermediate level, and I am keen to improve it further in an international environment.", note: "Tercer punto del anuncio. «As for» introduce un nuevo tema con naturalidad." },
+    { text: "I look forward to hearing from you.<br>Yours sincerely,<br>Pablo Ortega", note: "Cierre formal estándar." }
+  ],
+  checklist: {
+    "Content": ["Explico por qué sería adecuado.", "Describo mi experiencia relevante.", "Digo con qué actividades podría ayudar."],
+    "Communicative Achievement": ["El registro es formal y cortés, adecuado para una solicitud.", "Saludo y despedida son coherentes (Dear Ms Kelly → Yours sincerely)."],
+    "Organisation": ["Un párrafo para cada punto del anuncio.", "Uso conectores variados (as for, particularly, so, where)."],
+    "Language": ["Uso estructuras de B2 (relativas, condicionales, would).", "No uso contracciones ni expresiones coloquiales."]
+  }
+},
+{
+  id: "w-b2-article", level: "b2", exam: "B2 First", title: "Article: un lugar especial de tu ciudad", part: "Parte 2 · Article", words: [140, 190], minutes: 40,
+  task: [
+    "Has visto este anuncio en una revista en inglés:",
+    "<blockquote><p><strong>The perfect afternoon</strong></p><p>Is there a place in your town where you love spending a free afternoon? Write an article <strong>describing the place</strong> and explaining <strong>what makes it special</strong>. We will publish the best articles next month.</p></blockquote>",
+    "Escribe tu <strong>artículo</strong> en entre <strong>140 y 190 palabras</strong>."
+  ],
+  tips: ["Engancha al lector desde el título y la primera frase.", "Describe con detalles sensoriales y explica por qué el lugar es especial para ti.", "Termina con una recomendación o una frase que el lector recuerde."],
+  model: [
+    { h: "An afternoon by the river", text: "", note: "Título evocador, no una copia de la pregunta." },
+    { text: "If you ever visit my town on a sunny afternoon, there is only one place you should go: the old riverside park.", note: "Apertura directa que se dirige al lector." },
+    { text: "At first glance, it might not look particularly special. There are no impressive monuments or fancy cafés, just a long path under the trees, a few wooden benches and a small kiosk selling ice cream. But that is exactly what makes it so charming.", note: "Descripción con un giro: lo sencillo es lo que lo hace especial («that is exactly what makes it…»)." },
+    { text: "What I love most is how peaceful it is. You can sit by the water, read a book or simply chat with friends while the world goes by. In spring, the trees are covered in blossom, and in autumn the path turns gold and red. It is also a place where the whole town comes together: grandparents stroll with their grandchildren, and teenagers play football on the grass.", note: "Cleft sentence («What I love most is…») y detalles visuales de las estaciones: rango de B2." },
+    { text: "So, next time you need to escape from your screen for a few hours, grab a sandwich and head to the river. I promise you won't regret it!", note: "Cierre con recomendación y tono cercano, propio de una revista." }
+  ],
+  checklist: {
+    "Content": ["Describo el lugar.", "Explico qué lo hace especial."],
+    "Communicative Achievement": ["El título y la apertura enganchan al lector.", "El tono es cercano y atractivo, propio de una revista."],
+    "Organisation": ["Los párrafos tienen una progresión lógica.", "Termino con una recomendación o un cierre memorable."],
+    "Language": ["Uso vocabulario descriptivo variado.", "Incluyo alguna estructura de B2 (cleft sentences, modales de especulación)."]
+  }
 }
 
 ];

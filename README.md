@@ -19,11 +19,11 @@ C1 Advanced, C2 Proficiency e IELTS.
   con temporizador, corrección por partes y estimación orientativa en la escala de Cambridge.
 - **Listening**: 18 ejercicios de comprensión auditiva (A1–C2) con formato de examen, 2 escuchas,
   voces distintas por hablante (síntesis de voz del navegador) y transcripción tras corregir.
-- **Writing**: 9 tareas con formato de examen (B1 Preliminary a C2 Proficiency), editor con contador
+- **Writing**: 13 tareas con formato de examen (B1 Preliminary a C2 Proficiency), editor con contador
   de palabras y temporizador, autoevaluación con los criterios de Cambridge y respuestas modelo comentadas.
 - **Speaking**: 12 prácticas con formato de examen (A2 Key a C2 Proficiency), pregunta leída
   en voz alta, cronómetro con el tiempo oficial, grabación con el micrófono, respuesta modelo y autoevaluación.
-- **Vocabulario**: 150 tarjetas (25 por nivel) con repetición espaciada, audio, estudio en ambas
+- **Vocabulario**: 300 tarjetas (50 por nivel) con repetición espaciada, audio, estudio en ambas
   direcciones y copia de seguridad del progreso (exportar/importar).
 - **Test de nivel**: 30 preguntas (5 por nivel) que recomiendan por dónde empezar.
 - **Guía de certificaciones**: formatos y puntuaciones de Cambridge C1/C2, IELTS, Trinity,
